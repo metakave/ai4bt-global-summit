@@ -107,7 +107,7 @@ export async function handleRegistration(data) {
             <div style="background-color: #0e1726; border-left: 4px solid #f59e0b; padding: 16px; margin: 20px 0; border-radius: 6px;">
               <h4 style="margin: 0 0 10px; color: #ffffff;">Summit Details:</h4>
               <p style="margin: 4px 0; color: #a1a1aa; font-size: 13px;">📅 <strong>Dates:</strong> 25, 26, &amp; 27 September 2026</p>
-              <p style="margin: 4px 0; color: #a1a1aa; font-size: 13px;">⏰ <strong>Time:</strong> 8:00 PM – 10:00 PM Bangladesh Time (BST)</p>
+              <p style="margin: 4px 0; color: #a1a1aa; font-size: 13px;">⏰ <strong>Time:</strong> 8:00 PM – 11:00 PM Bangladesh Time (BST)</p>
               <p style="margin: 4px 0; color: #a1a1aa; font-size: 13px;">🌐 <strong>Format:</strong> Fully Online (Executive Broadcast &amp; Interactive Labs)</p>
             </div>
 
