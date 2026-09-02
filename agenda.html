@@ -314,17 +314,20 @@
                     <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Event Schedule</h2>
                     <span class="hidden sm:inline-block w-px h-8 bg-white/20"></span>
                     <p class="text-xs sm:text-sm themed-subtext max-w-md leading-relaxed">
-                        Two days packed with insights, connections, and breakthrough moments.
+                        Three days packed with insights, connections, and breakthrough moments (25–27 September 2026).
                     </p>
                 </div>
 
                 <!-- Day Selector Tabs -->
-                <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl p-1 backdrop-blur-md self-start sm:self-auto" id="day-tabs">
-                    <button data-day="1" class="day-tab px-5 py-2 rounded-lg text-xs font-semibold transition-all text-white bg-white/15 border border-white/10 shadow-sm">
-                        Day 1 - March 15
+                <div class="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 rounded-xl p-1 backdrop-blur-md self-start sm:self-auto flex-wrap" id="day-tabs">
+                    <button data-day="1" class="day-tab px-4 sm:px-5 py-2 rounded-lg text-xs font-semibold transition-all text-white bg-white/15 border border-white/10 shadow-sm">
+                        Day 1 - 25 Sept 26
                     </button>
-                    <button data-day="2" class="day-tab px-5 py-2 rounded-lg text-xs font-semibold transition-all text-zinc-400 hover:text-white hover:bg-white/10">
-                        Day 2 - March 16
+                    <button data-day="2" class="day-tab px-4 sm:px-5 py-2 rounded-lg text-xs font-semibold transition-all text-zinc-400 hover:text-white hover:bg-white/10">
+                        Day 2 - 26 Sept 26
+                    </button>
+                    <button data-day="3" class="day-tab px-4 sm:px-5 py-2 rounded-lg text-xs font-semibold transition-all text-zinc-400 hover:text-white hover:bg-white/10">
+                        Day 3 - 27 Sept 26
                     </button>
                 </div>
             </div>
@@ -664,6 +667,171 @@
                     </div>
                 </div>
             </div>
+
+            <!-- DAY 3 SESSIONS CONTAINER (Hidden by default) -->
+            <div id="day-3-content" class="day-panel space-y-8 hidden transition-opacity duration-300">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Morning Sessions Day 3 -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 pb-2">
+                            <i data-lucide="sunrise" class="w-4 h-4 text-amber-500"></i>
+                            <h4 class="text-lg font-semibold text-white">Day 3 Morning Sessions • Trust &amp; Governance</h4>
+                        </div>
+                        
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="keynote">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    9:00 - 10:00 AM
+                                </span>
+                                <span class="inline-flex items-center bg-orange-500/20 border border-orange-400/30 text-orange-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Keynote
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                From Copilots to Autonomous Agents: Production Architectures
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Architectural blueprints for transitioning from assist copilots to self-orchestrating multi-agent systems with human oversight.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-amber-400 to-orange-400 rounded-full flex items-center justify-center text-black text-xs font-bold">
+                                    SC
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Dr. Sarah Chen, OpenAI</span>
+                            </div>
+                        </div>
+
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="panel">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    10:30 - 11:30 AM
+                                </span>
+                                <span class="inline-flex items-center bg-purple-500/20 border border-purple-400/30 text-purple-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Panel
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Enterprise Trust, Governance &amp; Cybersecurity for Agentic AI
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                CISOs, audit leaders, and regulators discuss immutable logs, model safety thresholds, and human-in-the-loop validation.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-teal-400 to-emerald-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    AP
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Dr. Aisha Patel + Global Panel</span>
+                            </div>
+                        </div>
+
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="workshop">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    12:00 - 1:00 PM
+                                </span>
+                                <span class="inline-flex items-center bg-pink-500/20 border border-pink-400/30 text-pink-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Workshop
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Building &amp; Supervising Digital Business Workers
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Hands-on lab constructing production agent toolkits, API action triggers, and corporate governance boundaries.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-pink-400 to-rose-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    AL
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Alex Liu, Anthropic</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Afternoon Sessions Day 3 -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 pb-2">
+                            <i data-lucide="sun" class="w-4 h-4 text-amber-500"></i>
+                            <h4 class="text-lg font-semibold text-white">Day 3 Afternoon Sessions • Adoption &amp; Declaration</h4>
+                        </div>
+                        
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="keynote">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    2:00 - 3:00 PM
+                                </span>
+                                <span class="inline-flex items-center bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Fireside Chat
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                The Future of Human-AI Teaming in Bangladesh Enterprises
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Operational executives and organizational designers on shifting organizational habits, job redesign, and exponential capacity.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-indigo-400 to-purple-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    EK
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Emma Kim, Notion Co-founder</span>
+                            </div>
+                        </div>
+
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="workshop">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    3:30 - 4:30 PM
+                                </span>
+                                <span class="inline-flex items-center bg-yellow-500/20 border border-yellow-400/30 text-yellow-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Demo
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Live Agentic ERP Showcase &amp; Autonomous Action
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Live end-to-end multi-agent execution across Procurement, Cashflow, and Inventory in an enterprise environment.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-amber-400 to-yellow-400 rounded-full flex items-center justify-center text-black text-xs font-bold">
+                                    EL
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">ERP Innovation Labs</span>
+                            </div>
+                        </div>
+
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="networking">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    5:00 - 6:00 PM
+                                </span>
+                                <span class="inline-flex items-center bg-teal-500/20 border border-teal-400/30 text-teal-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Networking
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                AI4BT Dhaka Declaration 2026 Ratification &amp; VIP Gala
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Formal ratification of the 2026 enterprise AI charter, delegate recognition awards, and closing networking reception.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-teal-400 to-cyan-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    AC
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">AI4BT Executive Advisory Council</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- SECTION 4: HANDS-ON WORKSHOPS -->
@@ -900,11 +1068,10 @@
         });
 
         // --------------------------------------------------------
-        // DAY TABS SWITCHER (Day 1 vs Day 2)
+        // DAY TABS SWITCHER (Day 1 vs Day 2 vs Day 3)
         // --------------------------------------------------------
         const dayTabs = document.querySelectorAll('.day-tab');
-        const day1Content = document.getElementById('day-1-content');
-        const day2Content = document.getElementById('day-2-content');
+        const dayPanels = document.querySelectorAll('.day-panel');
 
         dayTabs.forEach(tab => {
             tab.addEventListener('click', () => {
@@ -917,12 +1084,12 @@
                 tab.classList.add('text-white', 'bg-white/15', 'border-white/10', 'shadow-sm');
                 tab.classList.remove('text-zinc-400', 'hover:text-white', 'hover:bg-white/10');
 
-                if (day === '1') {
-                    day1Content.classList.remove('hidden');
-                    day2Content.classList.add('hidden');
-                } else {
-                    day1Content.classList.add('hidden');
-                    day2Content.classList.remove('hidden');
+                dayPanels.forEach(panel => {
+                    panel.classList.add('hidden');
+                });
+                const activePanel = document.getElementById(`day-${day}-content`);
+                if (activePanel) {
+                    activePanel.classList.remove('hidden');
                 }
                 lucide.createIcons();
             });
