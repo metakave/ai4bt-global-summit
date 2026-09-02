@@ -7,7 +7,28 @@
     <meta name="description" content="Register as an Executive Delegate for the AI4BT Global Summit 2026 (25–27 September 2026 • 8:00 PM – 10:00 PM BST). Global speakers, Bangladesh transformation.">
 
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config to match other pages -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -18,81 +39,86 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* ================= COLOR THEME TOKENS ================= */
         :root {
-            --font-main: 'Outfit', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-            
-            /* Dark Theme Tokens (Default) */
+            /* Dark Mode (Default: Deep Cosmic Slate) */
             --bg-color: #050A14;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
+            --bg-canvas-gradient: radial-gradient(circle at 50% 30%, #0d1f38 0%, #050A14 80%);
             --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
+            --text-secondary: #94a3b8;
+            --card-bg: rgba(7, 18, 36, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-glow: 0 20px 50px rgba(0, 0, 0, 0.5);
             --nav-bg: rgba(5, 10, 20, 0.85);
             --nav-border: rgba(255, 255, 255, 0.1);
             --badge-bg: rgba(245, 158, 11, 0.1);
             --badge-border: rgba(245, 158, 11, 0.3);
             --badge-text: #f59e0b;
+            --grid-line: rgba(255, 255, 255, 0.03);
+            --scrollbar-track: #050A14;
+            --scrollbar-thumb: #1e293b;
+            --modal-bg: #071326;
+            --modal-border: rgba(245, 158, 11, 0.3);
             --input-bg: rgba(255, 255, 255, 0.05);
             --input-border: rgba(255, 255, 255, 0.15);
             --input-focus: #f59e0b;
         }
 
         html.light {
-            /* Light Theme Tokens */
-            --bg-color: #f4f6f8;
-            --card-bg: #ffffff;
-            --card-border: rgba(0, 0, 0, 0.08);
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --nav-bg: rgba(255, 255, 255, 0.9);
-            --nav-border: rgba(0, 0, 0, 0.06);
-            --badge-bg: rgba(217, 119, 6, 0.1);
-            --badge-border: rgba(217, 119, 6, 0.3);
-            --badge-text: #d97706;
-            --input-bg: #f8fafc;
-            --input-border: #cbd5e1;
-            --input-focus: #d97706;
+            /* Light Mode (Amazon Green / Jade Teal #218c74) */
+            --bg-color: #218c74;
+            --bg-canvas-gradient: radial-gradient(circle at 50% 35%, #2ba68b 0%, #176856 80%);
+            --text-primary: #ffffff;
+            --text-secondary: #e2f5f0;
+            --card-bg: rgba(13, 64, 52, 0.65);
+            --card-border: rgba(255, 255, 255, 0.18);
+            --card-glow: 0 20px 50px rgba(7, 35, 28, 0.4);
+            --nav-bg: rgba(23, 104, 86, 0.9);
+            --nav-border: rgba(255, 255, 255, 0.2);
+            --badge-bg: rgba(253, 230, 138, 0.2);
+            --badge-border: rgba(253, 230, 138, 0.45);
+            --badge-text: #fef3c7;
+            --grid-line: rgba(255, 255, 255, 0.08);
+            --scrollbar-track: #176856;
+            --scrollbar-thumb: #2ba68b;
+            --modal-bg: #145949;
+            --modal-border: rgba(253, 230, 138, 0.4);
+            --input-bg: rgba(255, 255, 255, 0.15);
+            --input-border: rgba(255, 255, 255, 0.25);
+            --input-focus: #f59e0b;
         }
 
         body {
-            font-family: var(--font-main);
+            font-family: 'Outfit', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        }
-
-        html.light .bg-grid {
-            background-image: 
-                linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         .bg-canvas-layer {
-            background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 60%),
-                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            background: var(--bg-canvas-gradient);
+            transition: background 0.5s ease;
         }
 
-        html.light .bg-canvas-layer {
-            background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 60%),
-                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
-        }
-
-        .themed-card {
-            background-color: var(--card-bg);
-            border-color: var(--card-border);
+        .bg-grid {
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 80px 80px;
+            background-attachment: fixed;
+            transition: background-image 0.4s ease;
         }
 
         .themed-nav {
             background-color: var(--nav-bg);
             border-color: var(--nav-border);
+        }
+
+        .themed-card {
+            background-color: var(--card-bg);
+            border-color: var(--card-border);
+            box-shadow: var(--card-glow);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
         .themed-badge {
@@ -114,16 +140,16 @@
         .themed-input:focus {
             border-color: var(--input-focus);
             outline: none;
-            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25);
         }
     </style>
 </head>
-<body class="antialiased selection:bg-amber-500/30 selection:text-amber-100 bg-grid min-h-screen relative">
+<body class="antialiased selection:bg-amber-500/30 selection:text-amber-100 bg-grid min-h-screen relative font-sans">
 
     <!-- Ambient Gradient Background Layer -->
     <div class="fixed inset-0 pointer-events-none -z-10 bg-canvas-layer"></div>
 
-    <!-- Navigation (Fixed) -->
+    <!-- Navigation (Fixed - ai-automation-84 style) -->
     <nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 md:py-5 flex justify-between items-center border-b themed-nav backdrop-blur-md transition-colors duration-300">
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-2.5 group">
@@ -133,7 +159,7 @@
             <span class="text-xs md:text-sm font-semibold tracking-wider uppercase transition-colors whitespace-nowrap">AI4BT Global Summit</span>
         </a>
         
-        <!-- Desktop Pill Menu -->
+        <!-- Desktop Pill Menu (ai-automation-84 style) -->
         <div class="hidden md:flex bg-gradient-to-br from-white/10 to-white/0 border border-white/15 rounded-full p-1 shadow-lg shadow-black/20 backdrop-blur-md items-center gap-1">
             <a href="index.html#section-1" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
                 Summit
@@ -160,11 +186,11 @@
                 <span id="theme-icon-moon" class="hidden text-zinc-300"><i data-lucide="moon" class="w-4 h-4"></i></span>
             </button>
 
-            <!-- Active Register Badge Button -->
-            <span class="hidden sm:flex transition-all text-xs font-semibold text-black bg-gradient-to-b from-amber-400 to-amber-500 rounded-full py-2 px-5 shadow-[0px_0px_0px_1px_rgba(217,119,6,1),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-sm gap-2 items-center tracking-tight">
-                <span class="w-2 h-2 rounded-full bg-emerald-700 animate-pulse"></span>
-                <span>Registering</span>
-            </span>
+            <!-- Book a Call / Register Now CTA Button (ai-automation-84 style) -->
+            <a href="#registration-form" class="hidden sm:flex hover:from-amber-400 hover:to-amber-500 hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-all text-xs font-semibold text-black bg-gradient-to-b from-amber-400 to-amber-500 rounded-full py-2 px-5 shadow-[0px_0px_0px_1px_rgba(217,119,6,1),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-sm gap-2 items-center tracking-tight active:scale-95">
+                <span class="text-xs font-semibold text-black tracking-tight">Register Now</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-black"></i>
+            </a>
         </div>
     </nav>
 
