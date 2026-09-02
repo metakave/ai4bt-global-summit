@@ -674,7 +674,7 @@
         </section>
 
         <!-- SECTION: THREE-DAY JOURNEY & INTERACTIVE EXPERIENCE (Loopling "Ninety Seconds" Style Timeline) -->
-        <section id="experience" class="w-full relative z-20 py-24 px-6 md:px-12 lg:px-16 border-b border-black/10 dark:border-white/10 overflow-hidden" style="background-color: var(--bg-color);">
+        <section id="experience" class="w-full relative z-10 py-24 px-6 md:px-12 lg:px-16 border-b border-black/10 dark:border-white/10 overflow-hidden">
             <div class="max-w-7xl mx-auto space-y-16">
                 <!-- Section Header -->
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-black/10 dark:border-white/10">
@@ -1713,13 +1713,17 @@
         tl.to(globeGroup.position, { x: 3.5, y: 0, z: -2, duration: 5 }, "phase1")
           .to(globeGroup.rotation, { y: 2.93, x: 0.26, z: 0, duration: 5 }, "phase1")
           
-          // Phase 2 (Section 3: Agenda & Predictive Intelligence)
+          // Phase 2 (Section 3: Agenda & Why This Summit)
           .to(globeGroup.position, { x: -3.5, y: 0, z: -1, duration: 5 }, "phase2")
           .to(globeGroup.rotation, { y: 4.4, x: -0.1, duration: 5 }, "phase2")
           
-          // Phase 3 (Section 4: Experience & Inner Circle)
-          .to(globeGroup.position, { x: 0, y: -5, z: 2, duration: 5 }, "phase3")
-          .to(globeGroup.rotation, { y: 5.4, x: 0.45, duration: 5 }, "phase3");
+          // Phase 3 (Experience: Rethink. Transform. Become. - Globe centers visibly behind timeline)
+          .to(globeGroup.position, { x: 0, y: 0, z: -3.2, duration: 6 }, "phase3")
+          .to(globeGroup.rotation, { y: 5.8, x: 0.2, duration: 6 }, "phase3")
+
+          // Phase 4 (Delegate Access / Inner Circle)
+          .to(globeGroup.position, { x: 0, y: -5, z: 1.5, duration: 5 }, "phase4")
+          .to(globeGroup.rotation, { y: 6.8, x: 0.4, duration: 5 }, "phase4");
 
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
