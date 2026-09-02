@@ -380,10 +380,9 @@
         <!-- Right Controls & CTA -->
         <div class="flex items-center gap-2.5">
             <!-- Theme Toggle Button -->
-            <button id="theme-toggle-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border themed-input hover:border-amber-500/50 hover:text-amber-500 transition-all duration-300 text-[11px] font-medium active:scale-95 shadow-sm" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
-                <span id="theme-icon-sun" class="hidden text-amber-500"><i data-lucide="sun" class="w-3.5 h-3.5"></i></span>
-                <span id="theme-icon-moon" class="text-zinc-300"><i data-lucide="moon" class="w-3.5 h-3.5"></i></span>
-                <span id="theme-text" class="hidden sm:inline text-[10px] uppercase tracking-wider font-semibold">Dark</span>
+            <button id="theme-toggle-btn" class="w-8 h-8 md:w-9 md:h-9 rounded-full border themed-input hover:border-amber-500/50 hover:text-amber-500 transition-all duration-300 flex items-center justify-center active:scale-95 shadow-sm" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+                <span id="theme-icon-sun" class="text-amber-400"><i data-lucide="sun" class="w-4 h-4"></i></span>
+                <span id="theme-icon-moon" class="hidden text-zinc-300"><i data-lucide="moon" class="w-4 h-4"></i></span>
             </button>
 
             <!-- Book a Call / Register Now CTA Button (ai-automation-84 style) -->
@@ -1716,9 +1715,10 @@
             if (isLight) {
                 root.classList.add('light');
                 root.classList.remove('dark');
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
-                themeText.innerText = 'Light';
+                // When in light mode, show icon for dark (Moon)
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                if (themeText) themeText.innerText = 'Dark';
                 localStorage.setItem('diplomatic_theme', 'light');
 
                 // Adjust Three.js Scene for #218c74 Jade Teal Atmosphere (Glare reduced by over 50%)
@@ -1747,9 +1747,10 @@
             } else {
                 root.classList.remove('light');
                 root.classList.add('dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-                themeText.innerText = 'Dark';
+                // When in dark mode, show icon for light (Sun)
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                if (themeText) themeText.innerText = 'Light';
                 localStorage.setItem('diplomatic_theme', 'dark');
 
                 // Adjust Three.js Scene for Deep Cosmic Night
