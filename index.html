@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI4BT Global Summit 2026</title>
+    
+    <!-- SEO & Social Meta Tags -->
+    <meta name="description" content="AI4BT Global Summit 2026 - Global intelligence, strategic communication, and advanced technology.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AI4BT Global Summit 2026">
+    <meta property="og:title" content="AI4BT Global Summit 2026">
+    <meta property="og:description" content="AI4BT Global Summit 2026 - Global intelligence, strategic communication, and advanced technology.">
+    <meta property="og:image" content="preview.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI4BT Global Summit 2026">
+    <meta name="twitter:description" content="AI4BT Global Summit 2026 - Global intelligence, strategic communication, and advanced technology.">
+    <meta name="twitter:image" content="preview.jpeg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Three.js & GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #050A14;
+            --canvas-bg: radial-gradient(circle at center, #0F172A 0%, #020617 100%);
+            --grid-line: rgba(255, 255, 255, 0.02);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --nav-bg: rgba(5, 10, 20, 0.8);
+            --nav-border: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(0, 0, 0, 0.45);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --card-glow: 0 0 25px rgba(245, 158, 11, 0.15);
+            --gold-gradient: linear-gradient(to right, #FCD34D, #F59E0B, #FCD34D);
+            --hero-cta-bg: #ffffff;
+            --hero-cta-text: #000000;
+            --hero-cta-hover: #e4e4e7;
+            --hero-secondary-bg: rgba(255, 255, 255, 0.03);
+            --hero-secondary-border: rgba(255, 255, 255, 0.1);
+            --hero-secondary-text: #d4d4d8;
+            --modal-bg: #0A101D;
+            --modal-border: rgba(255, 255, 255, 0.1);
+            --modal-subcard: rgba(255, 255, 255, 0.02);
+            --modal-subcard-border: rgba(255, 255, 255, 0.05);
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --badge-bg: rgba(69, 26, 3, 0.3);
+            --badge-border: rgba(245, 158, 11, 0.2);
+            --badge-text: #f59e0b;
+            --scrollbar-track: #050A14;
+            --scrollbar-thumb: #1e293b;
+        }
+
+        html.light {
+            --bg-color: #218c74;
+            --canvas-bg: radial-gradient(circle at center, #2ba68b 0%, #176856 100%);
+            --grid-line: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: #e2f5f0;
+            --nav-bg: rgba(33, 140, 116, 0.88);
+            --nav-border: rgba(255, 255, 255, 0.2);
+            --card-bg: rgba(13, 64, 52, 0.65);
+            --card-border: rgba(255, 255, 255, 0.22);
+            --card-glow: 0 16px 36px rgba(0, 0, 0, 0.2), 0 0 25px rgba(253, 224, 71, 0.12);
+            --gold-gradient: linear-gradient(to right, #FDE68A, #F59E0B, #FDE68A);
+            --hero-cta-bg: #ffffff;
+            --hero-cta-text: #176856;
+            --hero-cta-hover: #f0fdf9;
+            --hero-secondary-bg: rgba(255, 255, 255, 0.15);
+            --hero-secondary-border: rgba(255, 255, 255, 0.3);
+            --hero-secondary-text: #ffffff;
+            --modal-bg: #1a715d;
+            --modal-border: rgba(255, 255, 255, 0.25);
+            --modal-subcard: rgba(13, 64, 52, 0.55);
+            --modal-subcard-border: rgba(255, 255, 255, 0.18);
+            --input-bg: rgba(255, 255, 255, 0.18);
+            --input-border: rgba(255, 255, 255, 0.35);
+            --badge-bg: rgba(254, 243, 199, 0.22);
+            --badge-border: rgba(245, 158, 11, 0.55);
+            --badge-text: #fef08a;
+            --scrollbar-track: #176856;
+            --scrollbar-thumb: #2ba68b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+            background: var(--canvas-bg);
+            pointer-events: none;
+            transition: background 0.5s ease;
+        }
+
+        .gold-gradient-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .bg-grid {
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 80px 80px;
+            background-attachment: fixed;
+            transition: background-image 0.4s ease;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            opacity: 0.8;
+        }
+
+        /* Glass and component themes */
+        .themed-nav {
+            background-color: var(--nav-bg);
+            border-color: var(--nav-border);
+        }
+        .themed-card {
+            background-color: var(--card-bg);
+            border-color: var(--card-border);
+            box-shadow: var(--card-glow);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .themed-badge {
+            background-color: var(--badge-bg);
+            border-color: var(--badge-border);
+            color: var(--badge-text);
+        }
+        .themed-hero-cta {
+            background-color: var(--hero-cta-bg);
+            color: var(--hero-cta-text);
+        }
+        .themed-hero-cta:hover {
+            background-color: var(--hero-cta-hover);
+        }
+        .themed-hero-secondary {
+            background-color: var(--hero-secondary-bg);
+            border-color: var(--hero-secondary-border);
+            color: var(--hero-secondary-text);
+        }
+        .themed-modal {
+            background-color: var(--modal-bg);
+            border-color: var(--modal-border);
+            color: var(--text-primary);
+        }
+        .themed-modal-subcard {
+            background-color: var(--modal-subcard);
+            border-color: var(--modal-subcard-border);
+        }
+        .themed-input {
+            background-color: var(--input-bg);
+            border-color: var(--input-border);
+            color: var(--text-primary);
+        }
+        .themed-subtext {
+            color: var(--text-secondary);
+        }
+
+        /* ================= TESTIMONIALS SLIDER (LOOPLING STYLE) ================= */
+        .quotes {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem, 1.8vw, 1.5rem);
+            -webkit-mask: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+            mask: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+            padding: 1rem 0;
+            width: 100%;
+        }
+        .quotes__row {
+            display: flex;
+            gap: clamp(1rem, 1.8vw, 1.5rem);
+            width: max-content;
+            will-change: transform;
+        }
+        .quotes__row.r1 {
+            animation: slideQuotes 50s linear infinite;
+        }
+        .quotes__row.r2 {
+            animation: slideQuotesRev 58s linear infinite;
+        }
+        .quotes:hover .quotes__row {
+            animation-play-state: paused;
+        }
+        @keyframes slideQuotes {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes slideQuotesRev {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .quote-card {
+            width: clamp(20rem, 28vw, 25rem);
+            flex: none;
+            padding: 1.5rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.25rem;
+            border-radius: 1.25rem;
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            box-shadow: var(--card-glow);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: border-color 0.35s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            user-select: none;
+        }
+        .quote-card:hover {
+            border-color: rgba(245, 158, 11, 0.5);
+            transform: translateY(-4px);
+        }
+        .quote-card p {
+            line-height: 1.65;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            opacity: 0.94;
+            font-weight: 300;
+        }
+        .quote-card footer {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+        }
+        .quote-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+        }
+        .quote-avatar i {
+            font-style: normal;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #000;
+        }
+        .quote-avatar img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+        .quote-who b {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .quote-who span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Loopling Ninety Seconds Timeline Animation */
+        .tl-row {
+            opacity: 0.35;
+            transform: translateY(22px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .tl-row.is-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .tl-row .tl-node {
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .tl-row.is-active .tl-node {
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 7px rgba(245, 158, 11, 0.25), 0 0 22px rgba(245, 158, 11, 0.6);
+        }
+        .tl-row.is-active .tl-node-dot {
+            background-color: #f59e0b;
+            transform: scale(1.35);
+            box-shadow: 0 0 10px #f59e0b;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-500/30 selection:text-amber-700 dark:selection:text-amber-100 bg-grid min-h-screen">
+
+    <!-- 3D WebGL Canvas Container (Fixed Background) -->
+    <div id="canvas-container"></div>
+
+    <!-- Navigation (Fixed - ai-automation-84 style) -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 md:py-5 flex justify-between items-center border-b themed-nav backdrop-blur-md transition-colors duration-300">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 group">
+            <div class="flex text-white bg-gradient-to-br from-amber-400 to-amber-600 w-8 h-8 md:w-9 md:h-9 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.45)] items-center justify-center transition-transform group-hover:scale-105 duration-300 shrink-0">
+                <i data-lucide="globe" class="w-4 h-4 text-white"></i>
+            </div>
+            <span class="text-xs md:text-sm font-semibold tracking-wider uppercase transition-colors whitespace-nowrap">AI4BT Global Summit</span>
+        </a>
+        
+        <!-- Desktop Pill Menu (ai-automation-84 style) -->
+        <div class="hidden md:flex bg-gradient-to-br from-white/10 to-white/0 border border-white/15 rounded-full p-1 shadow-lg shadow-black/20 backdrop-blur-md items-center gap-1">
+            <a href="#section-1" class="transition-all text-sm font-medium text-white bg-white/15 rounded-full py-1.5 px-4 shadow-sm border border-white/10">
+                Summit
+            </a>
+            <a href="#pillars" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Five Pillars
+            </a>
+            <a href="agenda.html" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Agenda
+            </a>
+            <a href="#experience" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Experience
+            </a>
+            <a href="speakers.html" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Speakers
+            </a>
+        </div>
+
+        <!-- Right Controls & CTA -->
+        <div class="flex items-center gap-2.5">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border themed-input hover:border-amber-500/50 hover:text-amber-500 transition-all duration-300 text-[11px] font-medium active:scale-95 shadow-sm" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
+                <span id="theme-icon-sun" class="hidden text-amber-500"><i data-lucide="sun" class="w-3.5 h-3.5"></i></span>
+                <span id="theme-icon-moon" class="text-zinc-300"><i data-lucide="moon" class="w-3.5 h-3.5"></i></span>
+                <span id="theme-text" class="hidden sm:inline text-[10px] uppercase tracking-wider font-semibold">Dark</span>
+            </button>
+
+            <!-- Book a Call / Register Now CTA Button (ai-automation-84 style) -->
+            <a href="#section-4" class="hidden sm:flex hover:from-amber-400 hover:to-amber-500 hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-all text-xs font-semibold text-black bg-gradient-to-b from-amber-400 to-amber-500 rounded-full py-2 px-5 shadow-[0px_0px_0px_1px_rgba(217,119,6,1),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-sm gap-2 items-center tracking-tight active:scale-95">
+                <span class="text-xs font-semibold text-black tracking-tight">Register Now</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-black"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Scroll Content Wrapper -->
+    <div class="relative z-10">
+        
+        <!-- SECTION 1: HERO -->
+        <section id="section-1" class="min-h-screen flex flex-col justify-center px-6 md:px-24 w-full section-1 pt-20">
+            <div class="max-w-4xl w-full">
+                <div class="space-y-6">
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.05] transition-colors">
+                        AI4BT <br>
+                        <span class="gold-gradient-text">Global Summit</span>
+                    </h1>
+                    
+                    <!-- Summit Metadata Badges (Single Line) -->
+                    <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
+                        <!-- Badge 1: Date -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border themed-badge backdrop-blur-sm transition-all duration-300 whitespace-nowrap shadow-sm">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-500"></i>
+                            <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">25–27 September 2026</span>
+                        </div>
+
+                        <!-- Badge 2: Format -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border themed-badge backdrop-blur-sm transition-all duration-300 whitespace-nowrap shadow-sm">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">Fully Online</span>
+                        </div>
+
+                        <!-- Badge 3: Time -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border themed-badge backdrop-blur-sm transition-all duration-300 whitespace-nowrap shadow-sm">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-500"></i>
+                            <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">8:00 PM–11:00 PM Bangladesh Time</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm md:text-base themed-subtext max-w-2xl font-light leading-relaxed tracking-wide border-l-2 border-amber-500/40 pl-6 transition-colors">
+                        Global speakers. Bangladesh audience. Strategic AI Advisors, Transformation Coaches, ERP Functional Experts, AI Governance & Cybersecurity Experts and Agentic AI Application Experts bring global perspectives to Bangladesh enterprise leaders.
+                    </p>
+
+                    <div class="pt-6 flex flex-wrap gap-4">
+                        <a href="#section-4" class="group flex items-center gap-3 themed-hero-cta px-6 py-3 rounded-lg text-xs font-semibold tracking-widest transition-all duration-300 active:scale-95 shadow-md">
+                            <span>JOIN THE SUMMIT</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+                        </a>
+                        <button id="quick-demo-btn" class="flex items-center gap-2 border themed-hero-secondary px-5 py-3 rounded-lg text-xs font-medium hover:border-amber-500/50 backdrop-blur-sm transition-all duration-300 shadow-sm active:scale-95">
+                            <i data-lucide="calendar" class="w-4 h-4 text-amber-500"></i>
+                            <span class="tracking-wider text-[11px] uppercase font-semibold">Explore Agenda</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: CONNECTIVITY -->
+        <section id="section-2" class="min-h-screen flex items-center w-full section-2 px-6 md:px-24 py-20">
+            <div class="w-full md:w-1/2">
+                <!-- Content card positioned on left, leaving room for globe on right -->
+                <div class="p-8 md:p-10 border rounded-2xl space-y-6 max-w-md themed-card transition-all duration-300">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shadow-sm">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-amber-500"></i>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest font-bold text-amber-600 dark:text-amber-500">The Promise</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight leading-tight">Global expertise.<br>Bangladesh transformation.</h2>
+                    <p class="themed-subtext text-sm leading-relaxed">
+                        International experts explain what is possible. Bangladesh leaders define what is practical. AI4BT connects the two through a transformation journey from ERP to AI-native enterprise.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-black/5 dark:border-white/10">
+                        <div>
+                            <div class="text-xl md:text-2xl font-semibold tracking-tight">Global</div>
+                            <div class="text-[10px] uppercase tracking-wider themed-subtext mt-1 font-medium">Outside Perspective</div>
+                        </div>
+                        <div>
+                            <div class="text-xl md:text-2xl font-semibold tracking-tight">Local</div>
+                            <div class="text-[10px] uppercase tracking-wider themed-subtext mt-1 font-medium">Executive Action</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: WHY THIS SUMMIT -->
+        <section id="section-3" class="min-h-screen flex items-center justify-end w-full section-3 px-6 md:px-24 py-20">
+            <div class="w-full md:w-3/5 lg:w-[560px] flex justify-end">
+                <div class="p-8 md:p-10 border rounded-2xl space-y-6 w-full themed-card transition-all duration-300 shadow-2xl">
+                    <!-- Badge: Why this summit -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shadow-sm shrink-0">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border themed-badge backdrop-blur-sm text-[11px] font-bold uppercase tracking-widest text-amber-500 border-amber-500/30 bg-amber-500/10 shadow-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                            Why this summit
+                        </span>
+                    </div>
+
+                    <!-- Headline (Diverse font sizes) -->
+                    <h2 class="text-3xl md:text-4xl lg:text-[44px] font-semibold tracking-tight leading-[1.12] text-white">
+                        Not another <br>
+                        <span class="gold-gradient-text">AI webinar.</span>
+                    </h2>
+
+                    <!-- Lead text -->
+                    <p class="themed-subtext text-sm md:text-base font-light leading-relaxed">
+                        A three-day interactive enterprise transformation experience for Bangladesh CEOs, CXOs, functional heads, ERP leaders and decision-makers.
+                    </p>
+
+                    <!-- Quote Callout Box -->
+                    <div class="p-4 md:p-5 rounded-xl border border-amber-500/30 bg-amber-500/5 backdrop-blur-sm space-y-2">
+                        <div class="text-[10px] uppercase font-mono tracking-widest text-amber-500 font-semibold flex items-center gap-1.5">
+                            <i data-lucide="quote" class="w-3 h-3 text-amber-500"></i>
+                            <span>The Core Question</span>
+                        </div>
+                        <div class="text-base sm:text-lg md:text-xl font-bold tracking-tight text-white leading-snug">
+                            “What is happening globally?” <span class="text-amber-500 font-bold mx-1">→</span> <span class="text-amber-400 dark:text-amber-300">“What should Bangladesh enterprises do now?”</span>
+                        </div>
+                    </div>
+
+                    <!-- Action link -->
+                    <div class="pt-2 flex items-center justify-between border-t border-black/5 dark:border-white/10">
+                        <a href="#voices" class="inline-flex items-center gap-2 text-amber-500 dark:text-amber-400 text-xs font-semibold tracking-widest hover:text-amber-300 transition-colors uppercase group">
+                            <span>EXPLORE TESTIMONIALS</span>
+                            <i data-lucide="arrow-down" class="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5"></i>
+                        </a>
+                        <a href="speakers.html" class="inline-flex items-center gap-1.5 text-xs themed-subtext hover:text-white transition-colors">
+                            <span>View 50+ Speakers</span>
+                            <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: FIVE EXPERT PILLARS (Full Width, Opaque Background - No Globe) -->
+        <section id="pillars" class="w-full relative z-20 py-24 px-6 md:px-12 lg:px-16 border-t border-b border-black/10 dark:border-white/10" style="background-color: var(--bg-color);">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-black/10 dark:border-white/10">
+                    <div class="space-y-3 max-w-2xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border themed-badge backdrop-blur-sm text-[11px] font-bold uppercase tracking-widest text-amber-500 border-amber-500/30 bg-amber-500/10 shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                            Five expert pillars
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight text-white leading-tight">
+                            From strategy to <span class="gold-gradient-text">action.</span>
+                        </h2>
+                    </div>
+                    <p class="themed-subtext text-sm sm:text-base max-w-md font-light leading-relaxed">
+                        Expertise defines the program; geography adds global perspective.
+                    </p>
+                </div>
+
+                <!-- 5 Pillar Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                    <!-- Pillar 01 -->
+                    <div class="p-6 md:p-7 rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 flex flex-col justify-between space-y-6 group shadow-lg">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform shadow-sm">
+                                    <i data-lucide="sparkles" class="w-5 h-5"></i>
+                                </div>
+                                <span class="text-[11px] font-mono font-bold tracking-wider text-amber-500 uppercase">
+                                    01 • ADVISE
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white tracking-tight leading-snug">
+                                Strategic AI Advisors
+                            </h3>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed font-light">
+                                AI strategy, executive advisory, future enterprise and responsible AI.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/5 flex items-center gap-1.5 text-[11px] text-amber-500/80 font-medium">
+                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500"></i>
+                            <span>Executive Track</span>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 02 -->
+                    <div class="p-6 md:p-7 rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 flex flex-col justify-between space-y-6 group shadow-lg">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform shadow-sm">
+                                    <i data-lucide="trending-up" class="w-5 h-5"></i>
+                                </div>
+                                <span class="text-[11px] font-mono font-bold tracking-wider text-amber-500 uppercase">
+                                    02 • TRANSFORM
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white tracking-tight leading-snug">
+                                Transformation Coaches
+                            </h3>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed font-light">
+                                Leadership, change, operating model, adoption and capability.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/5 flex items-center gap-1.5 text-[11px] text-amber-500/80 font-medium">
+                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500"></i>
+                            <span>Change &amp; Leadership</span>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 03 -->
+                    <div class="p-6 md:p-7 rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 flex flex-col justify-between space-y-6 group shadow-lg">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform shadow-sm">
+                                    <i data-lucide="database" class="w-5 h-5"></i>
+                                </div>
+                                <span class="text-[11px] font-mono font-bold tracking-wider text-amber-500 uppercase">
+                                    03 • REINVENT
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white tracking-tight leading-snug">
+                                ERP Functional Experts
+                            </h3>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed font-light">
+                                ERP, Finance, Sales, Marketing, Operations, Supply Chain and functional AI.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/5 flex items-center gap-1.5 text-[11px] text-amber-500/80 font-medium">
+                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500"></i>
+                            <span>Core Operations</span>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 04 -->
+                    <div class="p-6 md:p-7 rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 flex flex-col justify-between space-y-6 group shadow-lg">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform shadow-sm">
+                                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                                </div>
+                                <span class="text-[11px] font-mono font-bold tracking-wider text-amber-500 uppercase">
+                                    04 • TRUST
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white tracking-tight leading-snug">
+                                Governance &amp; Cybersecurity
+                            </h3>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed font-light">
+                                Governance, privacy, security, risk, compliance and human oversight.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/5 flex items-center gap-1.5 text-[11px] text-amber-500/80 font-medium">
+                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500"></i>
+                            <span>Security &amp; Safety</span>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 05 -->
+                    <div class="p-6 md:p-7 rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 flex flex-col justify-between space-y-6 group shadow-lg">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform shadow-sm">
+                                    <i data-lucide="bot" class="w-5 h-5"></i>
+                                </div>
+                                <span class="text-[11px] font-mono font-bold tracking-wider text-amber-500 uppercase">
+                                    05 • ACT
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white tracking-tight leading-snug">
+                                Agentic AI Applications
+                            </h3>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed font-light">
+                                AI agents, intelligent workflows, agentic ERP and responsible enterprise action.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/5 flex items-center gap-1.5 text-[11px] text-amber-500/80 font-medium">
+                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500"></i>
+                            <span>Autonomous Action</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: THREE-DAY JOURNEY & INTERACTIVE EXPERIENCE (Loopling "Ninety Seconds" Style Timeline) -->
+        <section id="experience" class="w-full relative z-20 py-24 px-6 md:px-12 lg:px-16 border-b border-black/10 dark:border-white/10 overflow-hidden" style="background-color: var(--bg-color);">
+            <div class="max-w-7xl mx-auto space-y-16">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-black/10 dark:border-white/10">
+                    <div class="space-y-3 max-w-2xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border themed-badge backdrop-blur-sm text-[11px] font-bold uppercase tracking-widest text-amber-500 border-amber-500/30 bg-amber-500/10 shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                            Three-Day Journey &amp; Interactive Experience
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-tight">
+                            Rethink. Transform. <span class="gold-gradient-text">Become.</span>
+                        </h2>
+                    </div>
+                    <div class="max-w-md space-y-2">
+                        <p class="text-base font-medium text-amber-400/90">
+                            Don't just watch. Participate.
+                        </p>
+                        <p class="themed-subtext text-xs sm:text-sm font-light leading-relaxed">
+                            Each evening moves Bangladesh enterprise leaders one step closer to an AI-native operating model through diagnostics, challenges, voting, expert clinics, and live agent demonstrations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Loopling Style Timeline Container -->
+                <div id="journey-timeline" class="relative max-w-5xl mx-auto py-8">
+                    <!-- Central Animated Luminescent Rail / Spine -->
+                    <div class="absolute left-6 md:left-1/2 top-4 bottom-4 w-[2px] bg-white/10 dark:bg-white/10 rounded-full -translate-x-1/2 overflow-hidden pointer-events-none" aria-hidden="true">
+                        <i id="tlFill" class="block w-full bg-gradient-to-b from-amber-300 via-amber-500 to-amber-600 rounded-full shadow-[0_0_12px_rgba(245,158,11,0.8)]" style="height: var(--p, 0%); transition: height 0.15s ease-out;"></i>
+                    </div>
+
+                    <!-- Step Rows -->
+                    <div class="space-y-12 md:space-y-20 relative z-10">
+                        
+                        <!-- ROW 01: DAY 01 RETHINK (Left card on desktop) -->
+                        <div class="tl-row relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center group">
+                            <!-- Card (Left) -->
+                            <div class="tl-card pl-14 md:pl-0 md:text-right order-2 md:order-1 transition-all duration-500">
+                                <div class="p-6 md:p-8 rounded-2xl border themed-card transition-all duration-300 hover:border-amber-500/50 shadow-xl group-hover:-translate-y-1">
+                                    <div class="flex items-center justify-between md:justify-end gap-3 mb-3">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase text-amber-400 bg-amber-500/10 border border-amber-500/30">
+                                            <i data-lucide="calendar" class="w-3 h-3 text-amber-500"></i>
+                                            DAY 01 • 25 SEPTEMBER
+                                        </span>
+                                    </div>
+                                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                                        RETHINK
+                                    </h3>
+                                    <div class="text-sm font-semibold text-amber-400 mt-1 mb-3">
+                                        The Future of the Enterprise
+                                    </div>
+                                    <p class="themed-subtext text-xs sm:text-sm font-light leading-relaxed mb-5 md:ml-auto max-w-lg">
+                                        Setting the executive horizon — bridging global transformation models to immediate Bangladesh enterprise priorities and leadership readiness.
+                                    </p>
+                                    
+                                    <!-- Curriculum Bullet Points -->
+                                    <ul class="space-y-2 text-xs themed-subtext md:inline-block text-left mb-6">
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Global AI transformation landscape</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>AI awareness to enterprise transformation</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>CEO agenda for AI-native enterprise</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Leadership and future workforce dynamics</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Global expert keynote + Bangladesh perspective</span>
+                                        </li>
+                                    </ul>
+
+                                    <!-- Interactive Activity Box -->
+                                    <div class="p-3.5 rounded-xl border border-amber-500/20 bg-amber-500/5 flex items-start gap-2.5 text-left">
+                                        <i data-lucide="activity" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
+                                        <div class="text-xs">
+                                            <b class="text-amber-300 font-semibold">Live Diagnostic:</b>
+                                            <span class="themed-subtext">AI4BT AI Readiness Pulse &amp; Global Lightning Talks (1 opportunity, 1 mistake, 1 action for Bangladesh).</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Center Node Beacon -->
+                            <div class="tl-node absolute left-6 md:left-1/2 top-8 md:top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 border-white/20 bg-[#050A14] flex items-center justify-center z-20 shadow-md">
+                                <span class="tl-node-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-300"></span>
+                            </div>
+
+                            <!-- Right Spacer -->
+                            <div class="hidden md:block order-3"></div>
+                        </div>
+
+                        <!-- ROW 02: DAY 02 TRANSFORM (Right card on desktop) -->
+                        <div class="tl-row relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center group">
+                            <!-- Left Spacer -->
+                            <div class="hidden md:block order-1"></div>
+
+                            <!-- Center Node Beacon -->
+                            <div class="tl-node absolute left-6 md:left-1/2 top-8 md:top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 border-white/20 bg-[#050A14] flex items-center justify-center z-20 shadow-md">
+                                <span class="tl-node-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-300"></span>
+                            </div>
+
+                            <!-- Card (Right) -->
+                            <div class="tl-card pl-14 md:pl-0 text-left order-2 transition-all duration-500">
+                                <div class="p-6 md:p-8 rounded-2xl border themed-card transition-all duration-300 hover:border-amber-500/50 shadow-xl group-hover:-translate-y-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase text-amber-400 bg-amber-500/10 border border-amber-500/30">
+                                            <i data-lucide="cpu" class="w-3 h-3 text-amber-500"></i>
+                                            DAY 02 • 26 SEPTEMBER
+                                        </span>
+                                    </div>
+                                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                                        TRANSFORM
+                                    </h3>
+                                    <div class="text-sm font-semibold text-amber-400 mt-1 mb-3">
+                                        ERP + Business Transformation
+                                    </div>
+                                    <p class="themed-subtext text-xs sm:text-sm font-light leading-relaxed mb-5 max-w-lg">
+                                        Reinventing the core backbone of enterprise operations. Shifting from legacy transactional ERP systems to autonomous intelligent workflows.
+                                    </p>
+                                    
+                                    <!-- Curriculum Bullet Points -->
+                                    <ul class="space-y-2 text-xs themed-subtext mb-6">
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Next generation of ERP architecture</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Modernize vs make ERP intelligent?</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Functional AI across Finance, HR &amp; Supply Chain</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Bangladesh CXO ERP transformation roundtable</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Agentic ERP live simulation and demonstration</span>
+                                        </li>
+                                    </ul>
+
+                                    <!-- Interactive Activity Box -->
+                                    <div class="p-3.5 rounded-xl border border-amber-500/20 bg-amber-500/5 flex items-start gap-2.5">
+                                        <i data-lucide="swords" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
+                                        <div class="text-xs">
+                                            <b class="text-amber-300 font-semibold">Interactive Battle:</b>
+                                            <span class="themed-subtext">AI Use-Case Battle (Finance vs HR vs Supply Chain) &amp; Audience Voting on "Transform This Enterprise".</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ROW 03: DAY 03 BECOME (Left card on desktop) -->
+                        <div class="tl-row relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center group">
+                            <!-- Card (Left) -->
+                            <div class="tl-card pl-14 md:pl-0 md:text-right order-2 md:order-1 transition-all duration-500">
+                                <div class="p-6 md:p-8 rounded-2xl border themed-card transition-all duration-300 hover:border-amber-500/50 shadow-xl group-hover:-translate-y-1">
+                                    <div class="flex items-center justify-between md:justify-end gap-3 mb-3">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase text-amber-400 bg-amber-500/10 border border-amber-500/30">
+                                            <i data-lucide="shield-check" class="w-3 h-3 text-amber-500"></i>
+                                            DAY 03 • 27 SEPTEMBER
+                                        </span>
+                                    </div>
+                                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                                        BECOME
+                                    </h3>
+                                    <div class="text-sm font-semibold text-amber-400 mt-1 mb-3">
+                                        Trust + Agentic AI
+                                    </div>
+                                    <p class="themed-subtext text-xs sm:text-sm font-light leading-relaxed mb-5 md:ml-auto max-w-lg">
+                                        Operating as a truly AI-native enterprise. Deploying autonomous digital business workers with verified governance, safety safeguards, and human control.
+                                    </p>
+                                    
+                                    <!-- Curriculum Bullet Points -->
+                                    <ul class="space-y-2 text-xs themed-subtext md:inline-block text-left mb-6">
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Responsible AI governance, privacy &amp; risk frameworks</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Securing enterprise ERP + AI agent infrastructure</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Evolution from passive copilots to autonomous agents</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Supervising digital business workers &amp; authorized actions</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i>
+                                            <span>Ratification of the AI4BT Dhaka Declaration 2026</span>
+                                        </li>
+                                    </ul>
+
+                                    <!-- Interactive Activity Box -->
+                                    <div class="p-3.5 rounded-xl border border-amber-500/20 bg-amber-500/5 flex items-start gap-2.5 text-left">
+                                        <i data-lucide="lock" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
+                                        <div class="text-xs">
+                                            <b class="text-amber-300 font-semibold">Governance Threshold:</b>
+                                            <span class="themed-subtext">"Would You Trust the Agent?" session &amp; individual 90-Day Enterprise Commitment.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Center Node Beacon -->
+                            <div class="tl-node absolute left-6 md:left-1/2 top-8 md:top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 border-white/20 bg-[#050A14] flex items-center justify-center z-20 shadow-md">
+                                <span class="tl-node-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all duration-300"></span>
+                            </div>
+
+                            <!-- Right Spacer -->
+                            <div class="hidden md:block order-3"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SIGNATURE EXPERIENCE: AGENTIC ERP IN ACTION (Visual 6-Step Workflow Strip) -->
+                <div class="p-8 md:p-10 rounded-3xl border themed-card space-y-8 mt-16 shadow-2xl relative overflow-hidden">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10">
+                        <div class="space-y-1">
+                            <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
+                                <span>⭐ Signature Experience</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                                Agentic ERP in Action
+                            </h3>
+                        </div>
+                        <p class="themed-subtext text-xs sm:text-sm max-w-md leading-relaxed font-light">
+                            A realistic Bangladesh enterprise scenario moves from business question to intelligence, authorized AI action, and measurable value.
+                        </p>
+                    </div>
+
+                    <!-- 6 Step Horizontal Flow -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+                        <!-- Step 01 -->
+                        <div class="p-4 rounded-xl border themed-input space-y-2 hover:border-amber-500/50 transition-colors group">
+                            <span class="text-xs font-mono font-bold text-amber-500">01</span>
+                            <div class="text-sm font-semibold text-white">Business Question</div>
+                            <p class="text-[11px] themed-subtext leading-relaxed font-light">
+                                "How is my enterprise cashflow and production performing?"
+                            </p>
+                        </div>
+                        <!-- Step 02 -->
+                        <div class="p-4 rounded-xl border themed-input space-y-2 hover:border-amber-500/50 transition-colors group">
+                            <span class="text-xs font-mono font-bold text-amber-500">02</span>
+                            <div class="text-sm font-semibold text-white">Enterprise Data</div>
+                            <p class="text-[11px] themed-subtext leading-relaxed font-light">
+                                ERP • CRM • Finance • Real-time Inventory &amp; Supply Chain
+                            </p>
+                        </div>
+                        <!-- Step 03 -->
+                        <div class="p-4 rounded-xl border themed-input space-y-2 hover:border-amber-500/50 transition-colors group">
+                            <span class="text-xs font-mono font-bold text-amber-500">03</span>
+                            <div class="text-sm font-semibold text-white">Intelligence</div>
+                            <p class="text-[11px] themed-subtext leading-relaxed font-light">
+                                Diagnose anomalies • Predict shortfalls • Prescribe remedies
+                            </p>
+                        </div>
+                        <!-- Step 04 -->
+                        <div class="p-4 rounded-xl border themed-input space-y-2 hover:border-amber-500/50 transition-colors group">
+                            <span class="text-xs font-mono font-bold text-amber-500">04</span>
+                            <div class="text-sm font-semibold text-white">AI Agent</div>
+                            <p class="text-[11px] themed-subtext leading-relaxed font-light">
+                                Multi-step reasoning • Query toolkits • Prepare execution
+                            </p>
+                        </div>
+                        <!-- Step 05 -->
+                        <div class="p-4 rounded-xl border themed-input space-y-2 hover:border-amber-500/50 transition-colors group">
+                            <span class="text-xs font-mono font-bold text-amber-500">05</span>
+                            <div class="text-sm font-semibold text-white">Human Control</div>
+                            <p class="text-[11px] themed-subtext leading-relaxed font-light">
+                                Executive sign-off • Authorized action • Immutable audit trail
+                            </p>
+                        </div>
+                        <!-- Step 06 -->
+                        <div class="p-4 rounded-xl border themed-input space-y-2 hover:border-amber-500/50 transition-colors group">
+                            <span class="text-xs font-mono font-bold text-amber-500">06</span>
+                            <div class="text-sm font-semibold text-white">Business Value</div>
+                            <p class="text-[11px] themed-subtext leading-relaxed font-light">
+                                10x operational speed • Zero blind spots • Sustainable margin
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Vendor Neutrality Callout -->
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                        <div class="flex items-center gap-2.5">
+                            <i data-lucide="shield" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                            <span class="themed-subtext">
+                                <b class="text-white font-medium">Vendor-Neutral Transformation:</b> Odoo, SAP, Oracle, Microsoft Dynamics or in-house ERP environments are fully supported.
+                            </span>
+                        </div>
+                        <a href="agenda.html" class="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-semibold tracking-wide shrink-0 transition-colors">
+                            <span>Explore Full Agenda</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: TESTIMONIALS (What Industry Experts are Saying) -->
+        <section id="voices" class="w-full py-20 overflow-hidden relative z-10">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 mb-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="space-y-3">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border themed-badge backdrop-blur-sm text-[11px] font-semibold tracking-wider uppercase shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                            Voices & Perspectives
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight text-white">
+                            What Industry Experts are <span class="gold-gradient-text">Saying</span>
+                        </h2>
+                    </div>
+                    <p class="themed-subtext text-xs sm:text-sm max-w-md leading-relaxed">
+                        Global advisors, enterprise CIOs, and transformation coaches on the strategic shift from legacy ERP to autonomous agentic intelligence.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Double Sliding Marquee Track -->
+            <div class="quotes">
+                <div class="quotes__row r1" id="q1"></div>
+                <div class="quotes__row r2" id="q2"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: CTA -->
+        <section id="section-4" class="min-h-[85vh] flex flex-col items-center justify-center w-full section-4 px-6 text-center py-20">
+            <div class="max-w-2xl w-full space-y-8 p-8 md:p-12 rounded-2xl border themed-card transition-all duration-300">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/30 mb-2 shadow-sm">
+                    <i data-lucide="shield" class="w-6 h-6 text-amber-500"></i>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-medium tracking-tight">Join the<br><span class="themed-subtext">Inner Circle</span></h2>
+                <p class="themed-subtext text-sm leading-relaxed max-w-md mx-auto">
+                    Access exclusive reports, private events, and a network of global decision-makers.
+                </p>
+                <form id="access-form" class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto" onsubmit="event.preventDefault(); handleAccessSubmit();">
+                    <input id="access-email" type="email" required placeholder="Enter your email" class="border themed-input rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-amber-500 w-full sm:w-64 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 transition-all shadow-sm">
+                    <button type="submit" id="access-submit-btn" class="bg-amber-500 hover:bg-amber-600 text-white dark:text-black px-6 py-3 rounded-lg text-xs font-semibold tracking-widest active:scale-95 transition-all uppercase whitespace-nowrap shadow-md">
+                        Request Access
+                    </button>
+                </form>
+                <div id="access-success" class="hidden p-3.5 rounded-lg border border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs tracking-wide shadow-sm">
+                    ✓ Request submitted. Our diplomatic advisory council will contact you shortly.
+                </div>
+                <div class="pt-8 text-[10px] themed-subtext uppercase tracking-widest border-t border-black/5 dark:border-white/10">
+                    &copy; 2026 AI4BT Global Summit. All rights reserved.
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Case Studies Modal -->
+    <div id="case-studies-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 dark:bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="themed-modal border rounded-2xl max-w-2xl w-full p-6 md:p-8 space-y-6 shadow-2xl relative transition-all duration-300">
+            <button id="close-case-studies-btn" class="absolute top-6 right-6 themed-subtext hover:text-amber-500 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center">
+                    <i data-lucide="file-text" class="w-4 h-4 text-amber-500"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium">Diplomatic Intelligence Briefings</h3>
+                    <p class="text-xs themed-subtext">Recent geopolitical predictive analyses & models</p>
+                </div>
+            </div>
+            <div class="space-y-4 text-left">
+                <div class="p-4 rounded-xl border themed-modal-subcard hover:border-amber-500/40 transition-colors shadow-sm">
+                    <div class="flex items-center justify-between text-xs text-amber-600 dark:text-amber-400 font-semibold mb-1">
+                        <span>TRANSPACIFIC CORRIDOR REPORT</span>
+                        <span class="themed-subtext font-normal">Q3 Analysis</span>
+                    </div>
+                    <p class="text-sm themed-subtext">Modeling trade flow disruptions and maritime route contingency policies across ASEAN maritime boundaries.</p>
+                </div>
+                <div class="p-4 rounded-xl border themed-modal-subcard hover:border-amber-500/40 transition-colors shadow-sm">
+                    <div class="flex items-center justify-between text-xs text-amber-600 dark:text-amber-400 font-semibold mb-1">
+                        <span>EURO-MEDITERRANEAN ENERGY ACCORD</span>
+                        <span class="themed-subtext font-normal">Predictive Model</span>
+                    </div>
+                    <p class="text-sm themed-subtext">Forecasting bilateral regulatory alignment between North African suppliers and Southern European power grids.</p>
+                </div>
+            </div>
+            <div class="flex justify-end pt-2">
+                <button id="close-case-studies-btn2" class="px-5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider border themed-input hover:border-amber-500/40 transition-all">
+                    Close Briefing
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 dark:bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="themed-modal border rounded-2xl max-w-md w-full p-6 md:p-8 space-y-6 shadow-2xl relative transition-all duration-300">
+            <button id="close-login-btn" class="absolute top-6 right-6 themed-subtext hover:text-amber-500 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="text-center space-y-2">
+                <div class="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 mx-auto flex items-center justify-center mb-3">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-amber-500"></i>
+                </div>
+                <h3 class="text-xl font-medium">Diplomatic Portal</h3>
+                <p class="text-xs themed-subtext">Authorized personnel & inner-circle delegate access</p>
+            </div>
+            <form onsubmit="event.preventDefault(); handleLoginSubmit();" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider themed-subtext mb-1 font-semibold">Diplomatic ID / Email</label>
+                    <input type="text" required placeholder="name@delegation.gov" class="w-full border themed-input rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider themed-subtext mb-1 font-semibold">Security Token</label>
+                    <input type="password" required placeholder="••••••••••••" class="w-full border themed-input rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-500">
+                </div>
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white dark:text-black py-2.5 rounded-lg text-xs font-semibold tracking-widest uppercase transition-all shadow-md">
+                    Authenticate Session
+                </button>
+            </form>
+            <div id="login-feedback" class="hidden text-center text-xs text-amber-600 dark:text-amber-400 font-medium">
+                Verifying cryptographic token credentials...
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // --------------------------------------------------------
+        // MODALS & FORM INTERACTIONS
+        // --------------------------------------------------------
+        function toggleModal(modalId, show) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            if (show) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.classList.remove('opacity-100', 'pointer-events-auto');
+            }
+        }
+
+        const openLoginBtn = document.getElementById('open-login-btn');
+        if (openLoginBtn) openLoginBtn.addEventListener('click', () => toggleModal('login-modal', true));
+        document.getElementById('close-login-btn').addEventListener('click', () => toggleModal('login-modal', false));
+        const openCaseStudiesBtn = document.getElementById('open-case-studies-btn');
+        if (openCaseStudiesBtn) openCaseStudiesBtn.addEventListener('click', () => toggleModal('case-studies-modal', true));
+        document.getElementById('close-case-studies-btn').addEventListener('click', () => toggleModal('case-studies-modal', false));
+        document.getElementById('close-case-studies-btn2').addEventListener('click', () => toggleModal('case-studies-modal', false));
+
+        function handleAccessSubmit() {
+            const emailInput = document.getElementById('access-email');
+            const submitBtn = document.getElementById('access-submit-btn');
+            const successMsg = document.getElementById('access-success');
+            if (!emailInput.value) return;
+
+            submitBtn.innerText = 'PROCESSING...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                submitBtn.innerText = 'REQUEST ACCESS';
+                submitBtn.disabled = false;
+                emailInput.value = '';
+                successMsg.classList.remove('hidden');
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 6000);
+            }, 800);
+        }
+
+        function handleLoginSubmit() {
+            const feedback = document.getElementById('login-feedback');
+            feedback.classList.remove('hidden');
+            setTimeout(() => {
+                feedback.innerHTML = '✓ Credential authenticated. Launching diplomatic terminal...';
+                setTimeout(() => {
+                    toggleModal('login-modal', false);
+                    feedback.classList.add('hidden');
+                }, 1200);
+            }, 1000);
+        }
+
+        // --------------------------------------------------------
+        // TESTIMONIALS (LOOPLING STYLE SLIDING MARQUEE)
+        // --------------------------------------------------------
+        const INDUSTRY_QUOTES = [
+            [
+                "The transition from traditional ERP to AI-native enterprise is the single most urgent imperative for South Asian conglomerates. AI4BT is the only summit bridging this gap with pragmatic blueprints.",
+                "Marcus Vance",
+                "Global AI Transformation Coach · London",
+                "images/testimonials/expert_7.jpg",
+                "MV"
+            ],
+            [
+                "Most enterprise AI discussions stay at the conceptual level. AI4BT actually connects functional ERP workflows with autonomous agent orchestration that executive leadership can deploy.",
+                "Dr. Tanvir Rahman",
+                "Chief Information Officer · Beximco Group",
+                "images/testimonials/expert_2.jpg",
+                "TR"
+            ],
+            [
+                "Autonomous agents aren't replacing ERP systems—they are becoming the intelligent operating fabric sitting on top of them. This summit defines that architectural shift.",
+                "Elena Rostova",
+                "VP Enterprise Architecture · SAP APJ",
+                "images/testimonials/expert_6.jpg",
+                "ER"
+            ],
+            [
+                "Bringing global Silicon Valley and European AI governance experts directly to Dhaka's leadership tables is a game changer for the region's digital economy.",
+                "Farhana Yasmin",
+                "Director of Digital Transformation · Grameenphone",
+                "images/testimonials/expert_4.jpg",
+                "FY"
+            ],
+            [
+                "AI Governance and cybersecurity cannot be an afterthought in agentic automation. The framework presented at AI4BT sets the benchmark for enterprise safety.",
+                "Julian Sterling",
+                "AI Security & Compliance Fellow · Singapore",
+                "images/testimonials/expert_3.jpg",
+                "JS"
+            ],
+            [
+                "Our supply chain and manufacturing operations require practical AI solutions that respect localized market constraints. AI4BT delivers exactly that grounded perspective.",
+                "Shahriar Ahmed",
+                "Managing Director · Square Pharmaceuticals",
+                "images/testimonials/expert_8.jpg",
+                "SA"
+            ],
+            [
+                "Agentic AI applications will transform banking and trade finance in Bangladesh over the next 24 months. This summit gathers the leaders who will make it happen.",
+                "Nadia Chowdhury",
+                "Head of Strategy & Innovation · BRAC Bank",
+                "images/testimonials/expert_1.jpg",
+                "NC"
+            ],
+            [
+                "International experts define what is possible; Bangladesh leaders define what is practical. AI4BT is the catalyst connecting the two with unmatched precision.",
+                "David K. Lindqvist",
+                "Managing Partner · Global AI Advisors Zurich",
+                "images/testimonials/expert_5.jpg",
+                "DL"
+            ]
+        ];
+
+        function renderQuoteCard([txt, who, role, img, initials]) {
+            return `
+                <div class="quote-card">
+                    <p>“${txt}”</p>
+                    <footer>
+                        <div class="quote-avatar">
+                            <i>${initials}</i>
+                            <img src="${img}" alt="${who}" loading="lazy" onerror="this.style.display='none'">
+                        </div>
+                        <div class="quote-who">
+                            <b>${who}</b>
+                            <span>${role}</span>
+                        </div>
+                    </footer>
+                </div>
+            `;
+        }
+
+        const q1El = document.getElementById('q1');
+        const q2El = document.getElementById('q2');
+        if (q1El && q2El) {
+            const row1 = [...INDUSTRY_QUOTES.slice(0, 4), ...INDUSTRY_QUOTES.slice(0, 4)];
+            const row2 = [...INDUSTRY_QUOTES.slice(4), ...INDUSTRY_QUOTES.slice(4)];
+            q1El.innerHTML = row1.map(renderQuoteCard).join('');
+            q2El.innerHTML = row2.map(renderQuoteCard).join('');
+        }
+
+        // --------------------------------------------------------
+        // THREE.JS 3D EARTH GLOBE SETUP
+        // --------------------------------------------------------
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x050A14, 0.02); 
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 0, 15); 
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        // GROUPS
+        const universeGroup = new THREE.Group();
+        const globeGroup = new THREE.Group();
+        universeGroup.add(globeGroup);
+        scene.add(universeGroup);
+
+        // --- 1. STARS BACKGROUND ---
+        const starsGeometry = new THREE.BufferGeometry();
+        const starsCount = 1500;
+        const posArray = new Float32Array(starsCount * 3);
+        for (let i = 0; i < starsCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 80;
+        }
+        starsGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const starsMaterial = new THREE.PointsMaterial({
+            size: 0.05,
+            color: 0xffffff,
+            transparent: true,
+            opacity: 0.8
+        });
+        const starMesh = new THREE.Points(starsGeometry, starsMaterial);
+        universeGroup.add(starMesh);
+
+        // --- 2. EARTH TEXTURES (Local with CDN fallback) ---
+        const textureLoader = new THREE.TextureLoader();
+        
+        function loadTextureWithFallback(localPath, remotePath) {
+            return textureLoader.load(
+                localPath,
+                undefined,
+                undefined,
+                () => {
+                    return textureLoader.load(remotePath);
+                }
+            );
+        }
+
+        const earthTexture = loadTextureWithFallback(
+            'textures/earth_atmos_2048.jpg',
+            'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'
+        );
+        const specTexture = loadTextureWithFallback(
+            'textures/earth_specular_2048.jpg',
+            'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg'
+        );
+        const normalTexture = loadTextureWithFallback(
+            'textures/earth_normal_2048.jpg',
+            'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_normal_2048.jpg'
+        );
+        const lightsTexture = loadTextureWithFallback(
+            'textures/earth_lights_2048.png',
+            'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_lights_2048.png'
+        );
+        const cloudsTexture = loadTextureWithFallback(
+            'textures/earth_clouds_1024.png',
+            'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png'
+        );
+
+        // Earth Sphere Mesh
+        const geometry = new THREE.SphereGeometry(5, 64, 64);
+        const material = new THREE.MeshPhongMaterial({
+            map: earthTexture,
+            specularMap: specTexture,
+            normalMap: normalTexture,
+            emissiveMap: lightsTexture,
+            emissive: 0xffcc33, // Golden lights
+            emissiveIntensity: 0.6,
+            color: 0x152030,    // Dark blueish base (dynamically adjusted in light mode)
+            specular: 0x555555,
+            shininess: 10
+        });
+        const globe = new THREE.Mesh(geometry, material);
+        globeGroup.add(globe);
+
+        // --- 3. CLOUDS (Separate Layer) ---
+        const cloudGeo = new THREE.SphereGeometry(5.08, 64, 64);
+        const cloudMat = new THREE.MeshLambertMaterial({
+            map: cloudsTexture,
+            transparent: true,
+            opacity: 0.4,
+            blending: THREE.AdditiveBlending,
+            side: THREE.DoubleSide
+        });
+        const cloudMesh = new THREE.Mesh(cloudGeo, cloudMat);
+        globeGroup.add(cloudMesh);
+
+        // --- 4. ATMOSPHERE GLOW WITH SHADER UNIFORMS ---
+        const atmosphereGeo = new THREE.SphereGeometry(5.2, 64, 64);
+        const atmosphereUniforms = {
+            uColor: { value: new THREE.Color(0xf59e0b) },
+            uIntensityScale: { value: 1.5 }
+        };
+        const atmosphereMat = new THREE.ShaderMaterial({
+            uniforms: atmosphereUniforms,
+            vertexShader: `
+                varying vec3 vNormal;
+                void main() {
+                    vNormal = normalize(normalMatrix * normal);
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                varying vec3 vNormal;
+                uniform vec3 uColor;
+                uniform float uIntensityScale;
+                void main() {
+                    float intensity = pow(0.6 - dot(vNormal, vec3(0, 0, 1.0)), 3.0);
+                    gl_FragColor = vec4(uColor, 1.0) * intensity * uIntensityScale;
+                }
+            `,
+            blending: THREE.AdditiveBlending,
+            side: THREE.BackSide,
+            transparent: true
+        });
+        const atmosphere = new THREE.Mesh(atmosphereGeo, atmosphereMat);
+        globeGroup.add(atmosphere);
+
+        // --- 5. CONNECTIONS & DATA TRAFFIC ---
+        const connectionsGroup = new THREE.Group();
+        globeGroup.add(connectionsGroup);
+
+        const trafficParticles = [];
+
+        function latLonToVector3(lat, lon, radius) {
+            const phi = (90 - lat) * (Math.PI / 180);
+            const theta = (lon + 180) * (Math.PI / 180);
+            const x = -(radius * Math.sin(phi) * Math.cos(theta));
+            const z = (radius * Math.sin(phi) * Math.sin(theta));
+            const y = (radius * Math.cos(phi));
+            return new THREE.Vector3(x, y, z);
+        }
+
+        function createArc(startLat, startLon, endLat, endLon) {
+            const start = latLonToVector3(startLat, startLon, 5);
+            const end = latLonToVector3(endLat, endLon, 5);
+            const dist = start.distanceTo(end);
+            
+            const mid = start.clone().add(end).multiplyScalar(0.5).normalize().multiplyScalar(5 + (dist * 0.2));
+            
+            const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
+            const points = curve.getPoints(50);
+            const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            
+            const lineMaterial = new THREE.LineBasicMaterial({ 
+                color: 0xf59e0b, 
+                transparent: true, 
+                opacity: 0.25 
+            });
+            const line = new THREE.Line(lineGeometry, lineMaterial);
+            connectionsGroup.add(line);
+
+            // Moving Particle (Data Packet)
+            const particleGeo = new THREE.SphereGeometry(0.065, 8, 8);
+            const particleMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b });
+            const particle = new THREE.Mesh(particleGeo, particleMat);
+            connectionsGroup.add(particle);
+            
+            trafficParticles.push({
+                mesh: particle,
+                curve: curve,
+                progress: Math.random()
+            });
+        }
+
+        const cities = [
+            {lat: 23.81, lon: 90.41, name: 'Dhaka', isHub: true}, // Dhaka, Bangladesh (Primary Summit Hub)
+            {lat: 37.56, lon: 126.97, name: 'Seoul'},             // East Asia (Korea)
+            {lat: 1.35, lon: 103.81, name: 'Singapore'},          // East Asia (Singapore)
+            {lat: 35.68, lon: 139.69, name: 'Tokyo'},             // East Asia (Japan)
+            {lat: 19.07, lon: 72.87, name: 'Mumbai'},             // India
+            {lat: 28.61, lon: 77.20, name: 'New Delhi'},          // India
+            {lat: 40.71, lon: -74.00, name: 'New York'},
+            {lat: 37.77, lon: -122.41, name: 'San Francisco'},
+            {lat: 51.50, lon: -0.12, name: 'London'},
+            {lat: 25.20, lon: 55.27, name: 'Dubai'},
+            {lat: 48.85, lon: 2.35, name: 'Paris'},
+            {lat: 52.52, lon: 13.40, name: 'Berlin'},
+            {lat: -33.86, lon: 151.20, name: 'Sydney'},
+            {lat: -22.90, lon: -43.17, name: 'Rio de Janeiro'}
+        ];
+
+        // Ensure direct priority connections from Dhaka to key global centers
+        const priorityTargets = ['New York', 'London', 'Dubai', 'Singapore', 'Seoul', 'Tokyo', 'Sydney', 'Berlin', 'Mumbai'];
+        priorityTargets.forEach(targetName => {
+            const target = cities.find(c => c.name === targetName);
+            if (target) {
+                createArc(23.81, 90.41, target.lat, target.lon);
+            }
+        });
+
+        // Additional network arcs
+        for (let i = 1; i < cities.length; i++) {
+            const targetIndex = (i + Math.floor(Math.random() * (cities.length - 2)) + 1) % cities.length;
+            createArc(cities[i].lat, cities[i].lon, cities[targetIndex].lat, cities[targetIndex].lon);
+        }
+
+        // Add glow markers at cities with special highlight for Dhaka, Bangladesh
+        cities.forEach(city => {
+            const pos = latLonToVector3(city.lat, city.lon, 5.01);
+            const size = city.isHub ? 0.09 : 0.06;
+            const outerSize = city.isHub ? 0.14 : 0.09;
+            const markerGeo = new THREE.RingGeometry(size, outerSize, 32);
+            const markerMat = new THREE.MeshBasicMaterial({ 
+                color: city.isHub ? 0xffd700 : 0xf59e0b, 
+                side: THREE.DoubleSide 
+            });
+            const marker = new THREE.Mesh(markerGeo, markerMat);
+            marker.position.copy(pos);
+            marker.lookAt(0, 0, 0);
+            globeGroup.add(marker);
+
+            if (city.isHub) {
+                // Secondary outer pulsing beacon for Dhaka, Bangladesh
+                const haloGeo = new THREE.RingGeometry(0.18, 0.23, 32);
+                const haloMat = new THREE.MeshBasicMaterial({ 
+                    color: 0xf59e0b, 
+                    side: THREE.DoubleSide, 
+                    transparent: true, 
+                    opacity: 0.75 
+                });
+                const halo = new THREE.Mesh(haloGeo, haloMat);
+                halo.position.copy(pos);
+                halo.lookAt(0, 0, 0);
+                globeGroup.add(halo);
+            }
+        });
+
+        // --- LIGHTING ---
+        const ambientLight = new THREE.AmbientLight(0x050505, 1.0);
+        scene.add(ambientLight);
+
+        const sunLight = new THREE.DirectionalLight(0xffffff, 1.2);
+        sunLight.position.set(10, 5, 10);
+        scene.add(sunLight);
+        
+        const rimLight = new THREE.SpotLight(0xf59e0b, 8); // Strong Amber rim
+        rimLight.position.set(-10, 10, -5);
+        rimLight.lookAt(0, 0, 0);
+        scene.add(rimLight);
+
+        // --------------------------------------------------------
+        // THEME MANAGER (DARK / LIGHT SYNC)
+        // --------------------------------------------------------
+        let isLightMode = false;
+
+        function applyTheme(isLight, animateThree = true) {
+            isLightMode = isLight;
+            const root = document.documentElement;
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+            const themeText = document.getElementById('theme-text');
+
+            if (isLight) {
+                root.classList.add('light');
+                root.classList.remove('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                themeText.innerText = 'Light';
+                localStorage.setItem('diplomatic_theme', 'light');
+
+                // Adjust Three.js Scene for #218c74 Jade Teal Atmosphere (Glare reduced by over 50%)
+                scene.fog.color.setHex(0x218c74);
+                ambientLight.color.setHex(0x1a715d);
+                ambientLight.intensity = 0.65;  // Reduced by ~50% from 1.25
+                sunLight.intensity = 0.55;       // Reduced by ~60% from 1.4
+                sunLight.color.setHex(0xeaf4f1);
+                rimLight.color.setHex(0xf59e0b);
+                rimLight.intensity = 2.0;       // Reduced by 60% from 5
+
+                // Globe material softened: glare-free matte finish without blazing hot-spot
+                material.color.setHex(0xbcdcd4);    // Soft sage/jade tone instead of blinding pure white
+                material.emissive.setHex(0xffcc33);
+                material.emissiveIntensity = 0.15;  // Reduced by >55% from 0.35
+                material.shininess = 4;             // Low shininess removes glaring specular beam
+                material.specular.setHex(0x222222); // Cut specular reflection brightness by 75%
+
+                // Softened atmosphere halo
+                atmosphereUniforms.uColor.value.set(0x33d1ad);
+                atmosphereUniforms.uIntensityScale.value = 0.55; // Reduced by 60% from 1.35
+                cloudMat.opacity = 0.2; // Softened cloud opacity to prevent white glare
+
+                // Subtle ambient stars
+                starMesh.visible = false;
+            } else {
+                root.classList.remove('light');
+                root.classList.add('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                themeText.innerText = 'Dark';
+                localStorage.setItem('diplomatic_theme', 'dark');
+
+                // Adjust Three.js Scene for Deep Cosmic Night
+                scene.fog.color.setHex(0x050A14);
+                ambientLight.color.setHex(0x050505);
+                ambientLight.intensity = 1.0;
+                sunLight.intensity = 1.2;
+                sunLight.color.setHex(0xffffff);
+                rimLight.color.setHex(0xf59e0b);
+                rimLight.intensity = 8;
+
+                // Globe transitions to night with golden city lights
+                material.color.setHex(0x152030);
+                material.emissive.setHex(0xffcc33);
+                material.emissiveIntensity = 0.6;
+                material.shininess = 10;
+                material.specular.setHex(0x555555);
+
+                // Atmosphere halo glows amber
+                atmosphereUniforms.uColor.value.set(0xf59e0b);
+                atmosphereUniforms.uIntensityScale.value = 1.5;
+                cloudMat.opacity = 0.4;
+
+                // Show starfield
+                starMesh.visible = true;
+            }
+            lucide.createIcons();
+        }
+
+        // Initialize Theme preference
+        const savedTheme = localStorage.getItem('diplomatic_theme');
+        if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            applyTheme(true, false);
+        } else {
+            applyTheme(false, false);
+        }
+
+        document.getElementById('theme-toggle-btn').addEventListener('click', () => {
+            applyTheme(!isLightMode);
+        });
+
+        // --- INTERACTION (MOUSE PARALLAX) ---
+        let mouseX = 0;
+        let mouseY = 0;
+        window.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        // --- GLOBE INTERACTIVE ORBITAL SPIN (USA -> EAST ASIA) ---
+        // Starting coordinates centered on the United States:
+        const USA_ROT_Y = 0.05;       // Longitude ~-93° (US Heartland/Chicago/New York)
+        const USA_ROT_X = 0.22;       // Tilt showing North America clearly
+        const EAST_ASIA_ROT_Y = 2.75; // Longitude ~+115° to +127° (Korea/Seoul, Japan, Singapore)
+        const EAST_ASIA_ROT_X = 0.25;
+
+        // Set initial orientation at USA immediately on scene init
+        globeGroup.rotation.x = USA_ROT_X;
+        globeGroup.rotation.y = USA_ROT_Y;
+
+        let globeSpinTween = null;
+        function triggerUsaToEastAsiaSpin(duration = 3.6) {
+            if (globeSpinTween) globeSpinTween.kill();
+
+            // Set starting point at USA
+            globeGroup.rotation.x = USA_ROT_X;
+            globeGroup.rotation.y = USA_ROT_Y;
+
+            // Spin smoothly across the Pacific to East Asia (Korea, Japan, Singapore)
+            globeSpinTween = gsap.to(globeGroup.rotation, {
+                y: EAST_ASIA_ROT_Y,
+                x: EAST_ASIA_ROT_X,
+                duration: duration,
+                ease: "power2.inOut"
+            });
+        }
+
+        // 1. Trigger automatically on first page loading without needing to click
+        window.addEventListener('load', () => {
+            setTimeout(() => triggerUsaToEastAsiaSpin(3.8), 250);
+        });
+        if (document.readyState === 'complete') {
+            setTimeout(() => triggerUsaToEastAsiaSpin(3.8), 250);
+        }
+
+        // 2. Interactive Globe button click also triggers this spin
+        const quickDemoBtn = document.getElementById('quick-demo-btn');
+        if (quickDemoBtn) {
+            quickDemoBtn.addEventListener('click', () => {
+                triggerUsaToEastAsiaSpin(3.2);
+            });
+        }
+
+        // --- ANIMATION LOOP ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // 1. Cloud & Atmosphere Rotation (dynamic weather movement)
+            cloudMesh.rotation.y += 0.0008;
+            cloudMesh.rotation.x += 0.0001;
+            atmosphere.rotation.y += 0.0004;
+
+            // 2. Data Traffic Animation along arcs
+            trafficParticles.forEach(p => {
+                p.progress += 0.004;
+                if (p.progress > 1) p.progress = 0;
+                
+                const point = p.curve.getPoint(p.progress);
+                p.mesh.position.copy(point);
+            });
+
+            // 3. Starfield Drift (when visible)
+            if (starMesh.visible) {
+                starMesh.rotation.y -= 0.0002;
+            }
+
+            // 4. Interactive Parallax (Mouse)
+            gsap.to(universeGroup.rotation, {
+                x: mouseY * 0.1,
+                y: mouseX * 0.1,
+                duration: 1,
+                ease: "power2.out"
+            });
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // --- SCROLL ANIMATION (GSAP SCROLLTRIGGER) ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1
+            }
+        });
+
+        // Phase 1 (Section 2: Global expertise. Bangladesh transformation.)
+        // Frames the globe on the right (x: 3.5, z: -2) and rotates precisely to center Bangladesh & India
+        tl.to(globeGroup.position, { x: 3.5, y: 0, z: -2, duration: 5 }, "phase1")
+          .to(globeGroup.rotation, { y: 2.93, x: 0.26, z: 0, duration: 5 }, "phase1")
+          
+          // Phase 2 (Section 3: Agenda & Predictive Intelligence)
+          .to(globeGroup.position, { x: -3.5, y: 0, z: -1, duration: 5 }, "phase2")
+          .to(globeGroup.rotation, { y: 4.4, x: -0.1, duration: 5 }, "phase2")
+          
+          // Phase 3 (Section 4: Experience & Inner Circle)
+          .to(globeGroup.position, { x: 0, y: -5, z: 2, duration: 5 }, "phase3")
+          .to(globeGroup.rotation, { y: 5.4, x: 0.45, duration: 5 }, "phase3");
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // --- LOOPLING-STYLE TIMELINE SCROLL ANIMATION ---
+        function updateTimelineAnimation() {
+            const tlContainer = document.getElementById('journey-timeline');
+            const tlFill = document.getElementById('tlFill');
+            if (!tlContainer || !tlFill) return;
+
+            const rect = tlContainer.getBoundingClientRect();
+            const windowH = window.innerHeight;
+            
+            // Calculate progress as spine passes through viewport
+            const totalH = rect.height;
+            const currentY = windowH * 0.65 - rect.top;
+            const progress = Math.min(Math.max(currentY / Math.max(1, totalH), 0), 1);
+            
+            tlFill.style.setProperty('--p', (progress * 100).toFixed(1) + '%');
+
+            // Activate individual rows as the fill line passes them
+            const rows = tlContainer.querySelectorAll('.tl-row');
+            rows.forEach(row => {
+                const rowRect = row.getBoundingClientRect();
+                if (rowRect.top < windowH * 0.72) {
+                    row.classList.add('is-active');
+                } else {
+                    row.classList.remove('is-active');
+                }
+            });
+        }
+        window.addEventListener('scroll', updateTimelineAnimation, { passive: true });
+        window.addEventListener('resize', updateTimelineAnimation);
+        setTimeout(updateTimelineAnimation, 300);
+    </script>
+</body>
+</html>

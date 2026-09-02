@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speakers — AI4BT Global Summit 2026</title>
+    
+    <!-- SEO & Social Meta Tags -->
+    <meta name="description" content="Meet world-class founders, researchers, and creators speaking at AI4BT Global Summit 2026. Connecting global expertise to Bangladesh enterprise transformation.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AI4BT Global Summit 2026">
+    <meta property="og:title" content="Speakers — AI4BT Global Summit 2026">
+    <meta property="og:description" content="Meet world-class founders, researchers, and creators speaking at AI4BT Global Summit 2026.">
+    <meta property="og:image" content="preview.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Speakers — AI4BT Global Summit 2026">
+    <meta name="twitter:description" content="Meet world-class founders, researchers, and creators speaking at AI4BT Global Summit 2026.">
+    <meta name="twitter:image" content="preview.jpeg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg-color: #050A14;
+            --canvas-bg: radial-gradient(circle at 50% 20%, #0F172A 0%, #020617 100%);
+            --grid-line: rgba(255, 255, 255, 0.03);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --nav-bg: rgba(5, 10, 20, 0.85);
+            --nav-border: rgba(255, 255, 255, 0.07);
+            --card-bg: rgba(10, 16, 29, 0.7);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --card-glow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 158, 11, 0.08);
+            --gold-gradient: linear-gradient(to right, #FCD34D, #F59E0B, #FCD34D);
+            --hero-cta-bg: #ffffff;
+            --hero-cta-text: #000000;
+            --hero-cta-hover: #e4e4e7;
+            --modal-bg: #0A101D;
+            --modal-border: rgba(255, 255, 255, 0.1);
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --badge-bg: rgba(69, 26, 3, 0.3);
+            --badge-border: rgba(245, 158, 11, 0.3);
+            --badge-text: #f59e0b;
+            --scrollbar-track: #050A14;
+            --scrollbar-thumb: #1e293b;
+        }
+
+        html.light {
+            --bg-color: #218c74;
+            --canvas-bg: radial-gradient(circle at 50% 20%, #2ba68b 0%, #176856 100%);
+            --grid-line: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: #e2f5f0;
+            --nav-bg: rgba(33, 140, 116, 0.88);
+            --nav-border: rgba(255, 255, 255, 0.2);
+            --card-bg: rgba(13, 64, 52, 0.68);
+            --card-border: rgba(255, 255, 255, 0.22);
+            --card-glow: 0 16px 36px rgba(0, 0, 0, 0.2), 0 0 25px rgba(253, 224, 71, 0.12);
+            --gold-gradient: linear-gradient(to right, #FDE68A, #F59E0B, #FDE68A);
+            --hero-cta-bg: #ffffff;
+            --hero-cta-text: #176856;
+            --hero-cta-hover: #f0fdf9;
+            --modal-bg: #1a715d;
+            --modal-border: rgba(255, 255, 255, 0.25);
+            --input-bg: rgba(255, 255, 255, 0.18);
+            --input-border: rgba(255, 255, 255, 0.35);
+            --badge-bg: rgba(254, 243, 199, 0.22);
+            --badge-border: rgba(245, 158, 11, 0.55);
+            --badge-text: #fef08a;
+            --scrollbar-track: #176856;
+            --scrollbar-thumb: #2ba68b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .bg-canvas-layer {
+            background: var(--canvas-bg);
+            transition: background 0.5s ease;
+        }
+
+        .gold-gradient-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .bg-grid {
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 80px 80px;
+            background-attachment: fixed;
+            transition: background-image 0.4s ease;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 4px;
+        }
+
+        .themed-nav {
+            background-color: var(--nav-bg);
+            border-color: var(--nav-border);
+        }
+        .themed-card {
+            background-color: var(--card-bg);
+            border-color: var(--card-border);
+            box-shadow: var(--card-glow);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .themed-badge {
+            background-color: var(--badge-bg);
+            border-color: var(--badge-border);
+            color: var(--badge-text);
+        }
+        .themed-subtext {
+            color: var(--text-secondary);
+        }
+        .themed-modal {
+            background-color: var(--modal-bg);
+            border-color: var(--modal-border);
+            color: var(--text-primary);
+        }
+        .themed-input {
+            background-color: var(--input-bg);
+            border-color: var(--input-border);
+            color: var(--text-primary);
+        }
+
+        /* ================= TESTIMONIALS SLIDER (LOOPLING STYLE) ================= */
+        .quotes {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1rem, 1.8vw, 1.5rem);
+            -webkit-mask: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+            mask: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+            padding: 1rem 0;
+            width: 100%;
+        }
+        .quotes__row {
+            display: flex;
+            gap: clamp(1rem, 1.8vw, 1.5rem);
+            width: max-content;
+            will-change: transform;
+        }
+        .quotes__row.r1 {
+            animation: slideQuotes 50s linear infinite;
+        }
+        .quotes__row.r2 {
+            animation: slideQuotesRev 58s linear infinite;
+        }
+        .quotes:hover .quotes__row {
+            animation-play-state: paused;
+        }
+        @keyframes slideQuotes {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes slideQuotesRev {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .quote-card {
+            width: clamp(20rem, 28vw, 25rem);
+            flex: none;
+            padding: 1.5rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.25rem;
+            border-radius: 1.25rem;
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            box-shadow: var(--card-glow);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: border-color 0.35s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            user-select: none;
+        }
+        .quote-card:hover {
+            border-color: rgba(245, 158, 11, 0.5);
+            transform: translateY(-4px);
+        }
+        .quote-card p {
+            line-height: 1.65;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            opacity: 0.94;
+            font-weight: 300;
+        }
+        .quote-card footer {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+        }
+        .quote-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+        }
+        .quote-avatar i {
+            font-style: normal;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #000;
+        }
+        .quote-avatar img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+        .quote-who b {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .quote-who span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-500/30 selection:text-amber-100 bg-grid min-h-screen relative">
+
+    <!-- Ambient Gradient Background Layer -->
+    <div class="fixed inset-0 pointer-events-none -z-10 bg-canvas-layer"></div>
+
+    <!-- Navigation (Fixed - ai-automation-84 style) -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 md:py-5 flex justify-between items-center border-b themed-nav backdrop-blur-md transition-colors duration-300">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 group">
+            <div class="flex text-white bg-gradient-to-br from-amber-400 to-amber-600 w-8 h-8 md:w-9 md:h-9 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.45)] items-center justify-center transition-transform group-hover:scale-105 duration-300 shrink-0">
+                <i data-lucide="globe" class="w-4 h-4 text-white"></i>
+            </div>
+            <span class="text-xs md:text-sm font-semibold tracking-wider uppercase transition-colors whitespace-nowrap">AI4BT Global Summit</span>
+        </a>
+        
+        <!-- Desktop Pill Menu (ai-automation-84 style) -->
+        <div class="hidden md:flex bg-gradient-to-br from-white/10 to-white/0 border border-white/15 rounded-full p-1 shadow-lg shadow-black/20 backdrop-blur-md items-center gap-1">
+            <a href="index.html#section-1" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Summit
+            </a>
+            <a href="index.html#pillars" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Five Pillars
+            </a>
+            <a href="agenda.html" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Agenda
+            </a>
+            <a href="index.html#experience" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Experience
+            </a>
+            <a href="speakers.html" class="transition-all text-sm font-medium text-white bg-white/15 rounded-full py-1.5 px-4 shadow-sm border border-white/10">
+                Speakers
+            </a>
+        </div>
+
+        <!-- Right Controls & CTA -->
+        <div class="flex items-center gap-2.5">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border themed-input hover:border-amber-500/50 hover:text-amber-500 transition-all duration-300 text-[11px] font-medium active:scale-95 shadow-sm" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
+                <span id="theme-icon-sun" class="hidden text-amber-500"><i data-lucide="sun" class="w-3.5 h-3.5"></i></span>
+                <span id="theme-icon-moon" class="text-zinc-300"><i data-lucide="moon" class="w-3.5 h-3.5"></i></span>
+                <span id="theme-text" class="hidden sm:inline text-[10px] uppercase tracking-wider font-semibold">Dark</span>
+            </button>
+
+            <!-- Book a Call / Register Now CTA Button (ai-automation-84 style) -->
+            <a href="index.html#section-4" class="hidden sm:flex hover:from-amber-400 hover:to-amber-500 hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-all text-xs font-semibold text-black bg-gradient-to-b from-amber-400 to-amber-500 rounded-full py-2 px-5 shadow-[0px_0px_0px_1px_rgba(217,119,6,1),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-sm gap-2 items-center tracking-tight active:scale-95">
+                <span class="text-xs font-semibold text-black tracking-tight">Register Now</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-black"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto space-y-24">
+        
+        <!-- HERO SECTION -->
+        <section class="text-center space-y-6 max-w-4xl mx-auto pt-6">
+            <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border themed-badge backdrop-blur-sm shadow-sm transition-all">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-widest">50+ Industry Leaders & Global Visionaries</span>
+            </div>
+            
+            <h1 class="text-5xl sm:text-7xl font-semibold tracking-tight text-white leading-none">
+                Meet the <span class="gold-gradient-text">Visionaries</span>
+            </h1>
+            
+            <p class="text-base sm:text-lg themed-subtext max-w-2xl mx-auto font-light leading-relaxed">
+                Connect with founders, researchers, and enterprise transformation leaders from OpenAI, Google, Tesla, SpaceX, MIT, Stanford, and groundbreaking global institutions.
+            </p>
+        </section>
+
+        <!-- SECTION 1: KEYNOTE SPEAKERS -->
+        <section class="space-y-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Keynote Speakers</h2>
+                    <span class="hidden sm:inline-block w-px h-8 bg-white/20"></span>
+                    <p class="text-sm themed-subtext max-w-md">World-class innovators sharing breakthrough insights and vision for the enterprise future.</p>
+                </div>
+            </div>
+
+            <!-- Keynotes Grid (3 Columns) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Keynote 1: Dr. Sarah Chen -->
+                <div class="group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-1.5">
+                    <div class="aspect-[4/5] overflow-hidden relative bg-black/20">
+                        <img src="images/speakers/5a8f3649-9a97-4446-955e-d3ced353790f_800w.jpg" alt="Dr. Sarah Chen" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="inline-flex items-center bg-purple-500/20 border border-purple-400/40 text-purple-300 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                            Keynote
+                        </div>
+                        <h3 class="text-xl font-bold text-white tracking-tight">Dr. Sarah Chen</h3>
+                        <p class="text-sm text-amber-400 font-medium">Chief AI Officer, OpenAI</p>
+                        <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                            Leading researcher in artificial general intelligence and machine learning ethics. Former Google DeepMind.
+                        </p>
+                        <div class="pt-2 text-xs italic text-amber-300/80 border-t border-white/10">
+                            "The Future of Human-AI Collaboration"
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keynote 2: Marcus Rodriguez -->
+                <div class="group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-1.5">
+                    <div class="aspect-[4/5] overflow-hidden relative bg-black/20">
+                        <img src="images/speakers/55c99f39-16f4-473b-a2b0-a0a75e0485b5_800w.jpg" alt="Marcus Rodriguez" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="inline-flex items-center bg-purple-500/20 border border-purple-400/40 text-purple-300 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                            Keynote
+                        </div>
+                        <h3 class="text-xl font-bold text-white tracking-tight">Marcus Rodriguez</h3>
+                        <p class="text-sm text-amber-400 font-medium">CEO, Tesla Energy</p>
+                        <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                            Pioneering sustainable energy solutions and grid-scale battery technology. Former SpaceX engineering lead.
+                        </p>
+                        <div class="pt-2 text-xs italic text-amber-300/80 border-t border-white/10">
+                            "Scaling Clean Energy for 10 Billion People"
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keynote 3: Dr. Aisha Patel -->
+                <div class="group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-1.5">
+                    <div class="aspect-[4/5] overflow-hidden relative bg-black/20">
+                        <img src="images/speakers/4c9c20c8-e367-4ade-a102-dda55d03765d_800w.jpg" alt="Dr. Aisha Patel" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="inline-flex items-center bg-purple-500/20 border border-purple-400/40 text-purple-300 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                            Keynote
+                        </div>
+                        <h3 class="text-xl font-bold text-white tracking-tight">Dr. Aisha Patel</h3>
+                        <p class="text-sm text-amber-400 font-medium">Founder, BioTech Innovations</p>
+                        <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                            Revolutionary work in gene therapy and personalized medicine. Named to Time's 100 Most Influential People.
+                        </p>
+                        <div class="pt-2 text-xs italic text-amber-300/80 border-t border-white/10">
+                            "Democratizing Healthcare Through Biotechnology"
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: INDUSTRY LEADERS -->
+        <section class="space-y-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Industry Leaders</h2>
+                    <span class="hidden sm:inline-block w-px h-8 bg-white/20"></span>
+                    <p class="text-sm themed-subtext max-w-md">Founders and executives from the world's most innovative technology companies.</p>
+                </div>
+            </div>
+
+            <!-- Industry Leaders Grid (4 Columns) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Leader 1 -->
+                <div class="group overflow-hidden rounded-xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[3/4] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/ac4a631c-975f-4482-9cef-2a1f99a48178_800w.jpg" alt="James Kim" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <span class="inline-flex items-center bg-blue-500/20 border border-blue-400/30 text-blue-300 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">
+                            Tech
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">James Kim</h3>
+                        <p class="text-xs text-amber-400 font-medium">VP Product, Google</p>
+                        <p class="text-xs themed-subtext leading-relaxed">Leading next-gen search and AI integration across Google's ecosystem.</p>
+                    </div>
+                </div>
+
+                <!-- Leader 2 -->
+                <div class="group overflow-hidden rounded-xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[3/4] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/7a2dc7c2-23b6-422f-a823-9f6546bcaa1e_800w.jpg" alt="Elena Vasquez" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <span class="inline-flex items-center bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">
+                            Fintech
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">Elena Vasquez</h3>
+                        <p class="text-xs text-amber-400 font-medium">CEO, Stripe Europe</p>
+                        <p class="text-xs themed-subtext leading-relaxed">Building the economic infrastructure for the internet across Europe.</p>
+                    </div>
+                </div>
+
+                <!-- Leader 3 -->
+                <div class="group overflow-hidden rounded-xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[3/4] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/a90aa9b5-558b-479a-9570-1ceaa6005110_800w.jpg" alt="David Thompson" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <span class="inline-flex items-center bg-orange-500/20 border border-orange-400/30 text-orange-300 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">
+                            Climate
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">David Thompson</h3>
+                        <p class="text-xs text-amber-400 font-medium">Founder, Carbon Direct</p>
+                        <p class="text-xs themed-subtext leading-relaxed">Pioneer in carbon removal technology and climate solutions.</p>
+                    </div>
+                </div>
+
+                <!-- Leader 4 -->
+                <div class="group overflow-hidden rounded-xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[3/4] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/b868b942-246c-46ca-812c-31b49fd61a16_800w.jpg" alt="Maya Singh" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <span class="inline-flex items-center bg-pink-500/20 border border-pink-400/30 text-pink-300 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">
+                            Design
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">Maya Singh</h3>
+                        <p class="text-xs text-amber-400 font-medium">Head of Design, Figma</p>
+                        <p class="text-xs themed-subtext leading-relaxed">Shaping the future of collaborative design and creativity tools.</p>
+                    </div>
+                </div>
+
+                <!-- Leader 5 -->
+                <div class="group overflow-hidden rounded-xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[3/4] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/68b625be-c49f-477b-83a0-96522157239d_800w.webp" alt="Alex Chen" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <span class="inline-flex items-center bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">
+                            Web3
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">Alex Chen</h3>
+                        <p class="text-xs text-amber-400 font-medium">CTO, Ethereum Foundation</p>
+                        <p class="text-xs themed-subtext leading-relaxed">Leading Ethereum's next evolution and scaling solutions.</p>
+                    </div>
+                </div>
+
+                <!-- Leader 6 -->
+                <div class="group overflow-hidden rounded-xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[3/4] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/356bdc4c-e6ed-48b7-9f77-49eecc083899_800w.jpg" alt="Lisa Park" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <span class="inline-flex items-center bg-rose-500/20 border border-rose-400/30 text-rose-300 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">
+                            Media
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">Lisa Park</h3>
+                        <p class="text-xs text-amber-400 font-medium">VP Content, Netflix</p>
+                        <p class="text-xs themed-subtext leading-relaxed">Pioneering AI-driven content creation and personalization.</p>
+                    </div>
+                </div>
+
+                <!-- Leader 7 -->
+                <div class="group overflow-hidden rounded-xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[3/4] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/b153fc0e-6382-4a25-8ef6-375b322122a9_800w.jpg" alt="Roberto Silva" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <span class="inline-flex items-center bg-yellow-500/20 border border-yellow-400/30 text-yellow-300 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">
+                            Space
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">Roberto Silva</h3>
+                        <p class="text-xs text-amber-400 font-medium">Mission Director, SpaceX</p>
+                        <p class="text-xs themed-subtext leading-relaxed">Leading Mars colonization mission planning and spacecraft design.</p>
+                    </div>
+                </div>
+
+                <!-- Leader 8 -->
+                <div class="group overflow-hidden rounded-xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[3/4] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/a772c813-66f7-4035-8324-8895267e7aab_800w.jpg" alt="Sarah Johnson" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <span class="inline-flex items-center bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">
+                            Hardware
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">Sarah Johnson</h3>
+                        <p class="text-xs text-amber-400 font-medium">Chief Engineer, Apple</p>
+                        <p class="text-xs themed-subtext leading-relaxed">Revolutionizing computing with next-generation silicon and AR/VR.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: RESEARCHERS & INNOVATORS -->
+        <section class="space-y-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Researchers &amp; Innovators</h2>
+                    <span class="hidden sm:inline-block w-px h-8 bg-white/20"></span>
+                    <p class="text-sm themed-subtext max-w-md">Leading scientists and researchers pushing the frontiers of agentic AI and enterprise science.</p>
+                </div>
+            </div>
+
+            <!-- Researchers Grid (3 Columns) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Researcher 1 -->
+                <div class="group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[4/3] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/1cfbb8c1-ce75-47ab-94af-c1089aec4d64_800w.webp" alt="Dr. Michael Zhang" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="inline-flex items-center bg-teal-500/20 border border-teal-400/30 text-teal-300 px-3 py-1 rounded-full text-xs font-medium">
+                            Quantum Computing
+                        </span>
+                        <h3 class="text-xl font-bold text-white tracking-tight">Dr. Michael Zhang</h3>
+                        <p class="text-sm text-amber-400 font-medium">Lead Scientist, IBM Quantum</p>
+                        <p class="text-xs sm:text-sm themed-subtext leading-relaxed">Pioneering fault-tolerant quantum computers and quantum error correction algorithms.</p>
+                    </div>
+                </div>
+
+                <!-- Researcher 2 -->
+                <div class="group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[4/3] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/e0c770fd-fcfe-44d2-a09b-8050690eaf82_800w.jpg" alt="Dr. Anna Kowalski" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="inline-flex items-center bg-violet-500/20 border border-violet-400/30 text-violet-300 px-3 py-1 rounded-full text-xs font-medium">
+                            Neuroscience
+                        </span>
+                        <h3 class="text-xl font-bold text-white tracking-tight">Dr. Anna Kowalski</h3>
+                        <p class="text-sm text-amber-400 font-medium">Director, Neuralink Research</p>
+                        <p class="text-xs sm:text-sm themed-subtext leading-relaxed">Leading breakthrough research in brain-computer interfaces and neural prosthetics.</p>
+                    </div>
+                </div>
+
+                <!-- Researcher 3 -->
+                <div class="group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[4/3] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/33b39afd-9e06-4eaf-81f9-30863e6a4159_800w.jpg" alt="Dr. Hassan Ahmed" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="inline-flex items-center bg-amber-500/20 border border-amber-400/30 text-amber-300 px-3 py-1 rounded-full text-xs font-medium">
+                            Robotics
+                        </span>
+                        <h3 class="text-xl font-bold text-white tracking-tight">Dr. Hassan Ahmed</h3>
+                        <p class="text-sm text-amber-400 font-medium">Professor, MIT CSAIL</p>
+                        <p class="text-xs sm:text-sm themed-subtext leading-relaxed">Developing next-generation humanoid robots and AI-powered autonomous systems.</p>
+                    </div>
+                </div>
+
+                <!-- Researcher 4 -->
+                <div class="group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[4/3] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/5d95e69f-fe67-4ab5-a2d9-d78a63648c54_800w.webp" alt="Dr. Grace Liu" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="inline-flex items-center bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 px-3 py-1 rounded-full text-xs font-medium">
+                            Materials Science
+                        </span>
+                        <h3 class="text-xl font-bold text-white tracking-tight">Dr. Grace Liu</h3>
+                        <p class="text-sm text-amber-400 font-medium">Senior Researcher, Stanford</p>
+                        <p class="text-xs sm:text-sm themed-subtext leading-relaxed">Creating revolutionary materials for energy storage and sustainable manufacturing.</p>
+                    </div>
+                </div>
+
+                <!-- Researcher 5 -->
+                <div class="group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[4/3] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/f0b7dda2-0868-4e2a-bf8e-8479062248d3_800w.webp" alt="Dr. Carlos Mendez" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="inline-flex items-center bg-rose-500/20 border border-rose-400/30 text-rose-300 px-3 py-1 rounded-full text-xs font-medium">
+                            Space Science
+                        </span>
+                        <h3 class="text-xl font-bold text-white tracking-tight">Dr. Carlos Mendez</h3>
+                        <p class="text-sm text-amber-400 font-medium">Principal Scientist, NASA JPL</p>
+                        <p class="text-xs sm:text-sm themed-subtext leading-relaxed">Leading missions to discover life on Mars and exploring exoplanet atmospheres.</p>
+                    </div>
+                </div>
+
+                <!-- Researcher 6 -->
+                <div class="group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-1">
+                    <div class="aspect-[4/3] overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/1cfbb8c1-ce75-47ab-94af-c1089aec4d64_800w.webp" alt="Dr. Priya Sharma" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="inline-flex items-center bg-sky-500/20 border border-sky-400/30 text-sky-300 px-3 py-1 rounded-full text-xs font-medium">
+                            Ocean Science
+                        </span>
+                        <h3 class="text-xl font-bold text-white tracking-tight">Dr. Priya Sharma</h3>
+                        <p class="text-sm text-amber-400 font-medium">Marine Biologist, Woods Hole</p>
+                        <p class="text-xs sm:text-sm themed-subtext leading-relaxed">Studying deep-sea ecosystems and developing ocean-based carbon capture solutions.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: TESTIMONIALS (What Industry Experts are Saying) -->
+        <section id="voices" class="w-full py-12 overflow-hidden relative z-10">
+            <div class="mb-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="space-y-3">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border themed-badge backdrop-blur-sm text-[11px] font-semibold tracking-wider uppercase shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                            Voices & Perspectives
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight text-white">
+                            What Industry Experts are <span class="gold-gradient-text">Saying</span>
+                        </h2>
+                    </div>
+                    <p class="themed-subtext text-xs sm:text-sm max-w-md leading-relaxed">
+                        Global advisors, enterprise CIOs, and transformation coaches on the strategic shift from legacy ERP to autonomous agentic intelligence.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Double Sliding Marquee Track -->
+            <div class="quotes">
+                <div class="quotes__row r1" id="q1"></div>
+                <div class="quotes__row r2" id="q2"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: CALL TO ACTION -->
+        <section class="text-center p-12 md:p-16 rounded-3xl border themed-card max-w-4xl mx-auto space-y-8">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/30 mx-auto">
+                <i data-lucide="sparkles" class="w-6 h-6 text-amber-500"></i>
+            </div>
+            
+            <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+                Ready to Learn from the <span class="gold-gradient-text">Visionaries?</span>
+            </h2>
+            
+            <p class="text-base sm:text-lg themed-subtext max-w-xl mx-auto font-light leading-relaxed">
+                Join these world-renowned experts and Bangladesh enterprise leaders for three evenings of strategy, ERP transformation, and agentic AI.
+            </p>
+            
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="index.html#section-4" class="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-white dark:text-black font-semibold text-xs tracking-widest uppercase px-8 py-3.5 rounded-lg shadow-lg active:scale-95 transition-all">
+                    <span>Register Your Interest</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="index.html" class="inline-flex items-center gap-2 border themed-input px-6 py-3.5 rounded-lg text-xs font-medium uppercase tracking-wider hover:border-amber-500/50 transition-all">
+                    <span>Back to Summit Home</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 themed-nav py-12 px-6 md:px-12 text-center relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-7 h-7 rounded border border-amber-500/40 bg-amber-500/10 flex items-center justify-center">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-amber-500"></i>
+                </div>
+                <span class="text-xs font-semibold tracking-wider uppercase">AI4BT Global Summit</span>
+            </div>
+            <p class="text-xs themed-subtext">
+                &copy; 2026 AI4BT Global Summit. All rights reserved. 25–27 September 2026 • Fully Online.
+            </p>
+            <div class="flex items-center gap-6 text-xs themed-subtext">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="index.html#section-2" class="hover:text-amber-500 transition-colors">Five Pillars</a>
+                <a href="index.html#section-3" class="hover:text-amber-500 transition-colors">Agenda</a>
+                <a href="speakers.html" class="text-amber-500">Speakers</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 dark:bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="themed-modal border rounded-2xl max-w-md w-full p-6 md:p-8 space-y-6 shadow-2xl relative transition-all duration-300">
+            <button id="close-login-btn" class="absolute top-6 right-6 themed-subtext hover:text-amber-500 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="text-center space-y-2">
+                <div class="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 mx-auto flex items-center justify-center mb-3">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-amber-500"></i>
+                </div>
+                <h3 class="text-xl font-medium">Diplomatic Portal</h3>
+                <p class="text-xs themed-subtext">Authorized personnel & delegate access</p>
+            </div>
+            <form onsubmit="event.preventDefault(); handleLoginSubmit();" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider themed-subtext mb-1 font-semibold">Diplomatic ID / Email</label>
+                    <input type="text" required placeholder="name@delegation.gov" class="w-full border themed-input rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider themed-subtext mb-1 font-semibold">Security Token</label>
+                    <input type="password" required placeholder="••••••••••••" class="w-full border themed-input rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-500">
+                </div>
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white dark:text-black py-2.5 rounded-lg text-xs font-semibold tracking-widest uppercase transition-all shadow-md">
+                    Authenticate Session
+                </button>
+            </form>
+            <div id="login-feedback" class="hidden text-center text-xs text-amber-400 font-medium">
+                Verifying cryptographic token credentials...
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Modal Controls
+        function toggleModal(modalId, show) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            if (show) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.classList.remove('opacity-100', 'pointer-events-auto');
+            }
+        }
+
+        const openLoginBtn = document.getElementById('open-login-btn');
+        if (openLoginBtn) openLoginBtn.addEventListener('click', () => toggleModal('login-modal', true));
+        document.getElementById('close-login-btn').addEventListener('click', () => toggleModal('login-modal', false));
+
+        function handleLoginSubmit() {
+            const feedback = document.getElementById('login-feedback');
+            feedback.classList.remove('hidden');
+            setTimeout(() => {
+                feedback.innerHTML = '✓ Credential authenticated. Launching diplomatic terminal...';
+                setTimeout(() => {
+                    toggleModal('login-modal', false);
+                    feedback.classList.add('hidden');
+                }, 1200);
+            }, 1000);
+        }
+
+        // --------------------------------------------------------
+        // TESTIMONIALS (LOOPLING STYLE SLIDING MARQUEE)
+        // --------------------------------------------------------
+        const INDUSTRY_QUOTES = [
+            [
+                "The transition from traditional ERP to AI-native enterprise is the single most urgent imperative for South Asian conglomerates. AI4BT is the only summit bridging this gap with pragmatic blueprints.",
+                "Marcus Vance",
+                "Global AI Transformation Coach · London",
+                "images/testimonials/expert_7.jpg",
+                "MV"
+            ],
+            [
+                "Most enterprise AI discussions stay at the conceptual level. AI4BT actually connects functional ERP workflows with autonomous agent orchestration that executive leadership can deploy.",
+                "Dr. Tanvir Rahman",
+                "Chief Information Officer · Beximco Group",
+                "images/testimonials/expert_2.jpg",
+                "TR"
+            ],
+            [
+                "Autonomous agents aren't replacing ERP systems—they are becoming the intelligent operating fabric sitting on top of them. This summit defines that architectural shift.",
+                "Elena Rostova",
+                "VP Enterprise Architecture · SAP APJ",
+                "images/testimonials/expert_6.jpg",
+                "ER"
+            ],
+            [
+                "Bringing global Silicon Valley and European AI governance experts directly to Dhaka's leadership tables is a game changer for the region's digital economy.",
+                "Farhana Yasmin",
+                "Director of Digital Transformation · Grameenphone",
+                "images/testimonials/expert_4.jpg",
+                "FY"
+            ],
+            [
+                "AI Governance and cybersecurity cannot be an afterthought in agentic automation. The framework presented at AI4BT sets the benchmark for enterprise safety.",
+                "Julian Sterling",
+                "AI Security & Compliance Fellow · Singapore",
+                "images/testimonials/expert_3.jpg",
+                "JS"
+            ],
+            [
+                "Our supply chain and manufacturing operations require practical AI solutions that respect localized market constraints. AI4BT delivers exactly that grounded perspective.",
+                "Shahriar Ahmed",
+                "Managing Director · Square Pharmaceuticals",
+                "images/testimonials/expert_8.jpg",
+                "SA"
+            ],
+            [
+                "Agentic AI applications will transform banking and trade finance in Bangladesh over the next 24 months. This summit gathers the leaders who will make it happen.",
+                "Nadia Chowdhury",
+                "Head of Strategy & Innovation · BRAC Bank",
+                "images/testimonials/expert_1.jpg",
+                "NC"
+            ],
+            [
+                "International experts define what is possible; Bangladesh leaders define what is practical. AI4BT is the catalyst connecting the two with unmatched precision.",
+                "David K. Lindqvist",
+                "Managing Partner · Global AI Advisors Zurich",
+                "images/testimonials/expert_5.jpg",
+                "DL"
+            ]
+        ];
+
+        function renderQuoteCard([txt, who, role, img, initials]) {
+            return `
+                <div class="quote-card">
+                    <p>“${txt}”</p>
+                    <footer>
+                        <div class="quote-avatar">
+                            <i>${initials}</i>
+                            <img src="${img}" alt="${who}" loading="lazy" onerror="this.style.display='none'">
+                        </div>
+                        <div class="quote-who">
+                            <b>${who}</b>
+                            <span>${role}</span>
+                        </div>
+                    </footer>
+                </div>
+            `;
+        }
+
+        const q1El = document.getElementById('q1');
+        const q2El = document.getElementById('q2');
+        if (q1El && q2El) {
+            const row1 = [...INDUSTRY_QUOTES.slice(0, 4), ...INDUSTRY_QUOTES.slice(0, 4)];
+            const row2 = [...INDUSTRY_QUOTES.slice(4), ...INDUSTRY_QUOTES.slice(4)];
+            q1El.innerHTML = row1.map(renderQuoteCard).join('');
+            q2El.innerHTML = row2.map(renderQuoteCard).join('');
+        }
+
+        // Theme Manager
+        let isLightMode = false;
+        function applyTheme(isLight) {
+            isLightMode = isLight;
+            const root = document.documentElement;
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+            const themeText = document.getElementById('theme-text');
+
+            if (isLight) {
+                root.classList.add('light');
+                root.classList.remove('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                themeText.innerText = 'Light';
+                localStorage.setItem('diplomatic_theme', 'light');
+            } else {
+                root.classList.remove('light');
+                root.classList.add('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                themeText.innerText = 'Dark';
+                localStorage.setItem('diplomatic_theme', 'dark');
+            }
+            lucide.createIcons();
+        }
+
+        // Initialize Theme preference
+        const savedTheme = localStorage.getItem('diplomatic_theme');
+        if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            applyTheme(true);
+        } else {
+            applyTheme(false);
+        }
+
+        document.getElementById('theme-toggle-btn').addEventListener('click', () => {
+            applyTheme(!isLightMode);
+        });
+    </script>
+</body>
+</html>

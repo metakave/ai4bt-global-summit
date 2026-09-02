@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda &amp; Events | AI4BT Global Summit 2026</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ================= COLOR THEME TOKENS ================= */
+        :root {
+            /* Dark Mode (Default: Deep Cosmic Slate) */
+            --bg-color: #050A14;
+            --bg-canvas-gradient: radial-gradient(circle at 50% 30%, #0d1f38 0%, #050A14 80%);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --card-bg: rgba(7, 18, 36, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-glow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            --nav-bg: rgba(5, 10, 20, 0.85);
+            --nav-border: rgba(255, 255, 255, 0.1);
+            --badge-bg: rgba(245, 158, 11, 0.1);
+            --badge-border: rgba(245, 158, 11, 0.3);
+            --badge-text: #f59e0b;
+            --grid-line: rgba(255, 255, 255, 0.03);
+            --scrollbar-track: #050A14;
+            --scrollbar-thumb: #1e293b;
+            --modal-bg: #071326;
+            --modal-border: rgba(245, 158, 11, 0.3);
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.15);
+        }
+
+        html.light {
+            /* Light Mode (Amazon Green / Jade Teal #218c74) */
+            --bg-color: #218c74;
+            --bg-canvas-gradient: radial-gradient(circle at 50% 35%, #2ba68b 0%, #176856 80%);
+            --text-primary: #ffffff;
+            --text-secondary: #e2f5f0;
+            --card-bg: rgba(13, 64, 52, 0.65);
+            --card-border: rgba(255, 255, 255, 0.18);
+            --card-glow: 0 20px 50px rgba(7, 35, 28, 0.4);
+            --nav-bg: rgba(23, 104, 86, 0.9);
+            --nav-border: rgba(255, 255, 255, 0.2);
+            --badge-bg: rgba(253, 230, 138, 0.2);
+            --badge-border: rgba(253, 230, 138, 0.45);
+            --badge-text: #fef3c7;
+            --grid-line: rgba(255, 255, 255, 0.08);
+            --scrollbar-track: #176856;
+            --scrollbar-thumb: #2ba68b;
+            --modal-bg: #145949;
+            --modal-border: rgba(253, 230, 138, 0.4);
+            --input-bg: rgba(255, 255, 255, 0.15);
+            --input-border: rgba(255, 255, 255, 0.25);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .bg-canvas-layer {
+            background: var(--bg-canvas-gradient);
+            transition: background 0.5s ease;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF7ED 0%, #FDE68A 30%, #F59E0B 70%, #B45309 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-grid {
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 80px 80px;
+            background-attachment: fixed;
+            transition: background-image 0.4s ease;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 4px;
+        }
+
+        .themed-nav {
+            background-color: var(--nav-bg);
+            border-color: var(--nav-border);
+        }
+        .themed-card {
+            background-color: var(--card-bg);
+            border-color: var(--card-border);
+            box-shadow: var(--card-glow);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .themed-badge {
+            background-color: var(--badge-bg);
+            border-color: var(--badge-border);
+            color: var(--badge-text);
+        }
+        .themed-subtext {
+            color: var(--text-secondary);
+        }
+        .themed-modal {
+            background-color: var(--modal-bg);
+            border-color: var(--modal-border);
+            color: var(--text-primary);
+        }
+        .themed-input {
+            background-color: var(--input-bg);
+            border-color: var(--input-border);
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-500/30 selection:text-amber-100 bg-grid min-h-screen relative">
+
+    <!-- Ambient Gradient Background Layer -->
+    <div class="fixed inset-0 pointer-events-none -z-10 bg-canvas-layer"></div>
+
+    <!-- Navigation (Fixed - ai-automation-84 style) -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 md:py-5 flex justify-between items-center border-b themed-nav backdrop-blur-md transition-colors duration-300">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 group">
+            <div class="flex text-white bg-gradient-to-br from-amber-400 to-amber-600 w-8 h-8 md:w-9 md:h-9 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.45)] items-center justify-center transition-transform group-hover:scale-105 duration-300 shrink-0">
+                <i data-lucide="globe" class="w-4 h-4 text-white"></i>
+            </div>
+            <span class="text-xs md:text-sm font-semibold tracking-wider uppercase transition-colors whitespace-nowrap">AI4BT Global Summit</span>
+        </a>
+        
+        <!-- Desktop Pill Menu (ai-automation-84 style) -->
+        <div class="hidden md:flex bg-gradient-to-br from-white/10 to-white/0 border border-white/15 rounded-full p-1 shadow-lg shadow-black/20 backdrop-blur-md items-center gap-1">
+            <a href="index.html#section-1" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Summit
+            </a>
+            <a href="index.html#pillars" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Five Pillars
+            </a>
+            <a href="agenda.html" class="transition-all text-sm font-medium text-white bg-white/15 rounded-full py-1.5 px-4 shadow-sm border border-white/10">
+                Agenda
+            </a>
+            <a href="index.html#experience" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Experience
+            </a>
+            <a href="speakers.html" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Speakers
+            </a>
+        </div>
+
+        <!-- Right Controls & CTA -->
+        <div class="flex items-center gap-2.5">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border themed-input hover:border-amber-500/50 hover:text-amber-500 transition-all duration-300 text-[11px] font-medium active:scale-95 shadow-sm" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
+                <span id="theme-icon-sun" class="hidden text-amber-500"><i data-lucide="sun" class="w-3.5 h-3.5"></i></span>
+                <span id="theme-icon-moon" class="text-zinc-300"><i data-lucide="moon" class="w-3.5 h-3.5"></i></span>
+                <span id="theme-text" class="hidden sm:inline text-[10px] uppercase tracking-wider font-semibold">Dark</span>
+            </button>
+
+            <!-- Book a Call / Register Now CTA Button (ai-automation-84 style) -->
+            <a href="index.html#section-4" class="hidden sm:flex hover:from-amber-400 hover:to-amber-500 hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-all text-xs font-semibold text-black bg-gradient-to-b from-amber-400 to-amber-500 rounded-full py-2 px-5 shadow-[0px_0px_0px_1px_rgba(217,119,6,1),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-sm gap-2 items-center tracking-tight active:scale-95">
+                <span class="text-xs font-semibold text-black tracking-tight">Register Now</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-black"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto space-y-20">
+        
+        <!-- HERO SECTION (Events & Sessions) -->
+        <section class="text-center space-y-6 max-w-4xl mx-auto pt-6">
+            <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border themed-badge backdrop-blur-sm shadow-sm transition-all">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-widest">Conference Agenda &amp; Schedule</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-white leading-tight">
+                Events &amp; <span class="gold-gradient-text">Sessions</span>
+            </h1>
+            
+            <p class="text-base sm:text-lg themed-subtext max-w-2xl mx-auto font-light leading-relaxed">
+                Discover breakthrough keynotes, hands-on workshops, and exclusive networking events designed to accelerate your journey into the future.
+            </p>
+
+            <!-- Event Filter Tabs -->
+            <div class="flex justify-center mt-8">
+                <div class="inline-flex bg-white/5 border border-white/10 rounded-xl p-1.5 backdrop-blur-xl shadow-lg" id="event-filter-tabs">
+                    <button data-filter="all" class="filter-tab px-4 py-2 text-xs sm:text-sm font-medium text-white bg-white/15 rounded-lg transition-all shadow-sm border border-white/10">
+                        All Events
+                    </button>
+                    <button data-filter="keynote" class="filter-tab px-4 py-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white rounded-lg transition-all hover:bg-white/10">
+                        Keynotes
+                    </button>
+                    <button data-filter="workshop" class="filter-tab px-4 py-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white rounded-lg transition-all hover:bg-white/10">
+                        Workshops
+                    </button>
+                    <button data-filter="networking" class="filter-tab px-4 py-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white rounded-lg transition-all hover:bg-white/10">
+                        Networking
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: FEATURED EVENTS -->
+        <section class="space-y-8" id="featured-events-sec">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Featured Events</h2>
+                    <span class="hidden sm:inline-block w-px h-8 bg-white/20"></span>
+                    <p class="text-xs sm:text-sm themed-subtext max-w-md leading-relaxed">
+                        Don't miss these highlight sessions from industry pioneers and breakthrough innovators.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Main Featured Keynote Card -->
+            <div class="event-item session-card" data-category="keynote">
+                <div class="group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:border-amber-500/50 shadow-2xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                        <div class="lg:col-span-6 h-64 lg:h-auto min-h-[300px] overflow-hidden relative">
+                            <img src="images/events/a63f6a06-f3d9-41c1-aad2-9662b6dda4cc_1600w.webp" alt="AI Revolution Keynote" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent lg:hidden"></div>
+                        </div>
+                        <div class="lg:col-span-6 p-8 md:p-10 flex flex-col justify-between space-y-6">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between flex-wrap gap-3">
+                                    <div class="flex items-center gap-2.5">
+                                        <span class="inline-flex items-center bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 px-3 py-1 rounded-full text-xs font-semibold">
+                                            Keynote
+                                        </span>
+                                        <span class="inline-flex items-center bg-blue-500/20 border border-blue-400/30 text-blue-300 px-3 py-1 rounded-full text-xs font-semibold">
+                                            Day 1
+                                        </span>
+                                    </div>
+                                    <span class="text-xs sm:text-sm text-amber-400 font-mono font-medium flex items-center gap-1.5">
+                                        <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                        9:00 AM - 10:00 AM
+                                    </span>
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+                                    The AI Revolution: Beyond the Hype
+                                </h3>
+                                <p class="themed-subtext text-sm sm:text-base leading-relaxed font-light">
+                                    Join OpenAI's Chief Technology Officer as they unveil the next frontier of artificial intelligence and its impact on every industry.
+                                </p>
+                            </div>
+
+                            <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-11 h-11 bg-gradient-to-tr from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                                        SM
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-white">Sarah Mitchell</p>
+                                        <p class="text-xs themed-subtext">CTO, OpenAI</p>
+                                    </div>
+                                </div>
+                                <a href="index.html#section-4" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 text-xs font-semibold tracking-wider uppercase transition-colors">
+                                    <span>Reserve Seat</span>
+                                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: EVENT SCHEDULE -->
+        <section class="space-y-8" id="schedule-sec">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Event Schedule</h2>
+                    <span class="hidden sm:inline-block w-px h-8 bg-white/20"></span>
+                    <p class="text-xs sm:text-sm themed-subtext max-w-md leading-relaxed">
+                        Two days packed with insights, connections, and breakthrough moments.
+                    </p>
+                </div>
+
+                <!-- Day Selector Tabs -->
+                <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl p-1 backdrop-blur-md self-start sm:self-auto" id="day-tabs">
+                    <button data-day="1" class="day-tab px-5 py-2 rounded-lg text-xs font-semibold transition-all text-white bg-white/15 border border-white/10 shadow-sm">
+                        Day 1 - March 15
+                    </button>
+                    <button data-day="2" class="day-tab px-5 py-2 rounded-lg text-xs font-semibold transition-all text-zinc-400 hover:text-white hover:bg-white/10">
+                        Day 2 - March 16
+                    </button>
+                </div>
+            </div>
+
+            <!-- DAY 1 SESSIONS CONTAINER -->
+            <div id="day-1-content" class="day-panel space-y-8 transition-opacity duration-300">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Morning Sessions -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 pb-2">
+                            <i data-lucide="sunrise" class="w-4 h-4 text-amber-500"></i>
+                            <h4 class="text-lg font-semibold text-white">Morning Sessions</h4>
+                        </div>
+                        
+                        <!-- Event Item 1 -->
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="keynote">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    9:00 - 10:00 AM
+                                </span>
+                                <span class="inline-flex items-center bg-orange-500/20 border border-orange-400/30 text-orange-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Keynote
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                The Future of Work in an AI World
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Exploring how AI will reshape industries, jobs, and the nature of human collaboration.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-blue-400 to-cyan-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    JC
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Dr. James Chen, Stanford AI Lab</span>
+                            </div>
+                        </div>
+
+                        <!-- Event Item 2 -->
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="panel">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    10:30 - 11:30 AM
+                                </span>
+                                <span class="inline-flex items-center bg-purple-500/20 border border-purple-400/30 text-purple-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Panel
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Sustainable Tech: Building for Tomorrow
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Leading voices discuss how technology can solve climate change and create a sustainable future.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-green-400 to-emerald-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    MR
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Maria Rodriguez, Tesla Energy + 3 others</span>
+                            </div>
+                        </div>
+
+                        <!-- Event Item 3 -->
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="workshop">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    12:00 - 1:00 PM
+                                </span>
+                                <span class="inline-flex items-center bg-pink-500/20 border border-pink-400/30 text-pink-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Workshop
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Prompt Engineering Masterclass
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Hands-on workshop to master the art and science of effective AI prompt design.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-pink-400 to-rose-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    AL
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Alex Liu, Anthropic</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Afternoon Sessions -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 pb-2">
+                            <i data-lucide="sun" class="w-4 h-4 text-amber-500"></i>
+                            <h4 class="text-lg font-semibold text-white">Afternoon Sessions</h4>
+                        </div>
+                        
+                        <!-- Event Item 4 -->
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="keynote">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    2:00 - 3:00 PM
+                                </span>
+                                <span class="inline-flex items-center bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Fireside Chat
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                From Startup to Unicorn
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Intimate conversation with founders who built billion-dollar companies from scratch.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-indigo-400 to-purple-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    EK
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Emma Kim, Notion Co-founder</span>
+                            </div>
+                        </div>
+
+                        <!-- Event Item 5 -->
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="workshop">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    3:30 - 4:30 PM
+                                </span>
+                                <span class="inline-flex items-center bg-yellow-500/20 border border-yellow-400/30 text-yellow-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Demo
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Next-Gen Product Showcase
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Live demos of breakthrough products that will reshape how we live, work, and connect.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-yellow-400 to-orange-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    DT
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">David Thompson, Meta Reality Labs</span>
+                            </div>
+                        </div>
+
+                        <!-- Event Item 6 -->
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="networking">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    5:00 - 6:00 PM
+                                </span>
+                                <span class="inline-flex items-center bg-teal-500/20 border border-teal-400/30 text-teal-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Networking
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Innovation Mixer &amp; Demo Hour
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Connect with fellow innovators while exploring the latest startup demos and breakthrough technologies.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-teal-400 to-blue-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    SP
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">SPARK Community Team</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 2 SESSIONS CONTAINER (Hidden by default) -->
+            <div id="day-2-content" class="day-panel space-y-8 hidden transition-opacity duration-300">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Morning Sessions Day 2 -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 pb-2">
+                            <i data-lucide="sunrise" class="w-4 h-4 text-amber-500"></i>
+                            <h4 class="text-lg font-semibold text-white">Day 2 Morning Sessions</h4>
+                        </div>
+                        
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="keynote">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    9:00 - 10:00 AM
+                                </span>
+                                <span class="inline-flex items-center bg-orange-500/20 border border-orange-400/30 text-orange-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Keynote
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Autonomous Systems: The Next Frontier
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Deep dive into self-orchestrating multi-agent systems and real-world deployment benchmarks.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-amber-400 to-orange-400 rounded-full flex items-center justify-center text-black text-xs font-bold">
+                                    SC
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Dr. Sarah Chen, OpenAI</span>
+                            </div>
+                        </div>
+
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="panel">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    10:30 - 11:30 AM
+                                </span>
+                                <span class="inline-flex items-center bg-purple-500/20 border border-purple-400/30 text-purple-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Panel
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Global AI Governance &amp; Safety Benchmarks
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Policymakers, CISOs, and enterprise architects debate safety, sovereignty, and trust.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-teal-400 to-emerald-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    AP
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Dr. Aisha Patel + Global Panel</span>
+                            </div>
+                        </div>
+
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="workshop">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    12:00 - 1:00 PM
+                                </span>
+                                <span class="inline-flex items-center bg-pink-500/20 border border-pink-400/30 text-pink-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Workshop
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Fine-Tuning Enterprise SLMs for Finance &amp; ERP
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Hands-on pipeline tutorial for fine-tuning open-source models with private enterprise data.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-purple-400 to-indigo-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    MZ
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Dr. Michael Zhang, IBM Quantum</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Afternoon Sessions Day 2 -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 pb-2">
+                            <i data-lucide="sun" class="w-4 h-4 text-amber-500"></i>
+                            <h4 class="text-lg font-semibold text-white">Day 2 Afternoon Sessions</h4>
+                        </div>
+                        
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="keynote">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    2:00 - 3:00 PM
+                                </span>
+                                <span class="inline-flex items-center bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Fireside Chat
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Scaling Quantum &amp; Neural Interfaces
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Future horizons of brain-computer interfaces and neural computing architectures.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-pink-400 to-rose-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    AK
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">Dr. Anna Kowalski, Neuralink</span>
+                            </div>
+                        </div>
+
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="workshop">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    3:30 - 4:30 PM
+                                </span>
+                                <span class="inline-flex items-center bg-yellow-500/20 border border-yellow-400/30 text-yellow-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Demo
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Agentic ERP Live Demo: Automated P2P &amp; O2C
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Live end-to-end simulation of autonomous agents handling corporate procurement.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-amber-400 to-yellow-400 rounded-full flex items-center justify-center text-black text-xs font-bold">
+                                    EL
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">ERP Innovation Labs</span>
+                            </div>
+                        </div>
+
+                        <div class="event-item group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 themed-card backdrop-blur-xl space-y-3" data-category="networking">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xs sm:text-sm text-emerald-400 font-mono font-medium flex items-center gap-1.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    5:00 - 6:00 PM
+                                </span>
+                                <span class="inline-flex items-center bg-teal-500/20 border border-teal-400/30 text-teal-300 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                                    Networking
+                                </span>
+                            </div>
+                            <h5 class="text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                                Closing VIP Executive Reception &amp; Awards
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                                Celebrate breakthrough transformations and network with global summit delegates.
+                            </p>
+                            <div class="pt-2 flex items-center gap-2.5">
+                                <div class="w-7 h-7 bg-gradient-to-tr from-teal-400 to-cyan-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    AC
+                                </div>
+                                <span class="text-xs themed-subtext font-medium">AI4BT Executive Advisory Council</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: HANDS-ON WORKSHOPS -->
+        <section class="space-y-8" id="workshops-sec">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Hands-On Workshops</h2>
+                    <span class="hidden sm:inline-block w-px h-8 bg-white/20"></span>
+                    <p class="text-xs sm:text-sm themed-subtext max-w-md leading-relaxed">
+                        Learn by doing with our expert-led interactive workshops.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Workshop Card 1 -->
+                <div class="event-item group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 shadow-xl flex flex-col justify-between" data-category="workshop">
+                    <div class="h-48 overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/356bdc4c-e6ed-48b7-9f77-49eecc083899_800w.jpg" alt="AI Workshop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="inline-flex items-center bg-purple-500/20 border border-purple-400/30 text-purple-300 rounded-full px-3 py-1 text-xs font-semibold">
+                                    3 Hours
+                                </span>
+                                <span class="text-xs themed-subtext font-mono">Limited: 25 spots</span>
+                            </div>
+                            <h5 class="text-xl font-bold text-white tracking-tight leading-snug">
+                                Build Your First AI Agent
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed font-light">
+                                Create intelligent agents that can reason, plan, and execute complex tasks using cutting-edge frameworks.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 bg-gradient-to-tr from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    RF
+                                </div>
+                                <div>
+                                    <p class="text-xs font-semibold text-white">Rachel Foster</p>
+                                    <p class="text-[10px] themed-subtext">AI Researcher</p>
+                                </div>
+                            </div>
+                            <button onclick="handleWorkshopReserve('Build Your First AI Agent')" class="text-amber-400 hover:text-amber-300 text-xs font-semibold uppercase tracking-wider transition-colors flex items-center gap-1">
+                                <span>Reserve</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workshop Card 2 -->
+                <div class="event-item group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 shadow-xl flex flex-col justify-between" data-category="workshop">
+                    <div class="h-48 overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/e0c770fd-fcfe-44d2-a09b-8050690eaf82_800w.jpg" alt="Design Workshop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="inline-flex items-center bg-blue-500/20 border border-blue-400/30 text-blue-300 rounded-full px-3 py-1 text-xs font-semibold">
+                                    2 Hours
+                                </span>
+                                <span class="text-xs themed-subtext font-mono">Open: 50 spots</span>
+                            </div>
+                            <h5 class="text-xl font-bold text-white tracking-tight leading-snug">
+                                Design Systems for the Future
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed font-light">
+                                Master the principles of creating scalable, accessible design systems for next-generation products.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 bg-gradient-to-tr from-blue-400 to-cyan-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    MJ
+                                </div>
+                                <div>
+                                    <p class="text-xs font-semibold text-white">Marcus Johnson</p>
+                                    <p class="text-[10px] themed-subtext">Design Director</p>
+                                </div>
+                            </div>
+                            <button onclick="handleWorkshopReserve('Design Systems for the Future')" class="text-amber-400 hover:text-amber-300 text-xs font-semibold uppercase tracking-wider transition-colors flex items-center gap-1">
+                                <span>Reserve</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workshop Card 3 -->
+                <div class="event-item group overflow-hidden rounded-2xl border themed-card transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 shadow-xl flex flex-col justify-between" data-category="workshop">
+                    <div class="h-48 overflow-hidden bg-black/20 relative">
+                        <img src="images/speakers/b153fc0e-6382-4a25-8ef6-375b322122a9_800w.jpg" alt="Blockchain Workshop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="inline-flex items-center bg-green-500/20 border border-green-400/30 text-green-300 rounded-full px-3 py-1 text-xs font-semibold">
+                                    4 Hours
+                                </span>
+                                <span class="text-xs themed-subtext font-mono">Limited: 15 spots</span>
+                            </div>
+                            <h5 class="text-xl font-bold text-white tracking-tight leading-snug">
+                                Web3 &amp; Decentralized Apps
+                            </h5>
+                            <p class="text-xs sm:text-sm themed-subtext leading-relaxed font-light">
+                                Build and deploy your first decentralized application using modern Web3 technologies and frameworks.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 bg-gradient-to-tr from-green-400 to-emerald-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                                    AB
+                                </div>
+                                <div>
+                                    <p class="text-xs font-semibold text-white">Aiden Blake</p>
+                                    <p class="text-[10px] themed-subtext">Blockchain Dev</p>
+                                </div>
+                            </div>
+                            <button onclick="handleWorkshopReserve('Web3 & Decentralized Apps')" class="text-amber-400 hover:text-amber-300 text-xs font-semibold uppercase tracking-wider transition-colors flex items-center gap-1">
+                                <span>Reserve</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CALL TO ACTION -->
+        <section class="text-center p-12 md:p-16 rounded-3xl border themed-card max-w-4xl mx-auto space-y-8">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/30 mx-auto">
+                <i data-lucide="sparkles" class="w-6 h-6 text-amber-500"></i>
+            </div>
+            
+            <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+                Ready to Join the <span class="gold-gradient-text">Future?</span>
+            </h2>
+            
+            <p class="text-base sm:text-lg themed-subtext max-w-xl mx-auto font-light leading-relaxed">
+                Secure your spot at AI4BT Global Summit 2026. Early bird registration is open for enterprise transformation leaders.
+            </p>
+            
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="index.html#section-4" class="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-white dark:text-black font-semibold text-xs tracking-widest uppercase px-8 py-3.5 rounded-lg shadow-lg active:scale-95 transition-all">
+                    <span>Get Your Tickets Now</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="index.html" class="inline-flex items-center gap-2 border themed-input px-6 py-3.5 rounded-lg text-xs font-medium uppercase tracking-wider hover:border-amber-500/50 transition-all">
+                    <span>Back to Summit Home</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 themed-nav py-12 px-6 md:px-12 text-center relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-7 h-7 rounded border border-amber-500/40 bg-amber-500/10 flex items-center justify-center">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-amber-500"></i>
+                </div>
+                <span class="text-xs font-semibold tracking-wider uppercase">AI4BT Global Summit</span>
+            </div>
+            <p class="text-xs themed-subtext">
+                &copy; 2026 AI4BT Global Summit. All rights reserved. 25–27 September 2026 • Fully Online.
+            </p>
+            <div class="flex items-center gap-6 text-xs themed-subtext">
+                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
+                <a href="index.html#pillars" class="hover:text-amber-500 transition-colors">Five Pillars</a>
+                <a href="agenda.html" class="text-amber-500">Agenda</a>
+                <a href="speakers.html" class="hover:text-amber-500 transition-colors">Speakers</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Reservation Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="px-5 py-3.5 rounded-xl border border-amber-500/40 bg-black/90 text-white text-xs font-medium flex items-center gap-3 shadow-2xl backdrop-blur-md">
+            <i data-lucide="check-circle" class="w-4 h-4 text-amber-400"></i>
+            <span id="toast-message">Seat reserved successfully.</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // --------------------------------------------------------
+        // THEME MANAGER
+        // --------------------------------------------------------
+        let isLightMode = false;
+        function applyTheme(isLight) {
+            isLightMode = isLight;
+            const root = document.documentElement;
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+            const themeText = document.getElementById('theme-text');
+
+            if (isLight) {
+                root.classList.add('light');
+                root.classList.remove('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                themeText.innerText = 'Light';
+                localStorage.setItem('diplomatic_theme', 'light');
+            } else {
+                root.classList.remove('light');
+                root.classList.add('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                themeText.innerText = 'Dark';
+                localStorage.setItem('diplomatic_theme', 'dark');
+            }
+            lucide.createIcons();
+        }
+
+        // Initialize Theme preference
+        const savedTheme = localStorage.getItem('diplomatic_theme');
+        if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            applyTheme(true);
+        } else {
+            applyTheme(false);
+        }
+
+        document.getElementById('theme-toggle-btn').addEventListener('click', () => {
+            applyTheme(!isLightMode);
+        });
+
+        // --------------------------------------------------------
+        // DAY TABS SWITCHER (Day 1 vs Day 2)
+        // --------------------------------------------------------
+        const dayTabs = document.querySelectorAll('.day-tab');
+        const day1Content = document.getElementById('day-1-content');
+        const day2Content = document.getElementById('day-2-content');
+
+        dayTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const day = tab.getAttribute('data-day');
+                
+                dayTabs.forEach(t => {
+                    t.classList.remove('text-white', 'bg-white/15', 'border-white/10', 'shadow-sm');
+                    t.classList.add('text-zinc-400', 'hover:text-white', 'hover:bg-white/10');
+                });
+                tab.classList.add('text-white', 'bg-white/15', 'border-white/10', 'shadow-sm');
+                tab.classList.remove('text-zinc-400', 'hover:text-white', 'hover:bg-white/10');
+
+                if (day === '1') {
+                    day1Content.classList.remove('hidden');
+                    day2Content.classList.add('hidden');
+                } else {
+                    day1Content.classList.add('hidden');
+                    day2Content.classList.remove('hidden');
+                }
+                lucide.createIcons();
+            });
+        });
+
+        // --------------------------------------------------------
+        // EVENT CATEGORY FILTER (All Events, Keynotes, Workshops, Networking)
+        // --------------------------------------------------------
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const eventItems = document.querySelectorAll('.event-item');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const filter = tab.getAttribute('data-filter');
+
+                filterTabs.forEach(t => {
+                    t.classList.remove('text-white', 'bg-white/15', 'shadow-sm', 'border', 'border-white/10');
+                    t.classList.add('text-zinc-300', 'hover:text-white', 'hover:bg-white/10');
+                });
+                tab.classList.add('text-white', 'bg-white/15', 'shadow-sm', 'border', 'border-white/10');
+                tab.classList.remove('text-zinc-300', 'hover:text-white', 'hover:bg-white/10');
+
+                eventItems.forEach(item => {
+                    const cat = item.getAttribute('data-category');
+                    if (filter === 'all' || cat === filter) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // --------------------------------------------------------
+        // WORKSHOP RESERVATION FEEDBACK
+        // --------------------------------------------------------
+        function handleWorkshopReserve(workshopName) {
+            const toast = document.getElementById('toast');
+            const message = document.getElementById('toast-message');
+            message.innerText = `Spot reserved for "${workshopName}". Redirecting to registration...`;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                window.location.href = 'index.html#section-4';
+            }, 1400);
+        }
+    </script>
+</body>
+</html>
