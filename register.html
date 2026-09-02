@@ -8,16 +8,15 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind Config to match other pages -->
+    <!-- Tailwind Config to match Home (index.html) -->
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
-                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
                         amber: {
@@ -34,15 +33,15 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Inter + JetBrains Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
         /* ================= COLOR THEME TOKENS ================= */
         :root {
-            /* Dark Mode (Default: Deep Cosmic Slate) */
+            /* Dark Mode (Deep Cosmic Slate matching index.html) */
             --bg-color: #050A14;
             --bg-canvas-gradient: radial-gradient(circle at 50% 30%, #0d1f38 0%, #050A14 80%);
             --text-primary: #ffffff;
@@ -50,8 +49,8 @@
             --card-bg: rgba(7, 18, 36, 0.7);
             --card-border: rgba(255, 255, 255, 0.08);
             --card-glow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            --nav-bg: rgba(5, 10, 20, 0.85);
-            --nav-border: rgba(255, 255, 255, 0.1);
+            --nav-bg: rgba(5, 10, 20, 0.8);
+            --nav-border: rgba(255, 255, 255, 0.05);
             --badge-bg: rgba(245, 158, 11, 0.1);
             --badge-border: rgba(245, 158, 11, 0.3);
             --badge-text: #f59e0b;
@@ -66,7 +65,7 @@
         }
 
         html.light {
-            /* Light Mode (Amazon Green / Jade Teal #218c74) */
+            /* Light Mode (Amazon Green / Jade Teal #218c74 matching index.html) */
             --bg-color: #218c74;
             --bg-canvas-gradient: radial-gradient(circle at 50% 35%, #2ba68b 0%, #176856 80%);
             --text-primary: #ffffff;
@@ -74,7 +73,7 @@
             --card-bg: rgba(13, 64, 52, 0.65);
             --card-border: rgba(255, 255, 255, 0.18);
             --card-glow: 0 20px 50px rgba(7, 35, 28, 0.4);
-            --nav-bg: rgba(23, 104, 86, 0.9);
+            --nav-bg: rgba(33, 140, 116, 0.88);
             --nav-border: rgba(255, 255, 255, 0.2);
             --badge-bg: rgba(253, 230, 138, 0.2);
             --badge-border: rgba(253, 230, 138, 0.45);
@@ -90,10 +89,24 @@
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
+            margin: 0;
+            overflow-x: hidden;
             transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* 8px Scrollbar matching index.html to prevent viewport width discrepancy */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 4px;
         }
 
         .bg-canvas-layer {
