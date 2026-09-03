@@ -211,6 +211,42 @@
             color: var(--text-secondary);
         }
 
+        /* ================= HERO MARQUEE SCROLLER ================= */
+        .hero-marquee-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 9999px;
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            background: rgba(5, 10, 20, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            -webkit-mask: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+            mask: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+            padding: 0.65rem 0;
+            width: 100%;
+            max-width: 44rem;
+        }
+        html.light .hero-marquee-container {
+            background: rgba(13, 64, 52, 0.7);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        .hero-marquee-track {
+            display: flex;
+            gap: 2.5rem;
+            width: max-content;
+            will-change: transform;
+            animation: heroMarqueeScroll 22s linear infinite;
+        }
+        .hero-marquee-container:hover .hero-marquee-track {
+            animation-play-state: paused;
+        }
+        @keyframes heroMarqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         /* ================= TESTIMONIALS SLIDER (LOOPLING STYLE) ================= */
         .quotes {
             overflow: hidden;
@@ -442,6 +478,38 @@
                             <i data-lucide="calendar" class="w-4 h-4 text-amber-500"></i>
                             <span class="tracking-wider text-[11px] uppercase font-semibold">Explore Agenda</span>
                         </a>
+                    </div>
+
+                    <!-- Animated Text Scroller (Right to Left) -->
+                    <div class="pt-4 max-w-2xl">
+                        <div class="hero-marquee-container">
+                            <div class="hero-marquee-track">
+                                <div class="flex items-center gap-2 text-xs sm:text-[13px] font-medium whitespace-nowrap">
+                                    <span class="text-orange-500 dark:text-orange-400 font-bold uppercase tracking-wider">The AI-Native Enterprise</span>
+                                    <span class="text-white/40 font-light">—</span>
+                                    <span class="text-white font-medium tracking-wide">Transforming ERP • Reimagining Business • Redefining the Future</span>
+                                    <span class="text-amber-500/60 font-bold px-3">✦</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs sm:text-[13px] font-medium whitespace-nowrap">
+                                    <span class="text-orange-500 dark:text-orange-400 font-bold uppercase tracking-wider">The AI-Native Enterprise</span>
+                                    <span class="text-white/40 font-light">—</span>
+                                    <span class="text-white font-medium tracking-wide">Transforming ERP • Reimagining Business • Redefining the Future</span>
+                                    <span class="text-amber-500/60 font-bold px-3">✦</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs sm:text-[13px] font-medium whitespace-nowrap">
+                                    <span class="text-orange-500 dark:text-orange-400 font-bold uppercase tracking-wider">The AI-Native Enterprise</span>
+                                    <span class="text-white/40 font-light">—</span>
+                                    <span class="text-white font-medium tracking-wide">Transforming ERP • Reimagining Business • Redefining the Future</span>
+                                    <span class="text-amber-500/60 font-bold px-3">✦</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs sm:text-[13px] font-medium whitespace-nowrap">
+                                    <span class="text-orange-500 dark:text-orange-400 font-bold uppercase tracking-wider">The AI-Native Enterprise</span>
+                                    <span class="text-white/40 font-light">—</span>
+                                    <span class="text-white font-medium tracking-wide">Transforming ERP • Reimagining Business • Redefining the Future</span>
+                                    <span class="text-amber-500/60 font-bold px-3">✦</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
