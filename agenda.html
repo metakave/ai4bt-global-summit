@@ -155,15 +155,15 @@
         /* ================= SEAMLESS FOOTER VIDEO ================= */
         .footer-video-wrap {
             position: absolute;
-            inset: 0;
+            inset: -8% 0 0 0;
             overflow: hidden;
             pointer-events: none;
             z-index: 0;
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 100%);
-            mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.05) 5%, rgba(0,0,0,0.25) 15%, rgba(0,0,0,0.65) 28%, #000 45%, #000 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.05) 5%, rgba(0,0,0,0.25) 15%, rgba(0,0,0,0.65) 28%, #000 45%, #000 100%);
         }
         .footer-video-el {
             width: 100%;
@@ -173,9 +173,18 @@
             mix-blend-mode: screen;
             opacity: 0.95;
         }
+        html.light .footer-video-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 85% 70% at 50% 90%, rgba(33, 140, 116, 0.45) 0%, rgba(16, 185, 129, 0.2) 40%, transparent 75%);
+            pointer-events: none;
+            z-index: -1;
+        }
         html.light .footer-video-el {
-            mix-blend-mode: normal;
-            opacity: 0.85;
+            mix-blend-mode: screen;
+            opacity: 0.95;
+            filter: contrast(1.2) brightness(1.15) saturate(1.2);
         }
 
         /* ================= MOBILE NAVIGATION (UNDER 800PX) ================= */
