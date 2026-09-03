@@ -1686,10 +1686,10 @@
             normalMap: normalTexture,
             emissiveMap: lightsTexture,
             emissive: 0xffcc33, // Golden lights
-            emissiveIntensity: 0.6,
-            color: 0x152030,    // Dark blueish base (dynamically adjusted in light mode)
-            specular: 0x555555,
-            shininess: 10
+            emissiveIntensity: 0.55,
+            color: 0x286358,    // Luminous jade/emerald greenish base matching light mode vibrancy
+            specular: 0x448877,
+            shininess: 12
         });
         const globe = new THREE.Mesh(geometry, material);
         globeGroup.add(globe);
@@ -1914,26 +1914,26 @@
                 if (themeText) themeText.innerText = 'Light';
                 localStorage.setItem('diplomatic_theme', 'dark');
 
-                // Adjust Three.js Scene for Deep Cosmic Night
-                scene.fog.color.setHex(0x050A14);
-                ambientLight.color.setHex(0x050505);
-                ambientLight.intensity = 1.0;
-                sunLight.intensity = 1.2;
-                sunLight.color.setHex(0xffffff);
-                rimLight.color.setHex(0xf59e0b);
-                rimLight.intensity = 8;
+                // Adjust Three.js Scene for Luminous Jade-Cosmic Night (Enhanced Greenish Hue & Visibility)
+                scene.fog.color.setHex(0x051410);
+                ambientLight.color.setHex(0x0c332b);
+                ambientLight.intensity = 1.35;
+                sunLight.intensity = 1.25;
+                sunLight.color.setHex(0xe8faf3);
+                rimLight.color.setHex(0x2dd4bf);
+                rimLight.intensity = 6.0;
 
-                // Globe transitions to night with golden city lights
-                material.color.setHex(0x152030);
+                // Globe with vibrant jade-emerald green landmasses & luminous city lights
+                material.color.setHex(0x286358);    // Luminous jade/emerald tone so it's not overly dark
                 material.emissive.setHex(0xffcc33);
-                material.emissiveIntensity = 0.6;
-                material.shininess = 10;
-                material.specular.setHex(0x555555);
+                material.emissiveIntensity = 0.55;
+                material.shininess = 12;
+                material.specular.setHex(0x448877);
 
-                // Atmosphere halo glows amber
-                atmosphereUniforms.uColor.value.set(0xf59e0b);
-                atmosphereUniforms.uIntensityScale.value = 1.5;
-                cloudMat.opacity = 0.4;
+                // Atmosphere halo glows with a vibrant jade-teal aura
+                atmosphereUniforms.uColor.value.set(0x2dd4bf);
+                atmosphereUniforms.uIntensityScale.value = 1.35;
+                cloudMat.opacity = 0.35;
 
                 // Show starfield
                 starMesh.visible = true;
