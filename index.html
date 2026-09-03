@@ -1725,13 +1725,14 @@
         }
 
         // Add glow markers at cities with special highlight for Dhaka, Bangladesh
-        cities.forEach(city => {
+        cities.forEach((city, idx) => {
             const pos = latLonToVector3(city.lat, city.lon, 5.01);
             const size = city.isHub ? 0.09 : 0.06;
             const outerSize = city.isHub ? 0.14 : 0.09;
             const markerGeo = new THREE.RingGeometry(size, outerSize, 32);
+            const markerColor = city.isHub ? 0x474787 : (idx % 2 === 0 ? 0x474787 : 0x40407a);
             const markerMat = new THREE.MeshBasicMaterial({ 
-                color: city.isHub ? 0xffd700 : 0xf59e0b, 
+                color: markerColor, 
                 side: THREE.DoubleSide 
             });
             const marker = new THREE.Mesh(markerGeo, markerMat);
@@ -1743,10 +1744,10 @@
                 // Secondary outer pulsing beacon for Dhaka, Bangladesh
                 const haloGeo = new THREE.RingGeometry(0.18, 0.23, 32);
                 const haloMat = new THREE.MeshBasicMaterial({ 
-                    color: 0xf59e0b, 
+                    color: 0x40407a, 
                     side: THREE.DoubleSide, 
                     transparent: true, 
-                    opacity: 0.75 
+                    opacity: 0.85 
                 });
                 const halo = new THREE.Mesh(haloGeo, haloMat);
                 halo.position.copy(pos);
