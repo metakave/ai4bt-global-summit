@@ -738,34 +738,38 @@
 
     </main>
 
-    <!-- Footer with Animated Video Background -->
-    <footer class="relative overflow-hidden border-t border-white/10 pt-[300px] pb-14 px-6 md:px-12 text-center mt-16">
-        <!-- Video Background Layer -->
+    <!-- Footer with High-Visibility Animated Video Background -->
+    <footer class="relative overflow-hidden border-t border-white/10 mt-20 pt-48 pb-10 px-6 md:px-12 text-center min-h-[460px] md:min-h-[580px] flex flex-col justify-between">
+        <!-- Video Background Layer (Full Brightness & Maximum Visibility) -->
         <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-            <video autoplay loop muted playsinline class="w-full h-full object-cover object-center opacity-60">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover object-center opacity-95">
                 <source src="videos/footer-bg.mp4" type="video/mp4">
             </video>
-            <!-- Gradient Overlay for smooth edge fading and contrast -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)] via-black/40 to-[var(--bg-color)]"></div>
-            <div class="absolute inset-0 bg-black/30 backdrop-blur-[1px]"></div>
+            <!-- Soft edge feathering at top and bottom -->
+            <div class="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[var(--bg-color)] to-transparent opacity-90"></div>
+            <div class="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[var(--bg-color)]/95 via-[var(--bg-color)]/60 to-transparent"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+        <!-- Top Spacer to bring up the video view -->
+        <div class="w-full"></div>
+
+        <!-- Footer Bottom Bar (Frosted Capsule so text is 100% legible) -->
+        <div class="max-w-7xl mx-auto w-full p-4 sm:p-5 rounded-2xl sm:rounded-full bg-black/60 dark:bg-black/60 border border-white/15 backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 relative z-10 shadow-2xl">
             <div class="flex items-center gap-3">
-                <div class="w-7 h-7 rounded border border-amber-500/40 bg-amber-500/10 flex items-center justify-center">
-                    <i data-lucide="globe" class="w-3.5 h-3.5 text-amber-500"></i>
+                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-md">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-white"></i>
                 </div>
                 <span class="text-xs font-semibold tracking-wider uppercase text-white">AI4BT Global Summit</span>
             </div>
-            <p class="text-xs themed-subtext">
+            <p class="text-xs text-zinc-300">
                 &copy; 2026 AI4BT Global Summit. All rights reserved. 25–27 September 2026 • Fully Online.
             </p>
-            <div class="flex items-center gap-6 text-xs themed-subtext">
-                <a href="index.html" class="hover:text-amber-500 transition-colors">Home</a>
-                <a href="index.html#section-2" class="hover:text-amber-500 transition-colors">Five Pillars</a>
-                <a href="agenda.html" class="hover:text-amber-500 transition-colors">Agenda</a>
-                <a href="speakers.html" class="text-amber-500">Speakers</a>
-                <a href="register.html" class="hover:text-amber-400 font-semibold transition-colors">Register</a>
+            <div class="flex items-center gap-6 text-xs text-zinc-300">
+                <a href="index.html" class="hover:text-amber-400 transition-colors">Home</a>
+                <a href="index.html#section-2" class="hover:text-amber-400 transition-colors">Five Pillars</a>
+                <a href="agenda.html" class="hover:text-amber-400 transition-colors">Agenda</a>
+                <a href="speakers.html" class="text-amber-400 font-semibold">Speakers</a>
+                <a href="register.html" class="text-amber-400 font-bold hover:underline">Register Now</a>
             </div>
         </div>
     </footer>
