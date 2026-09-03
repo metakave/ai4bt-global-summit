@@ -209,6 +209,14 @@
             opacity: 0.035;
             background-image: repeating-linear-gradient(-45deg, #ffffff, #ffffff 1px, transparent 1px, transparent 12px);
         }
+        .webgl-black-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background-color: #000000;
+            opacity: 0.5; /* 50% opacity to make foreground text pop */
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-amber-500/30 selection:text-amber-100 bg-grid min-h-screen relative font-sans">
@@ -219,6 +227,7 @@
     <!-- WebGL Auralis Cybernetic Trails Background Canvas -->
     <canvas id="webgl-canvas"></canvas>
     <div class="texture-overlay"></div>
+    <div class="webgl-black-overlay"></div>
 
     <!-- Navigation (Fixed - ai-automation-84 style) -->
     <nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 md:py-5 flex justify-between items-center border-b themed-nav backdrop-blur-md transition-colors duration-300">
