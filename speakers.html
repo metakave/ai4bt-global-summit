@@ -169,6 +169,31 @@
             color: var(--text-primary);
         }
 
+        /* ================= SEAMLESS FOOTER VIDEO ================= */
+        .footer-video-wrap {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+            -webkit-mask-image: radial-gradient(ellipse 92% 82% at 50% 50%, #000 35%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
+            mask-image: radial-gradient(ellipse 92% 82% at 50% 50%, #000 35%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
+            -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+        }
+        .footer-video-el {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            mix-blend-mode: screen;
+            opacity: 0.92;
+        }
+        html.light .footer-video-el {
+            mix-blend-mode: normal;
+            opacity: 0.78;
+        }
+
         /* ================= TESTIMONIALS SLIDER (LOOPLING STYLE) ================= */
         .quotes {
             overflow: hidden;
@@ -738,22 +763,19 @@
 
     </main>
 
-    <!-- Footer with High-Visibility Animated Video Background -->
-    <footer class="relative overflow-hidden border-t border-white/10 mt-20 pt-48 pb-10 px-6 md:px-12 text-center min-h-[460px] md:min-h-[580px] flex flex-col justify-between">
-        <!-- Video Background Layer (Full Brightness & Maximum Visibility) -->
-        <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-            <video autoplay loop muted playsinline class="w-full h-full object-cover object-center opacity-95">
+    <!-- Footer with Seamlessly Blended Animated Video Background -->
+    <footer class="relative overflow-hidden mt-16 pt-48 pb-10 px-6 md:px-12 text-center min-h-[460px] md:min-h-[560px] flex flex-col justify-between">
+        <!-- Video Background Layer (Seamlessly Feathered with Screen Blend) -->
+        <div class="footer-video-wrap">
+            <video autoplay loop muted playsinline class="footer-video-el">
                 <source src="videos/footer-bg.mp4" type="video/mp4">
             </video>
-            <!-- Soft edge feathering at top and bottom -->
-            <div class="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[var(--bg-color)] to-transparent opacity-90"></div>
-            <div class="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[var(--bg-color)]/95 via-[var(--bg-color)]/60 to-transparent"></div>
         </div>
 
         <!-- Top Spacer to bring up the video view -->
         <div class="w-full"></div>
 
-        <!-- Footer Bottom Bar (Frosted Capsule so text is 100% legible) -->
+        <!-- Footer Bottom Bar (Frosted Capsule) -->
         <div class="max-w-7xl mx-auto w-full p-4 sm:p-5 rounded-2xl sm:rounded-full bg-black/60 dark:bg-black/60 border border-white/15 backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 relative z-10 shadow-2xl">
             <div class="flex items-center gap-3">
                 <div class="w-7 h-7 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-md">
