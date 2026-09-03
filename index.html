@@ -396,7 +396,7 @@
             .mobile-menu-toggle {
                 display: none !important;
             }
-            #mobile-menu-drawer {
+            #mobile-menu-drawer, #mobile-menu-backdrop {
                 display: none !important;
             }
         }
@@ -450,43 +450,76 @@
 
             <!-- Mobile Hamburger Menu Button (Under 800px) -->
             <button id="mobile-menu-btn" class="mobile-menu-toggle hidden w-8 h-8 md:w-9 md:h-9 rounded-full border themed-input hover:border-amber-500/50 text-white hover:text-amber-500 transition-all duration-300 items-center justify-center active:scale-95 shadow-sm" aria-label="Open Navigation Menu" aria-expanded="false">
-                <i id="hamburger-icon" data-lucide="menu" class="w-4 h-4 text-amber-400"></i>
-                <i id="close-menu-icon" data-lucide="x" class="w-4 h-4 text-amber-400 hidden"></i>
+                <i data-lucide="menu" class="w-4 h-4 text-amber-400"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Navigation Drawer Overlay (Under 800px) -->
-    <div id="mobile-menu-drawer" class="fixed inset-x-0 top-[65px] md:top-[73px] z-40 p-5 backdrop-blur-2xl border-b border-white/10 shadow-2xl transition-all duration-300 transform -translate-y-[130%] opacity-0 pointer-events-none" style="background-color: var(--nav-bg);">
-        <div class="max-w-md mx-auto flex flex-col gap-2.5">
-            <a href="#section-1" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors">
-                <span>Summit</span>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400/70"></i>
+    <!-- Mobile Slide-In Sidebar Drawer (Right to Left - Under 800px) -->
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none"></div>
+
+    <aside id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] z-50 p-6 flex flex-col justify-between shadow-[-15px_0_40px_rgba(0,0,0,0.8)] backdrop-blur-2xl border-l border-white/10 transition-transform duration-300 ease-out transform translate-x-full overflow-y-auto" style="background-color: var(--nav-bg);">
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between pb-5 border-b border-white/10">
+            <div class="flex items-center gap-2.5">
+                <img src="images/logo.png" alt="AI4BT Logo" class="w-7 h-7 object-contain rounded-full shadow-[0_0_12px_rgba(56,189,248,0.35)]">
+                <span class="text-xs font-bold tracking-wider uppercase text-white">AI4BT Summit</span>
+            </div>
+            <button id="mobile-menu-close" class="w-8 h-8 rounded-full border themed-input hover:border-amber-500/50 text-zinc-300 hover:text-amber-400 transition-all flex items-center justify-center active:scale-95" aria-label="Close Navigation Menu">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="flex flex-col gap-2 py-6">
+            <a href="#section-1" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors text-zinc-200 hover:text-white">
+                <span class="flex items-center gap-3">
+                    <i data-lucide="home" class="w-4 h-4 text-amber-400"></i>
+                    <span>Summit</span>
+                </span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500"></i>
             </a>
-            <a href="#pillars" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors">
-                <span>Five Pillars</span>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400/70"></i>
+            <a href="#pillars" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors text-zinc-200 hover:text-white">
+                <span class="flex items-center gap-3">
+                    <i data-lucide="layers" class="w-4 h-4 text-amber-400"></i>
+                    <span>Five Pillars</span>
+                </span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500"></i>
             </a>
-            <a href="agenda.html" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors">
-                <span>Agenda</span>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400/70"></i>
+            <a href="agenda.html" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors text-zinc-200 hover:text-white">
+                <span class="flex items-center gap-3">
+                    <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i>
+                    <span>Agenda</span>
+                </span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500"></i>
             </a>
-            <a href="#experience" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors">
-                <span>Experience</span>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400/70"></i>
+            <a href="#experience" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors text-zinc-200 hover:text-white">
+                <span class="flex items-center gap-3">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+                    <span>Experience</span>
+                </span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500"></i>
             </a>
-            <a href="speakers.html" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors">
-                <span>Speakers</span>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400/70"></i>
+            <a href="speakers.html" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors text-zinc-200 hover:text-white">
+                <span class="flex items-center gap-3">
+                    <i data-lucide="users" class="w-4 h-4 text-amber-400"></i>
+                    <span>Speakers</span>
+                </span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500"></i>
             </a>
-            <div class="pt-2 border-t border-white/10">
-                <a href="register.html" class="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 transition-all shadow-md active:scale-95">
-                    <span>Register Now</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4 text-black"></i>
-                </a>
+        </div>
+
+        <!-- Drawer Footer with CTA -->
+        <div class="pt-4 border-t border-white/10 space-y-3">
+            <a href="register.html" class="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 transition-all shadow-lg active:scale-95">
+                <span>Register Now</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-black"></i>
+            </a>
+            <div class="text-center text-[11px] text-zinc-400 font-mono">
+                25–27 Sep 2026 • Fully Online
             </div>
         </div>
-    </div>
+    </aside>
 
     <!-- Scroll Content Wrapper -->
     <div class="relative z-10">
@@ -2073,43 +2106,39 @@
         window.addEventListener('resize', updateTimelineAnimation);
         setTimeout(updateTimelineAnimation, 300);
 
-        // --- MOBILE HAMBURGER MENU CONTROLLER (UNDER 800PX) ---
+        // --- MOBILE RIGHT-TO-LEFT SLIDE-IN DRAWER CONTROLLER (UNDER 800PX) ---
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
         const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
-        const hamburgerIcon = document.getElementById('hamburger-icon');
-        const closeMenuIcon = document.getElementById('close-menu-icon');
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-        if (mobileMenuBtn && mobileMenuDrawer) {
-            mobileMenuBtn.addEventListener('click', () => {
-                const isOpen = mobileMenuDrawer.classList.contains('opacity-100');
-                if (isOpen) {
-                    closeMobileMenu();
-                } else {
-                    openMobileMenu();
-                }
-            });
-
-            function openMobileMenu() {
-                mobileMenuDrawer.classList.remove('-translate-y-[130%]', 'opacity-0', 'pointer-events-none');
-                mobileMenuDrawer.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
-                if (closeMenuIcon) closeMenuIcon.classList.remove('hidden');
-                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        function openMobileMenu() {
+            if (mobileMenuBackdrop && mobileMenuDrawer) {
+                mobileMenuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenuBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+                mobileMenuDrawer.classList.remove('translate-x-full');
+                mobileMenuDrawer.classList.add('translate-x-0');
+                document.body.style.overflow = 'hidden';
             }
-
-            function closeMobileMenu() {
-                mobileMenuDrawer.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                mobileMenuDrawer.classList.add('-translate-y-[130%]', 'opacity-0', 'pointer-events-none');
-                if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
-                if (closeMenuIcon) closeMenuIcon.classList.add('hidden');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            }
-
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', closeMobileMenu);
-            });
         }
+
+        function closeMobileMenu() {
+            if (mobileMenuBackdrop && mobileMenuDrawer) {
+                mobileMenuBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                mobileMenuBackdrop.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenuDrawer.classList.remove('translate-x-0');
+                mobileMenuDrawer.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
     </script>
 </body>
 </html>
