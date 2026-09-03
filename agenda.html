@@ -177,6 +177,27 @@
             mix-blend-mode: normal;
             opacity: 0.85;
         }
+
+        /* ================= MOBILE NAVIGATION (UNDER 800PX) ================= */
+        @media (max-width: 800px) {
+            .desktop-nav-pill {
+                display: none !important;
+            }
+            .mobile-menu-toggle {
+                display: flex !important;
+            }
+        }
+        @media (min-width: 801px) {
+            .desktop-nav-pill {
+                display: flex !important;
+            }
+            .mobile-menu-toggle {
+                display: none !important;
+            }
+            #mobile-menu-drawer {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-amber-500/30 selection:text-amber-100 bg-grid min-h-screen relative">
@@ -193,7 +214,7 @@
         </a>
         
         <!-- Desktop Pill Menu (ai-automation-84 style) -->
-        <div class="hidden md:flex bg-gradient-to-br from-white/10 to-white/0 border border-white/15 rounded-full p-1 shadow-lg shadow-black/20 backdrop-blur-md items-center gap-1">
+        <div class="desktop-nav-pill hidden md:flex bg-gradient-to-br from-white/10 to-white/0 border border-white/15 rounded-full p-1 shadow-lg shadow-black/20 backdrop-blur-md items-center gap-1">
             <a href="index.html#section-1" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
                 Summit
             </a>
@@ -219,13 +240,51 @@
                 <span id="theme-icon-moon" class="hidden text-zinc-300"><i data-lucide="moon" class="w-4 h-4"></i></span>
             </button>
 
-            <!-- Book a Call / Register Now CTA Button (ai-automation-84 style) -->
+            <!-- Book a Call / Register Now CTA Button (Desktop) -->
             <a href="register.html" class="hidden sm:flex hover:from-amber-400 hover:to-amber-500 hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-all text-sm font-semibold text-black bg-gradient-to-b from-amber-400 to-amber-500 rounded-full py-2 px-5 shadow-[0px_0px_0px_1px_rgba(217,119,6,1),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-sm gap-2 items-center tracking-tight active:scale-95">
                 <span class="text-sm font-semibold text-black tracking-tight">Register Now</span>
                 <i data-lucide="arrow-right" class="w-4 h-4 text-black"></i>
             </a>
+
+            <!-- Mobile Hamburger Menu Button (Under 800px) -->
+            <button id="mobile-menu-btn" class="mobile-menu-toggle hidden w-8 h-8 md:w-9 md:h-9 rounded-full border themed-input hover:border-amber-500/50 text-white hover:text-amber-500 transition-all duration-300 items-center justify-center active:scale-95 shadow-sm" aria-label="Open Navigation Menu" aria-expanded="false">
+                <i id="hamburger-icon" data-lucide="menu" class="w-4 h-4 text-amber-400"></i>
+                <i id="close-menu-icon" data-lucide="x" class="w-4 h-4 text-amber-400 hidden"></i>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Navigation Drawer Overlay (Under 800px) -->
+    <div id="mobile-menu-drawer" class="fixed inset-x-0 top-[65px] md:top-[73px] z-40 p-5 backdrop-blur-2xl border-b border-white/10 shadow-2xl transition-all duration-300 transform -translate-y-[130%] opacity-0 pointer-events-none" style="background-color: var(--nav-bg);">
+        <div class="max-w-md mx-auto flex flex-col gap-2.5">
+            <a href="index.html#section-1" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors">
+                <span>Summit</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400/70"></i>
+            </a>
+            <a href="index.html#pillars" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors">
+                <span>Five Pillars</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400/70"></i>
+            </a>
+            <a href="agenda.html" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors text-amber-400 font-semibold">
+                <span>Agenda</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400"></i>
+            </a>
+            <a href="index.html#experience" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors">
+                <span>Experience</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400/70"></i>
+            </a>
+            <a href="speakers.html" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 text-sm font-medium transition-colors">
+                <span>Speakers</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400/70"></i>
+            </a>
+            <div class="pt-2 border-t border-white/10">
+                <a href="register.html" class="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold text-black bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 transition-all shadow-md active:scale-95">
+                    <span>Register Now</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-black"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main class="relative z-10 pt-32 pb-10 px-6 md:px-12 max-w-7xl mx-auto space-y-20">
@@ -1248,6 +1307,44 @@
             setTimeout(() => {
                 window.location.href = 'index.html#section-4';
             }, 1400);
+        }
+
+        // --- MOBILE HAMBURGER MENU CONTROLLER (UNDER 800PX) ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeMenuIcon = document.getElementById('close-menu-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (mobileMenuBtn && mobileMenuDrawer) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenuDrawer.classList.contains('opacity-100');
+                if (isOpen) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            });
+
+            function openMobileMenu() {
+                mobileMenuDrawer.classList.remove('-translate-y-[130%]', 'opacity-0', 'pointer-events-none');
+                mobileMenuDrawer.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+                if (closeMenuIcon) closeMenuIcon.classList.remove('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            }
+
+            function closeMobileMenu() {
+                mobileMenuDrawer.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                mobileMenuDrawer.classList.add('-translate-y-[130%]', 'opacity-0', 'pointer-events-none');
+                if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+                if (closeMenuIcon) closeMenuIcon.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
         }
     </script>
 </body>
