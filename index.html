@@ -1686,10 +1686,10 @@
             normalMap: normalTexture,
             emissiveMap: lightsTexture,
             emissive: 0xffcc33, // Golden lights
-            emissiveIntensity: 0.55,
+            emissiveIntensity: 0.45,
             color: 0x286358,    // Luminous jade/emerald greenish base matching light mode vibrancy
-            specular: 0x448877,
-            shininess: 12
+            specular: 0x1a2e26, // Low specular to eliminate harsh reflection glare
+            shininess: 3        // Soft matte surface
         });
         const globe = new THREE.Mesh(geometry, material);
         globeGroup.add(globe);
@@ -1914,26 +1914,26 @@
                 if (themeText) themeText.innerText = 'Light';
                 localStorage.setItem('diplomatic_theme', 'dark');
 
-                // Adjust Three.js Scene for Luminous Jade-Cosmic Night (Enhanced Greenish Hue & Visibility)
+                // Adjust Three.js Scene for Luminous Jade-Cosmic Night (Soft Matte Finish, Zero Glare)
                 scene.fog.color.setHex(0x051410);
                 ambientLight.color.setHex(0x0c332b);
                 ambientLight.intensity = 1.35;
-                sunLight.intensity = 1.25;
+                sunLight.intensity = 0.75;          // Reduced by 40% to soften direct reflection
                 sunLight.color.setHex(0xe8faf3);
                 rimLight.color.setHex(0x2dd4bf);
-                rimLight.intensity = 6.0;
+                rimLight.intensity = 2.5;           // Reduced from 6.0 to eliminate harsh rim reflection
 
-                // Globe with vibrant jade-emerald green landmasses & luminous city lights
+                // Globe with vibrant jade-emerald green landmasses & low-reflection matte finish
                 material.color.setHex(0x286358);    // Luminous jade/emerald tone so it's not overly dark
                 material.emissive.setHex(0xffcc33);
-                material.emissiveIntensity = 0.55;
-                material.shininess = 12;
-                material.specular.setHex(0x448877);
+                material.emissiveIntensity = 0.45;  // Balanced city lights
+                material.shininess = 3;             // Soft matte finish eliminates specular reflection hotspot
+                material.specular.setHex(0x1a2e26); // Drastically reduced specular reflection
 
-                // Atmosphere halo glows with a vibrant jade-teal aura
+                // Atmosphere halo glows with a soft jade-teal aura
                 atmosphereUniforms.uColor.value.set(0x2dd4bf);
-                atmosphereUniforms.uIntensityScale.value = 1.35;
-                cloudMat.opacity = 0.35;
+                atmosphereUniforms.uIntensityScale.value = 1.1; // Softened atmospheric edge glow
+                cloudMat.opacity = 0.25;
 
                 // Show starfield
                 starMesh.visible = true;
