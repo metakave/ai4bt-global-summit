@@ -2011,68 +2011,88 @@
                 root.classList.add('light');
                 root.classList.remove('dark');
                 // When in light mode, show icon for dark (Moon)
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
+                if (sunIcon) sunIcon.classList.add('hidden');
+                if (moonIcon) moonIcon.classList.remove('hidden');
                 if (themeText) themeText.innerText = 'Dark';
-                localStorage.setItem('diplomatic_theme', 'light');
+                try { localStorage.setItem('diplomatic_theme', 'light'); } catch (e) {}
 
                 // Adjust Three.js Scene for #218c74 Jade Teal Atmosphere (Glare reduced by over 50%)
-                scene.fog.color.setHex(0x218c74);
-                ambientLight.color.setHex(0x1a715d);
-                ambientLight.intensity = 0.65;  // Reduced by ~50% from 1.25
-                sunLight.intensity = 0.55;       // Reduced by ~60% from 1.4
-                sunLight.color.setHex(0xeaf4f1);
-                rimLight.color.setHex(0xf59e0b);
-                rimLight.intensity = 2.0;       // Reduced by 60% from 5
+                if (typeof scene !== 'undefined' && scene && scene.fog) scene.fog.color.setHex(0x218c74);
+                if (typeof ambientLight !== 'undefined' && ambientLight) {
+                    ambientLight.color.setHex(0x1a715d);
+                    ambientLight.intensity = 0.65;  // Reduced by ~50% from 1.25
+                }
+                if (typeof sunLight !== 'undefined' && sunLight) {
+                    sunLight.intensity = 0.55;       // Reduced by ~60% from 1.4
+                    sunLight.color.setHex(0xeaf4f1);
+                }
+                if (typeof rimLight !== 'undefined' && rimLight) {
+                    rimLight.color.setHex(0xf59e0b);
+                    rimLight.intensity = 2.0;       // Reduced by 60% from 5
+                }
 
                 // Globe material softened: glare-free matte finish without blazing hot-spot
-                material.color.setHex(0xbcdcd4);    // Soft sage/jade tone instead of blinding pure white
-                material.emissive.setHex(0xffcc33);
-                material.emissiveIntensity = 0.15;  // Reduced by >55% from 0.35
-                material.shininess = 4;             // Low shininess removes glaring specular beam
-                material.specular.setHex(0x222222); // Cut specular reflection brightness by 75%
+                if (typeof material !== 'undefined' && material) {
+                    material.color.setHex(0xbcdcd4);    // Soft sage/jade tone instead of blinding pure white
+                    material.emissive.setHex(0xffcc33);
+                    material.emissiveIntensity = 0.15;  // Reduced by >55% from 0.35
+                    material.shininess = 4;             // Low shininess removes glaring specular beam
+                    material.specular.setHex(0x222222); // Cut specular reflection brightness by 75%
+                }
 
                 // Softened atmosphere halo
-                atmosphereUniforms.uColor.value.set(0x33d1ad);
-                atmosphereUniforms.uIntensityScale.value = 0.55; // Reduced by 60% from 1.35
-                cloudMat.opacity = 0.2; // Softened cloud opacity to prevent white glare
+                if (typeof atmosphereUniforms !== 'undefined' && atmosphereUniforms && atmosphereUniforms.uColor) {
+                    atmosphereUniforms.uColor.value.set(0x33d1ad);
+                    atmosphereUniforms.uIntensityScale.value = 0.55; // Reduced by 60% from 1.35
+                }
+                if (typeof cloudMat !== 'undefined' && cloudMat) cloudMat.opacity = 0.2; // Softened cloud opacity to prevent white glare
 
                 // Subtle ambient stars
-                starMesh.visible = false;
+                if (typeof starMesh !== 'undefined' && starMesh) starMesh.visible = false;
             } else {
                 root.classList.remove('light');
                 root.classList.add('dark');
                 // When in dark mode, show icon for light (Sun)
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
+                if (sunIcon) sunIcon.classList.remove('hidden');
+                if (moonIcon) moonIcon.classList.add('hidden');
                 if (themeText) themeText.innerText = 'Light';
-                localStorage.setItem('diplomatic_theme', 'dark');
+                try { localStorage.setItem('diplomatic_theme', 'dark'); } catch (e) {}
 
                 // Adjust Three.js Scene for Luminous Jade-Cosmic Night (Soft Matte Finish, Zero Glare)
-                scene.fog.color.setHex(0x051410);
-                ambientLight.color.setHex(0x0c332b);
-                ambientLight.intensity = 1.35;
-                sunLight.intensity = 0.75;          // Reduced by 40% to soften direct reflection
-                sunLight.color.setHex(0xe8faf3);
-                rimLight.color.setHex(0x2dd4bf);
-                rimLight.intensity = 2.5;           // Reduced from 6.0 to eliminate harsh rim reflection
+                if (typeof scene !== 'undefined' && scene && scene.fog) scene.fog.color.setHex(0x051410);
+                if (typeof ambientLight !== 'undefined' && ambientLight) {
+                    ambientLight.color.setHex(0x0c332b);
+                    ambientLight.intensity = 1.35;
+                }
+                if (typeof sunLight !== 'undefined' && sunLight) {
+                    sunLight.intensity = 0.75;          // Reduced by 40% to soften direct reflection
+                    sunLight.color.setHex(0xe8faf3);
+                }
+                if (typeof rimLight !== 'undefined' && rimLight) {
+                    rimLight.color.setHex(0x2dd4bf);
+                    rimLight.intensity = 2.5;           // Reduced from 6.0 to eliminate harsh rim reflection
+                }
 
                 // Globe with vibrant jade-emerald green landmasses & low-reflection matte finish
-                material.color.setHex(0x286358);    // Luminous jade/emerald tone so it's not overly dark
-                material.emissive.setHex(0xffcc33);
-                material.emissiveIntensity = 0.45;  // Balanced city lights
-                material.shininess = 3;             // Soft matte finish eliminates specular reflection hotspot
-                material.specular.setHex(0x1a2e26); // Drastically reduced specular reflection
+                if (typeof material !== 'undefined' && material) {
+                    material.color.setHex(0x286358);    // Luminous jade/emerald tone so it's not overly dark
+                    material.emissive.setHex(0xffcc33);
+                    material.emissiveIntensity = 0.45;  // Balanced city lights
+                    material.shininess = 3;             // Soft matte finish eliminates specular reflection hotspot
+                    material.specular.setHex(0x1a2e26); // Drastically reduced specular reflection
+                }
 
                 // Atmosphere halo glows with a soft jade-teal aura
-                atmosphereUniforms.uColor.value.set(0x2dd4bf);
-                atmosphereUniforms.uIntensityScale.value = 1.1; // Softened atmospheric edge glow
-                cloudMat.opacity = 0.25;
+                if (typeof atmosphereUniforms !== 'undefined' && atmosphereUniforms && atmosphereUniforms.uColor) {
+                    atmosphereUniforms.uColor.value.set(0x2dd4bf);
+                    atmosphereUniforms.uIntensityScale.value = 1.1; // Softened atmospheric edge glow
+                }
+                if (typeof cloudMat !== 'undefined' && cloudMat) cloudMat.opacity = 0.25;
 
                 // Show starfield
-                starMesh.visible = true;
+                if (typeof starMesh !== 'undefined' && starMesh) starMesh.visible = true;
             }
-            lucide.createIcons();
+            safeInitLucide();
         }
 
         // Initialize Theme preference
@@ -2083,9 +2103,12 @@
             applyTheme(false, false);
         }
 
-        document.getElementById('theme-toggle-btn').addEventListener('click', () => {
-            applyTheme(!isLightMode);
-        });
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                applyTheme(!isLightMode);
+            });
+        }
 
         // --- INTERACTION (MOUSE PARALLAX) ---
         let mouseX = 0;

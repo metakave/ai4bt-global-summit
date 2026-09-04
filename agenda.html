@@ -1333,7 +1333,14 @@
 
     <!-- Scripts -->
     <script>
-        lucide.createIcons();
+        function safeInitLucide() {
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                lucide.createIcons();
+            }
+        }
+        document.addEventListener('DOMContentLoaded', safeInitLucide);
+        window.addEventListener('load', safeInitLucide);
+        safeInitLucide();
 
         // --------------------------------------------------------
         // THEME MANAGER
@@ -1350,20 +1357,20 @@
                 root.classList.add('light');
                 root.classList.remove('dark');
                 // When in light mode, show icon for dark (Moon)
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
+                if (sunIcon) sunIcon.classList.add('hidden');
+                if (moonIcon) moonIcon.classList.remove('hidden');
                 if (themeText) themeText.innerText = 'Dark';
-                localStorage.setItem('diplomatic_theme', 'light');
+                try { localStorage.setItem('diplomatic_theme', 'light'); } catch (e) {}
             } else {
                 root.classList.remove('light');
                 root.classList.add('dark');
                 // When in dark mode, show icon for light (Sun)
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
+                if (sunIcon) sunIcon.classList.remove('hidden');
+                if (moonIcon) moonIcon.classList.add('hidden');
                 if (themeText) themeText.innerText = 'Light';
-                localStorage.setItem('diplomatic_theme', 'dark');
+                try { localStorage.setItem('diplomatic_theme', 'dark'); } catch (e) {}
             }
-            lucide.createIcons();
+            safeInitLucide();
         }
 
         // Initialize Theme preference
@@ -1374,9 +1381,12 @@
             applyTheme(false);
         }
 
-        document.getElementById('theme-toggle-btn').addEventListener('click', () => {
-            applyTheme(!isLightMode);
-        });
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                applyTheme(!isLightMode);
+            });
+        }
 
         // --------------------------------------------------------
         // DAY JUMP NAVIGATION & SCROLL SPY (Day 1, Day 2, Day 3)
