@@ -1,10 +1,8 @@
-# The Diplomatic Informer — Global Diplomacy Landing Page
+# AI4BT Global Summit 2026 — Official Website
 
-> Full reproduction and clone of the globe-driven template from [https://please-make-the-55.aura.build/](https://please-make-the-55.aura.build/).
+> Global AI summit bringing together enterprise leaders, AI strategists, transformation coaches, and functional experts.
 
-A cinematic, dark-mode landing page built around an interactive 3D WebGL Earth globe, designed for diplomatic intelligence, global affairs platforms, think tanks, and strategic communication institutions.
-
-![The Diplomatic Informer Preview](preview.jpeg)
+![AI4BT Global Summit Preview](preview.jpeg)
 
 ---
 

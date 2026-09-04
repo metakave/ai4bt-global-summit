@@ -1,0 +1,28 @@
+# robots.txt for https://www.ai4btglobalsummit.com
+User-agent: *
+Allow: /
+
+# Answer Engine & AI Search Crawlers (AEO / GEO Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# XML Sitemap Location
+Sitemap: https://www.ai4btglobalsummit.com/sitemap.xml
