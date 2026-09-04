@@ -1862,7 +1862,17 @@
             blurPass.uniforms.resolution.value.set(window.innerWidth * config.dpr, window.innerHeight * config.dpr);
         }
 
+        let isPageVisible = !document.hidden;
+        document.addEventListener('visibilitychange', () => {
+            isPageVisible = !document.hidden;
+            if (isPageVisible) {
+                clock.getDelta(); // reset delta to prevent large jump
+                requestAnimationFrame(animate);
+            }
+        });
+
         function animate() {
+            if (!isPageVisible) return;
             requestAnimationFrame(animate);
             globalTime += clock.getDelta() * config.speedMultiplier;
             trailMaterials.forEach(m => m.uTime.value = globalTime);

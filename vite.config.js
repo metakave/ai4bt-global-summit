@@ -73,6 +73,13 @@ export default defineConfig({
         speakers: resolve(__dirname, 'speakers.html'),
         agenda: resolve(__dirname, 'agenda.html'),
         register: resolve(__dirname, 'register.html')
+      },
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/three')) {
+            return 'three-vendor';
+          }
+        }
       }
     }
   }
