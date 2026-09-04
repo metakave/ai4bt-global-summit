@@ -124,7 +124,7 @@
     </script>
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
         /* ================= COLOR THEME TOKENS ================= */
@@ -1240,7 +1240,7 @@
     <footer class="relative overflow-hidden mt-12 pt-12 pb-10 px-6 md:px-12 text-center min-h-[780px] md:min-h-[920px] lg:min-h-[1050px] flex flex-col justify-between items-center gap-16">
         <!-- Video Background Layer (Seamlessly Feathered with Screen Blend) -->
         <div class="footer-video-wrap">
-            <video autoplay loop muted playsinline class="footer-video-el">
+            <video autoplay loop muted playsinline preload="none" class="footer-video-el">
                 <source src="videos/footer-bg_optimized.mp4" type="video/mp4">
             </video>
         </div>
@@ -1256,12 +1256,12 @@
             </h2>
             
             <p class="text-base sm:text-lg themed-subtext max-w-xl mx-auto font-light leading-relaxed">
-                Secure your spot at AI4BT Global Summit 2026. Early bird registration is open for enterprise transformation leaders.
+                Connect with world-class AI pioneers and Bangladesh industry leaders for 3 evenings of strategy and enterprise transformation.
             </p>
             
             <div class="pt-3 flex flex-wrap justify-center gap-4">
                 <a href="register" class="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-white dark:text-black font-semibold text-xs tracking-widest uppercase px-8 py-3.5 rounded-lg shadow-lg active:scale-95 transition-all">
-                    <span>Get Your Tickets Now</span>
+                    <span>Register Your Interest</span>
                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
                 <a href="/" class="inline-flex items-center gap-2 border themed-input px-6 py-3.5 rounded-lg text-xs font-medium uppercase tracking-wider hover:border-amber-500/50 transition-all">
@@ -1290,6 +1290,38 @@
             </div>
         </div>
     </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 dark:bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="themed-modal border rounded-2xl max-w-md w-full p-6 md:p-8 space-y-6 shadow-2xl relative transition-all duration-300">
+            <button id="close-login-btn" class="absolute top-6 right-6 themed-subtext hover:text-amber-500 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="text-center space-y-2">
+                <div class="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 mx-auto flex items-center justify-center mb-3">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-amber-500"></i>
+                </div>
+                <h3 class="text-xl font-medium">Diplomatic Portal</h3>
+                <p class="text-xs themed-subtext">Authorized personnel & delegate access</p>
+            </div>
+            <form onsubmit="event.preventDefault(); handleLoginSubmit();" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider themed-subtext mb-1 font-semibold">Diplomatic ID / Email</label>
+                    <input type="text" required placeholder="name@delegation.gov" class="w-full border themed-input rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                    <label class="block text-[10px] uppercase tracking-wider themed-subtext mb-1 font-semibold">Security Token</label>
+                    <input type="password" required placeholder="••••••••••••" class="w-full border themed-input rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-500">
+                </div>
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white dark:text-black py-2.5 rounded-lg text-xs font-semibold tracking-widest uppercase transition-all shadow-md">
+                    Authenticate Session
+                </button>
+            </form>
+            <div id="login-feedback" class="hidden text-center text-xs text-amber-400 font-medium">
+                Verifying cryptographic token credentials...
+            </div>
+        </div>
+    </div>
 
     <!-- Reservation Toast Notification -->
     <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">

@@ -169,12 +169,12 @@
     </script>
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     
     <!-- Three.js & GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
     <style>
         :root {
@@ -1586,8 +1586,14 @@
 
     <!-- Interactive Scripts -->
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        function safeInitLucide() {
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                lucide.createIcons();
+            }
+        }
+        document.addEventListener('DOMContentLoaded', safeInitLucide);
+        window.addEventListener('load', safeInitLucide);
+        safeInitLucide();
 
         // --------------------------------------------------------
         // MODALS & FORM INTERACTIONS
@@ -1652,56 +1658,56 @@
                 "The transition from traditional ERP to AI-native enterprise is the single most urgent imperative for South Asian conglomerates. AI4BT is the only summit bridging this gap with pragmatic blueprints.",
                 "Marcus Vance",
                 "Global AI Transformation Coach · London",
-                "images/testimonials/expert_7.jpg",
+                "images/testimonials/expert_7.webp",
                 "MV"
             ],
             [
                 "Most enterprise AI discussions stay at the conceptual level. AI4BT actually connects functional ERP workflows with autonomous agent orchestration that executive leadership can deploy.",
                 "Dr. Tanvir Rahman",
                 "Chief Information Officer · Beximco Group",
-                "images/testimonials/expert_2.jpg",
+                "images/testimonials/expert_2.webp",
                 "TR"
             ],
             [
                 "Autonomous agents aren't replacing ERP systems—they are becoming the intelligent operating fabric sitting on top of them. This summit defines that architectural shift.",
                 "Elena Rostova",
                 "VP Enterprise Architecture · SAP APJ",
-                "images/testimonials/expert_6.jpg",
+                "images/testimonials/expert_6.webp",
                 "ER"
             ],
             [
                 "Bringing global Silicon Valley and European AI governance experts directly to Dhaka's leadership tables is a game changer for the region's digital economy.",
                 "Farhana Yasmin",
                 "Director of Digital Transformation · Grameenphone",
-                "images/testimonials/expert_4.jpg",
+                "images/testimonials/expert_4.webp",
                 "FY"
             ],
             [
                 "AI Governance and cybersecurity cannot be an afterthought in agentic automation. The framework presented at AI4BT sets the benchmark for enterprise safety.",
                 "Julian Sterling",
                 "AI Security & Compliance Fellow · Singapore",
-                "images/testimonials/expert_3.jpg",
+                "images/testimonials/expert_3.webp",
                 "JS"
             ],
             [
                 "Our supply chain and manufacturing operations require practical AI solutions that respect localized market constraints. AI4BT delivers exactly that grounded perspective.",
                 "Shahriar Ahmed",
                 "Managing Director · Square Pharmaceuticals",
-                "images/testimonials/expert_8.jpg",
+                "images/testimonials/expert_8.webp",
                 "SA"
             ],
             [
                 "Agentic AI applications will transform banking and trade finance in Bangladesh over the next 24 months. This summit gathers the leaders who will make it happen.",
                 "Nadia Chowdhury",
                 "Head of Strategy & Innovation · BRAC Bank",
-                "images/testimonials/expert_1.jpg",
+                "images/testimonials/expert_1.webp",
                 "NC"
             ],
             [
                 "International experts define what is possible; Bangladesh leaders define what is practical. AI4BT is the catalyst connecting the two with unmatched precision.",
                 "David K. Lindqvist",
                 "Managing Partner · Global AI Advisors Zurich",
-                "images/testimonials/expert_5.jpg",
+                "images/testimonials/expert_5.webp",
                 "DL"
             ]
         ];
@@ -1713,7 +1719,7 @@
                     <footer>
                         <div class="quote-avatar">
                             <i>${initials}</i>
-                            <img src="${img}" alt="${who}" loading="lazy" onerror="this.style.display='none'">
+                            <img src="${img}" alt="${who}" loading="lazy" decoding="async" onerror="this.style.display='none'">
                         </div>
                         <div class="quote-who">
                             <b>${who}</b>
@@ -1786,23 +1792,23 @@
         }
 
         const earthTexture = loadTextureWithFallback(
-            'textures/earth_atmos_2048.jpg',
+            'textures/earth_atmos_2048.webp',
             'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'
         );
         const specTexture = loadTextureWithFallback(
-            'textures/earth_specular_2048.jpg',
+            'textures/earth_specular_2048.webp',
             'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg'
         );
         const normalTexture = loadTextureWithFallback(
-            'textures/earth_normal_2048.jpg',
+            'textures/earth_normal_2048.webp',
             'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_normal_2048.jpg'
         );
         const lightsTexture = loadTextureWithFallback(
-            'textures/earth_lights_2048.png',
+            'textures/earth_lights_2048.webp',
             'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_lights_2048.png'
         );
         const cloudsTexture = loadTextureWithFallback(
-            'textures/earth_clouds_1024.png',
+            'textures/earth_clouds_1024.webp',
             'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png'
         );
 
