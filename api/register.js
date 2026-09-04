@@ -391,8 +391,8 @@ function buildDelegateThankYouEmail(reg) {
       <p style="margin: 0 0 8px;"><strong>AI4BT Executive Council &amp; Secretariat</strong></p>
       <p style="margin: 0 0 8px;">Dhaka, Bangladesh • Global Secretariat</p>
       <p style="margin: 0;">
-        Direct inquiries: <a href="mailto:notifications@ai4bt.com">notifications@ai4bt.com</a> | 
-        <a href="mailto:hello@sadiqalam.com">hello@sadiqalam.com</a>
+        Direct inquiries: <a href="mailto:contact@ai4bt.com">contact@ai4bt.com</a> | 
+        <a href="mailto:notifications@ai4bt.com">notifications@ai4bt.com</a>
       </p>
     </div>
   </div>
