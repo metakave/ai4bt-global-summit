@@ -314,9 +314,17 @@
         .themed-hero-cta {
             background-color: var(--hero-cta-bg);
             color: var(--hero-cta-text);
+            transition: all 0.3s ease;
         }
         .themed-hero-cta:hover {
-            background-color: var(--hero-cta-hover);
+            background-color: #f97316 !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 25px rgba(249, 115, 22, 0.55);
+        }
+        .themed-hero-cta:hover span,
+        .themed-hero-cta:hover i,
+        .themed-hero-cta:hover svg {
+            color: #ffffff !important;
         }
         .themed-hero-secondary {
             background-color: var(--hero-secondary-bg);
@@ -724,7 +732,7 @@
                     <div class="pt-6 flex flex-wrap gap-4">
                         <a href="register" class="group flex items-center gap-3 themed-hero-cta px-6 py-3 rounded-lg text-xs font-semibold tracking-widest transition-all duration-300 active:scale-95 shadow-md">
                             <span>REGISTER FOR THE SUMMIT</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-black transition-transform duration-300 group-hover:translate-x-1"></i>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-all duration-300 group-hover:translate-x-1"></i>
                         </a>
                         <a href="agenda" class="flex items-center gap-2 border themed-hero-secondary px-5 py-3 rounded-lg text-xs font-medium hover:border-amber-500/50 backdrop-blur-sm transition-all duration-300 shadow-sm active:scale-95">
                             <i data-lucide="calendar" class="w-4 h-4 text-amber-500"></i>
