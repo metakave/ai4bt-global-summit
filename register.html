@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1276,7 +1276,7 @@
     <footer class="relative overflow-hidden mt-16 pt-16 pb-12 px-6 md:px-12 text-center min-h-[460px] md:min-h-[520px] flex flex-col justify-between items-center gap-12 z-10">
         <!-- Video Background Layer (Seamlessly Feathered with Screen Blend) -->
         <div class="footer-video-wrap">
-            <video autoplay loop muted playsinline preload="none" class="footer-video-el">
+            <video autoplay loop muted playsinline preload="auto" class="footer-video-el">
                 <source src="videos/footer-bg_optimized.mp4" type="video/mp4">
             </video>
         </div>
@@ -1354,8 +1354,9 @@
             if (window.lucide) lucide.createIcons();
         }
 
+        // Initialize Theme preference (Dark theme is default)
         const savedTheme = localStorage.getItem('diplomatic_theme');
-        if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        if (savedTheme === 'light') {
             applyTheme(true);
         } else {
             applyTheme(false);
@@ -1367,6 +1368,31 @@
                 applyTheme(!isLightMode);
             });
         }
+
+        // Auto-play and ensure video playback for background video
+        function initFooterVideo() {
+            const videos = document.querySelectorAll('.footer-video-el');
+            videos.forEach(v => {
+                v.muted = true;
+                const playPromise = v.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        const playOnInteraction = () => {
+                            v.play();
+                            window.removeEventListener('scroll', playOnInteraction);
+                            window.removeEventListener('click', playOnInteraction);
+                            window.removeEventListener('touchstart', playOnInteraction);
+                        };
+                        window.addEventListener('scroll', playOnInteraction, { passive: true });
+                        window.addEventListener('click', playOnInteraction, { once: true });
+                        window.addEventListener('touchstart', playOnInteraction, { once: true });
+                    });
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initFooterVideo);
+        window.addEventListener('load', initFooterVideo);
+        initFooterVideo();
 
         // --------------------------------------------------------
         // FORM LOGIC & SUBMISSION

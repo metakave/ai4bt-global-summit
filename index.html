@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2095,9 +2095,9 @@
             safeInitLucide();
         }
 
-        // Initialize Theme preference
+        // Initialize Theme preference (Dark theme is default)
         const savedTheme = localStorage.getItem('diplomatic_theme');
-        if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        if (savedTheme === 'light') {
             applyTheme(true, false);
         } else {
             applyTheme(false, false);
