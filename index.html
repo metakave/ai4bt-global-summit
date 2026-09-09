@@ -209,34 +209,34 @@
         }
 
         html.light {
-            --bg-color: #218c74;
-            --canvas-bg: radial-gradient(circle at center, #2ba68b 0%, #176856 100%);
+            --bg-color: #125646;
+            --canvas-bg: radial-gradient(circle at center, #1b735e 0%, #0c3d31 100%);
             --grid-line: rgba(255, 255, 255, 0.08);
             --text-primary: #ffffff;
-            --text-secondary: #e2f5f0;
-            --nav-bg: rgba(33, 140, 116, 0.88);
-            --nav-border: rgba(255, 255, 255, 0.2);
-            --card-bg: rgba(13, 64, 52, 0.65);
-            --card-border: rgba(255, 255, 255, 0.22);
-            --card-glow: 0 16px 36px rgba(0, 0, 0, 0.2), 0 0 25px rgba(253, 224, 71, 0.12);
+            --text-secondary: #d1eee6;
+            --nav-bg: rgba(18, 86, 70, 0.92);
+            --nav-border: rgba(255, 255, 255, 0.18);
+            --card-bg: rgba(8, 41, 33, 0.72);
+            --card-border: rgba(255, 255, 255, 0.18);
+            --card-glow: 0 16px 36px rgba(0, 0, 0, 0.28), 0 0 25px rgba(253, 224, 71, 0.10);
             --gold-gradient: linear-gradient(to right, #FDE68A, #F59E0B, #FDE68A);
             --hero-cta-bg: #ffffff;
-            --hero-cta-text: #176856;
-            --hero-cta-hover: #f0fdf9;
+            --hero-cta-text: #0e4437;
+            --hero-cta-hover: #e6f7f2;
             --hero-secondary-bg: rgba(255, 255, 255, 0.15);
             --hero-secondary-border: rgba(255, 255, 255, 0.3);
             --hero-secondary-text: #ffffff;
-            --modal-bg: #1a715d;
+            --modal-bg: #0f4a3c;
             --modal-border: rgba(255, 255, 255, 0.25);
-            --modal-subcard: rgba(13, 64, 52, 0.55);
+            --modal-subcard: rgba(8, 41, 33, 0.60);
             --modal-subcard-border: rgba(255, 255, 255, 0.18);
-            --input-bg: rgba(255, 255, 255, 0.18);
-            --input-border: rgba(255, 255, 255, 0.35);
+            --input-bg: rgba(255, 255, 255, 0.16);
+            --input-border: rgba(255, 255, 255, 0.30);
             --badge-bg: rgba(254, 243, 199, 0.22);
             --badge-border: rgba(245, 158, 11, 0.55);
             --badge-text: #fef08a;
-            --scrollbar-track: #176856;
-            --scrollbar-thumb: #2ba68b;
+            --scrollbar-track: #0c3d31;
+            --scrollbar-thumb: #1b735e;
         }
 
         body {
@@ -366,9 +366,9 @@
             max-width: 52rem;
         }
         html.light .hero-marquee-container {
-            background: rgba(13, 64, 52, 0.7);
-            border-color: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            background: rgba(8, 41, 33, 0.75);
+            border-color: rgba(255, 255, 255, 0.20);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
         .hero-marquee-track {
             display: flex;
@@ -2022,34 +2022,34 @@
                 if (themeText) themeText.innerText = 'Dark';
                 try { localStorage.setItem('diplomatic_theme', 'light'); } catch (e) {}
 
-                // Adjust Three.js Scene for #218c74 Jade Teal Atmosphere (Glare reduced by over 50%)
-                if (typeof scene !== 'undefined' && scene && scene.fog) scene.fog.color.setHex(0x218c74);
+                // Adjust Three.js Scene for #125646 Darker Jade Teal Atmosphere
+                if (typeof scene !== 'undefined' && scene && scene.fog) scene.fog.color.setHex(0x125646);
                 if (typeof ambientLight !== 'undefined' && ambientLight) {
-                    ambientLight.color.setHex(0x1a715d);
-                    ambientLight.intensity = 0.65;  // Reduced by ~50% from 1.25
+                    ambientLight.color.setHex(0x0f4a3c);
+                    ambientLight.intensity = 0.65;
                 }
                 if (typeof sunLight !== 'undefined' && sunLight) {
-                    sunLight.intensity = 0.55;       // Reduced by ~60% from 1.4
-                    sunLight.color.setHex(0xeaf4f1);
+                    sunLight.intensity = 0.55;
+                    sunLight.color.setHex(0xe4f2ee);
                 }
                 if (typeof rimLight !== 'undefined' && rimLight) {
                     rimLight.color.setHex(0xf59e0b);
-                    rimLight.intensity = 2.0;       // Reduced by 60% from 5
+                    rimLight.intensity = 2.0;
                 }
 
-                // Globe material softened: glare-free matte finish without blazing hot-spot
+                // Globe material softened: glare-free matte finish
                 if (typeof material !== 'undefined' && material) {
-                    material.color.setHex(0xbcdcd4);    // Soft sage/jade tone instead of blinding pure white
+                    material.color.setHex(0xa8d2c8);    // Soft jade tone matching deeper backdrop
                     material.emissive.setHex(0xffcc33);
-                    material.emissiveIntensity = 0.15;  // Reduced by >55% from 0.35
-                    material.shininess = 4;             // Low shininess removes glaring specular beam
-                    material.specular.setHex(0x222222); // Cut specular reflection brightness by 75%
+                    material.emissiveIntensity = 0.15;
+                    material.shininess = 4;
+                    material.specular.setHex(0x222222);
                 }
 
                 // Softened atmosphere halo
                 if (typeof atmosphereUniforms !== 'undefined' && atmosphereUniforms && atmosphereUniforms.uColor) {
-                    atmosphereUniforms.uColor.value.set(0x33d1ad);
-                    atmosphereUniforms.uIntensityScale.value = 0.55; // Reduced by 60% from 1.35
+                    atmosphereUniforms.uColor.value.set(0x28b896);
+                    atmosphereUniforms.uIntensityScale.value = 0.55;
                 }
                 if (typeof cloudMat !== 'undefined' && cloudMat) cloudMat.opacity = 0.2; // Softened cloud opacity to prevent white glare
 
