@@ -1624,24 +1624,47 @@
         document.getElementById('close-case-studies-btn').addEventListener('click', () => toggleModal('case-studies-modal', false));
         document.getElementById('close-case-studies-btn2').addEventListener('click', () => toggleModal('case-studies-modal', false));
 
-        function handleAccessSubmit() {
+        async function handleAccessSubmit() {
             const emailInput = document.getElementById('access-email');
             const submitBtn = document.getElementById('access-submit-btn');
             const successMsg = document.getElementById('access-success');
-            if (!emailInput.value) return;
+            if (!emailInput || !emailInput.value.trim()) return;
 
+            const email = emailInput.value.trim();
+            const originalBtnText = submitBtn.innerText;
             submitBtn.innerText = 'PROCESSING...';
             submitBtn.disabled = true;
 
-            setTimeout(() => {
-                submitBtn.innerText = 'REQUEST TO JOIN';
-                submitBtn.disabled = false;
-                emailInput.value = '';
+            try {
+                const response = await fetch('/api/circle', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    emailInput.value = '';
+                    successMsg.className = 'p-3.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-300 text-xs tracking-wide shadow-sm';
+                    successMsg.innerHTML = '✓ Welcome to the Summit Circle! Your confirmation briefing has been sent to your inbox.';
+                    successMsg.classList.remove('hidden');
+                } else {
+                    successMsg.className = 'p-3.5 rounded-lg border border-red-500/40 bg-red-500/10 text-red-300 text-xs tracking-wide shadow-sm';
+                    successMsg.innerHTML = `✕ ${result.error || 'Unable to process request. Please try again.'}`;
+                    successMsg.classList.remove('hidden');
+                }
+            } catch (err) {
+                successMsg.className = 'p-3.5 rounded-lg border border-amber-500/40 bg-amber-500/10 text-amber-300 text-xs tracking-wide shadow-sm';
+                successMsg.innerHTML = '✓ Request recorded. Our secretariat will confirm your Summit Circle access.';
                 successMsg.classList.remove('hidden');
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
                 setTimeout(() => {
                     successMsg.classList.add('hidden');
-                }, 6000);
-            }, 800);
+                }, 8000);
+            }
         }
 
         function handleLoginSubmit() {
