@@ -1505,7 +1505,7 @@
                 <form id="access-form" class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto" onsubmit="event.preventDefault(); handleAccessSubmit();">
                     <input id="access-email" type="email" required placeholder="Enter your email" class="border themed-input rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-amber-500 w-full sm:w-64 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 transition-all shadow-sm">
                     <button type="submit" id="access-submit-btn" class="bg-amber-500 hover:bg-amber-600 text-white dark:text-black px-6 py-3 rounded-lg text-xs font-semibold tracking-widest active:scale-95 transition-all uppercase whitespace-nowrap shadow-md">
-                        Request Access
+                        Request to Join
                     </button>
                 </form>
                 <div id="access-success" class="hidden p-3.5 rounded-lg border border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs tracking-wide shadow-sm">
@@ -1634,7 +1634,7 @@
             submitBtn.disabled = true;
 
             setTimeout(() => {
-                submitBtn.innerText = 'REQUEST ACCESS';
+                submitBtn.innerText = 'REQUEST TO JOIN';
                 submitBtn.disabled = false;
                 emailInput.value = '';
                 successMsg.classList.remove('hidden');
