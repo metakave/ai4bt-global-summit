@@ -11,6 +11,12 @@ function registerApiPlugin() {
       server.middlewares.use(async (req, res, next) => {
         const url = req.url.split('?')[0];
 
+        // Clean URL support for development server
+        if (['/agenda', '/speakers', '/offers', '/register', '/payment'].includes(url)) {
+          const queryString = req.url.includes('?') ? '?' + req.url.split('?')[1] : '';
+          req.url = `${url}.html${queryString}`;
+        }
+
         // 1. POST registration
         if (url === '/api/register' && req.method === 'POST') {
           let body = '';
@@ -175,6 +181,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         speakers: resolve(__dirname, 'speakers.html'),
         agenda: resolve(__dirname, 'agenda.html'),
+        offers: resolve(__dirname, 'offers.html'),
         register: resolve(__dirname, 'register.html'),
         payment: resolve(__dirname, 'payment.html')
       },
