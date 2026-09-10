@@ -7,17 +7,36 @@ import ExcelJS from 'exceljs';
 // Load environment variables
 dotenv.config();
 
-const DATA_DIR = path.resolve(process.cwd(), 'data');
-const CSV_FILE = path.join(DATA_DIR, 'registrations.csv');
-const XLSX_FILE = path.join(DATA_DIR, 'registrations.xlsx');
-export const FIRST_STEP_CSV = path.join(DATA_DIR, 'registered_first_step.csv');
-export const SECOND_STEP_CSV = path.join(DATA_DIR, 'registeted_second_step.csv');
-
-// Ensure data directory exists
-function ensureDataDir() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
+export function resolveDataDir() {
+  const localDir = path.resolve(process.cwd(), 'data');
+  try {
+    if (!fs.existsSync(localDir)) {
+      fs.mkdirSync(localDir, { recursive: true });
+    }
+    const testFile = path.join(localDir, '.write_test');
+    fs.writeFileSync(testFile, 'ok');
+    fs.unlinkSync(testFile);
+    return localDir;
+  } catch (e) {
+    const tmpDir = path.join('/tmp', 'ai4bt_data');
+    if (!fs.existsSync(tmpDir)) {
+      try { fs.mkdirSync(tmpDir, { recursive: true }); } catch (_) {}
+    }
+    return tmpDir;
   }
+}
+
+export function getFilePath(filename) {
+  return path.join(resolveDataDir(), filename);
+}
+
+export const FIRST_STEP_CSV = getFilePath('registered_first_step.csv');
+export const SECOND_STEP_CSV = getFilePath('registeted_second_step.csv');
+const CSV_FILE = getFilePath('registrations.csv');
+const XLSX_FILE = getFilePath('registrations.xlsx');
+
+function ensureDataDir() {
+  resolveDataDir();
 }
 
 function escapeCsvField(value) {
