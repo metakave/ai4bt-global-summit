@@ -55,23 +55,173 @@
     <meta name="twitter:description" content="Exclusive benefits for all delegates: HARS® assessment, AI Coach, and Enterprise Transformation Starter Pack.">
     <meta name="twitter:image" content="https://www.ai4btglobalsummit.com/preview.jpeg">
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org Structured Data (Answer Engine Optimized: WebSite, WebPage, BreadcrumbList, OfferCatalog, and FAQPage) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.ai4btglobalsummit.com/"
+          "@type": "WebSite",
+          "@id": "https://www.ai4btglobalsummit.com/#website",
+          "name": "AI4BT Global Summit 2026",
+          "url": "https://www.ai4btglobalsummit.com/"
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Offers & Benefits",
-          "item": "https://www.ai4btglobalsummit.com/offers"
+          "@type": "WebPage",
+          "@id": "https://www.ai4btglobalsummit.com/offers#webpage",
+          "url": "https://www.ai4btglobalsummit.com/offers",
+          "name": "Offers & Benefits | AI4BT Global Summit 2026 — Executive Toolkits & Leadership Assessments",
+          "description": "Comprehensive guide to the exclusive Offers & Benefits for participants of the AI4BT Global Summit 2026, including AIVolve Leadership Dynamics assessments (HARS®, Leadership & Team Readiness, AI Coach) and the AI4BT Enterprise Transformation Starter Pack.",
+          "isPartOf": {
+            "@id": "https://www.ai4btglobalsummit.com/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://www.ai4btglobalsummit.com/offers#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.ai4btglobalsummit.com/offers#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.ai4btglobalsummit.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Offers & Benefits",
+              "item": "https://www.ai4btglobalsummit.com/offers"
+            }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "@id": "https://www.ai4btglobalsummit.com/offers#catalog",
+          "name": "AI4BT Global Summit 2026 Delegate Inclusions & Exclusive Offers",
+          "description": "Executive toolkits, diagnostic assessments, and strategic advisory included with delegate passes.",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "HARS® – Human-AI Readiness Scan",
+                "description": "Proprietary assessment tool helping leaders and organizations evaluate readiness for AI-driven times with personalized insights and benchmark pathways.",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "AIVolve Leadership Dynamics"
+                }
+              },
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Leadership Readiness Assessment",
+                "description": "Executive capability evaluation. Free for up to the first 300 delegates; USD 50 per leader thereafter.",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "AIVolve Leadership Dynamics"
+                }
+              },
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Team Readiness Assessment",
+                "description": "Team-wide diagnostic assessing collective AI literacy, collaborative agility, and workflow readiness.",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "AIVolve Leadership Dynamics"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI Coach",
+                "description": "Continuous interactive executive guidance copilot providing prompts, decision frameworks, and micro-learning modules.",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "AIVolve Leadership Dynamics"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "AI4BT Enterprise Transformation Starter Pack",
+                "description": "6-part enterprise toolkit including AI Readiness Pulse, AI Opportunity Canvas, AI + ERP Readiness Checklist, Responsible AI Governance Checklist, 90-Day Roadmap, and 30-Minute AI4BT Consultation.",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "AI4BT Global Summit Advisory Council"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.ai4btglobalsummit.com/offers#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What offers and benefits do participants in the AI4BT Global Summit receive?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every registered delegate receives access to AIVolve Leadership Dynamics benefits (HARS® Human-AI Readiness Scan, Leadership Readiness, Team Readiness, and AI Coach) alongside the complete 6-part AI4BT Enterprise Transformation Starter Pack."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the HARS® – Human-AI Readiness Scan and what is its assessment outcome?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "HARS® (Human-AI Readiness Scan) is an assessment tool that helps leaders and organizations understand their readiness for AI-driven times. The assessment outcome delivers personalized insights, development pathways, and benchmarks to guide your AI leadership journey."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the Leadership Readiness assessment pricing work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Leadership Readiness assessment is completely free for up to the first 300 delegates. After that quota is filled, the assessment is priced at USD 50 per leader."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is included in the AI4BT Enterprise Transformation Starter Pack?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Starter Pack includes 6 core enterprise assets: (1) AI Readiness Pulse, (2) AI Opportunity Canvas, (3) AI + ERP Readiness Checklist, (4) Responsible AI Governance Checklist, (5) 90-Day AI Transformation Roadmap, and (6) a 30-Minute AI4BT Consultation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is covered in the 30-Minute AI4BT Consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The 30-Minute AI4BT Consultation is an exclusive one-on-one virtual strategy session with members of the AI4BT Executive Advisory Council to review your organization's AI transformation roadmap, assess ERP agentic readiness, and unblock strategic execution challenges."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How and when are the delegate benefits delivered?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "All digital assessment links, templates, frameworks, and scheduling access for the 1-on-1 consultation are dispatched directly to the delegate's registered email address immediately upon confirmation."
+              }
+            }
+          ]
         }
       ]
     }
@@ -873,6 +1023,88 @@
                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
+        <!-- ================= SECTION 4: FREQUENTLY ASKED QUESTIONS (AEO & AI SEARCH OPTIMIZED) ================= -->
+        <section class="space-y-8" id="offers-faq">
+            <div class="text-center space-y-3 max-w-2xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border themed-badge backdrop-blur-sm text-xs font-mono uppercase tracking-widest font-semibold">
+                    <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
+                    <span>Answers &amp; Inquiries</span>
+                </div>
+                <h3 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+                    Frequently Asked <span class="gold-gradient-text">Questions</span>
+                </h3>
+                <p class="text-xs sm:text-sm themed-subtext font-light leading-relaxed">
+                    Direct answers regarding delegate inclusions, HARS® scan assessments, starter pack deliverables, and executive advisory sessions.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="rounded-2xl border themed-card overflow-hidden transition-all duration-200">
+                    <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-expanded="true">
+                        <span class="text-base sm:text-lg font-semibold text-white">What offers and benefits do participants in the AI4BT Global Summit receive?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-amber-400 shrink-0 transition-transform duration-300 rotate-180"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 pt-0 text-xs sm:text-sm themed-subtext leading-relaxed font-light border-t border-white/5 mt-1">
+                        Every registered delegate receives access to AIVolve Leadership Dynamics benefits (HARS® Human-AI Readiness Scan, Leadership Readiness, Team Readiness, and AI Coach) alongside the complete 6-part AI4BT Enterprise Transformation Starter Pack (Readiness Pulse, Opportunity Canvas, AI+ERP Checklist, Governance Checklist, 90-Day Roadmap, and a 30-Minute AI4BT Consultation).
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="rounded-2xl border themed-card overflow-hidden transition-all duration-200">
+                    <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-expanded="false">
+                        <span class="text-base sm:text-lg font-semibold text-white">What is the HARS® – Human-AI Readiness Scan and its assessment outcome?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-zinc-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0 text-xs sm:text-sm themed-subtext leading-relaxed font-light border-t border-white/5 mt-1">
+                        HARS® (Human-AI Readiness Scan) is an assessment tool that helps leaders and organizations understand their readiness for AI-driven times. The assessment outcome provides personalized insights, customized development pathways, and global benchmarks to guide your AI leadership journey with clarity.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="rounded-2xl border themed-card overflow-hidden transition-all duration-200">
+                    <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-expanded="false">
+                        <span class="text-base sm:text-lg font-semibold text-white">How does the Leadership Readiness assessment pricing work?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-zinc-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0 text-xs sm:text-sm themed-subtext leading-relaxed font-light border-t border-white/5 mt-1">
+                        The Leadership Readiness assessment is completely free for up to the first 300 delegates. Once the 300 delegate quota is exhausted, subsequent evaluations are valued at USD 50 per leader.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="rounded-2xl border themed-card overflow-hidden transition-all duration-200">
+                    <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-expanded="false">
+                        <span class="text-base sm:text-lg font-semibold text-white">What is included in the AI4BT Enterprise Transformation Starter Pack?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-zinc-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0 text-xs sm:text-sm themed-subtext leading-relaxed font-light border-t border-white/5 mt-1">
+                        The Starter Pack includes 6 core enterprise assets: (1) AI Readiness Pulse, (2) AI Opportunity Canvas, (3) AI + ERP Readiness Checklist, (4) Responsible AI Governance Checklist, (5) 90-Day AI Transformation Roadmap, and (6) a 30-Minute AI4BT Consultation.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="rounded-2xl border themed-card overflow-hidden transition-all duration-200">
+                    <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-expanded="false">
+                        <span class="text-base sm:text-lg font-semibold text-white">What is covered in the 30-Minute AI4BT Consultation?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-zinc-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0 text-xs sm:text-sm themed-subtext leading-relaxed font-light border-t border-white/5 mt-1">
+                        The 30-Minute AI4BT Consultation is an exclusive one-on-one virtual strategy session with members of the AI4BT Executive Advisory Council to review your organization's AI transformation roadmap, assess ERP agentic readiness, and unblock strategic execution challenges.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="rounded-2xl border themed-card overflow-hidden transition-all duration-200">
+                    <button type="button" class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none" aria-expanded="false">
+                        <span class="text-base sm:text-lg font-semibold text-white">How and when are the delegate benefits delivered?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-zinc-400 shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0 text-xs sm:text-sm themed-subtext leading-relaxed font-light border-t border-white/5 mt-1">
+                        All digital assessment links, templates, frameworks, and scheduling access for the 1-on-1 consultation are dispatched directly to the delegate's registered email address immediately upon confirmation.
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
@@ -1042,6 +1274,33 @@
         if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', closeMobileMenu);
+        });
+
+        // --- FAQ ACCORDION CONTROLLER (AEO / USER INTERACTION) ---
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const parent = toggle.closest('.themed-card');
+                const content = parent.querySelector('.faq-content');
+                const icon = toggle.querySelector('.faq-icon');
+                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+                if (isExpanded) {
+                    content.classList.add('hidden');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    if (icon) {
+                        icon.classList.remove('rotate-180', 'text-amber-400');
+                        icon.classList.add('text-zinc-400');
+                    }
+                } else {
+                    content.classList.remove('hidden');
+                    toggle.setAttribute('aria-expanded', 'true');
+                    if (icon) {
+                        icon.classList.add('rotate-180', 'text-amber-400');
+                        icon.classList.remove('text-zinc-400');
+                    }
+                }
+            });
         });
     </script>
 </body>
