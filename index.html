@@ -3,6 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Immediate Theme Initialization: Guarantees Dark Mode by Default for Any New Visitor with Zero Flash -->
+    <script>
+        (function() {
+            try {
+                var savedTheme = localStorage.getItem('diplomatic_theme');
+                if (savedTheme === 'light') {
+                    document.documentElement.classList.add('light');
+                    document.documentElement.classList.remove('dark');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                    if (!savedTheme) {
+                        localStorage.setItem('diplomatic_theme', 'dark');
+                    }
+                }
+            } catch (e) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">

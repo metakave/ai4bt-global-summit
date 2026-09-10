@@ -1,8 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Immediate Theme Initialization: Guarantees Dark Mode by Default for Any New Visitor with Zero Flash -->
+    <script>
+        (function() {
+            try {
+                var savedTheme = localStorage.getItem('diplomatic_theme');
+                if (savedTheme === 'light') {
+                    document.documentElement.classList.add('light');
+                    document.documentElement.classList.remove('dark');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                    if (!savedTheme) {
+                        localStorage.setItem('diplomatic_theme', 'dark');
+                    }
+                }
+            } catch (e) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <title>Payment &amp; Registration Confirmation • AI4BT Global Summit 2026</title>
     <meta name="description" content="Complete your registration payment for AI4BT Global Summit 2026. Scan the official Bangla QR code using bKash, Nagad, or any bank app to confirm your executive pass.">
     <meta name="keywords" content="AI4BT Global Summit, AI4BT AI Summit, Enterprise Transformation, AI4BT Registration, Bangla QR, bKash Payment, Dhaka AI Summit">
@@ -353,9 +374,11 @@
                 Scan QR &amp; <span class="bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500 bg-clip-text text-transparent">Complete Registration</span>
             </h1>
 
-            <p class="text-sm sm:text-base themed-subtext leading-relaxed max-w-2xl mx-auto">
-                Scan the official Bangla QR code using bKash, Nagad, or any bank app to confirm your delegate pass. Your credentials and confirmation email will be sent immediately upon confirmation.
-            </p>
+            <div class="max-w-2xl mx-auto">
+                <p class="inline-block text-sm sm:text-base text-zinc-200 leading-relaxed bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-3.5 shadow-lg">
+                    Scan the official Bangla QR code using bKash, Nagad, or any bank app to confirm your delegate pass. Your credentials and confirmation email will be sent immediately upon confirmation.
+                </p>
+            </div>
 
             <!-- Summit Meta Pills -->
             <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
