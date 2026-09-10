@@ -192,7 +192,7 @@
     </script>
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     
     <!-- Three.js & GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -760,14 +760,23 @@
                         <strong class="text-white font-medium">The landmark AI Summit</strong> uniting <span class="text-amber-400 font-medium">Global and Bangladeshi AI Professionals</span>, enterprise leaders, and global technology authorities to master ERP innovation, agentic AI systems, and AI-native business transformation. Organized by AI4BT. Bringing together global AI pioneers and enterprise transformation experts.
                     </p>
 
-                    <div class="pt-6 flex flex-wrap gap-4">
-                        <a href="register" class="group flex items-center gap-3 themed-hero-cta px-6 py-3 rounded-lg text-xs font-semibold tracking-widest transition-all duration-300 active:scale-95 shadow-md">
-                            <span>REGISTER FOR THE SUMMIT</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-all duration-300 group-hover:translate-x-1"></i>
+                    <div class="pt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full">
+                        <!-- 1. What's in for You? (Outline Style -> Offers Page) -->
+                        <a href="offers" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border themed-hero-secondary px-5 py-3 rounded-lg text-xs sm:text-sm font-semibold tracking-wide hover:border-amber-500/60 hover:text-white backdrop-blur-sm transition-all duration-300 shadow-sm active:scale-95 text-center">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 shrink-0"></i>
+                            <span>What's in for You?</span>
                         </a>
-                        <a href="agenda" class="flex items-center gap-2 border themed-hero-secondary px-5 py-3 rounded-lg text-xs font-medium hover:border-amber-500/50 backdrop-blur-sm transition-all duration-300 shadow-sm active:scale-95">
-                            <i data-lucide="calendar" class="w-4 h-4 text-amber-500"></i>
-                            <span class="tracking-wider text-[11px] uppercase font-semibold">Explore Agenda</span>
+
+                        <!-- 2. Who is Speaking? (Outline Style -> Speakers Page) -->
+                        <a href="speakers" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border themed-hero-secondary px-5 py-3 rounded-lg text-xs sm:text-sm font-semibold tracking-wide hover:border-amber-500/60 hover:text-white backdrop-blur-sm transition-all duration-300 shadow-sm active:scale-95 text-center">
+                            <i data-lucide="mic" class="w-4 h-4 text-amber-500 shrink-0"></i>
+                            <span>Who is Speaking?</span>
+                        </a>
+
+                        <!-- 3. REGISTER FOR THE SUMMIT (Primary CTA -> Register Page) -->
+                        <a href="register" class="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 themed-hero-cta px-6 py-3 rounded-lg text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all duration-300 active:scale-95 shadow-md text-center">
+                            <span>REGISTER FOR THE SUMMIT</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-all duration-300 group-hover:translate-x-1 shrink-0"></i>
                         </a>
                     </div>
                 </div>
@@ -2218,8 +2227,14 @@
         }
 
         // --- ANIMATION LOOP ---
+        let isTabActive = true;
+        document.addEventListener('visibilitychange', () => {
+            isTabActive = !document.hidden;
+        });
+
         function animate() {
             requestAnimationFrame(animate);
+            if (!isTabActive) return;
 
             // 1. Cloud & Atmosphere Rotation (dynamic weather movement)
             cloudMesh.rotation.y += 0.0008;
@@ -2240,13 +2255,9 @@
                 starMesh.rotation.y -= 0.0002;
             }
 
-            // 4. Interactive Parallax (Mouse)
-            gsap.to(universeGroup.rotation, {
-                x: mouseY * 0.1,
-                y: mouseX * 0.1,
-                duration: 1,
-                ease: "power2.out"
-            });
+            // 4. Smooth Parallax (Zero GC allocations per frame)
+            universeGroup.rotation.x += (mouseY * 0.1 - universeGroup.rotation.x) * 0.05;
+            universeGroup.rotation.y += (mouseX * 0.1 - universeGroup.rotation.y) * 0.05;
 
             renderer.render(scene, camera);
         }
