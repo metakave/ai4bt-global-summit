@@ -33,6 +33,29 @@ function registerApiPlugin() {
           return;
         }
 
+        // 1b. POST Confirm Payment (Step 2)
+        if (url === '/api/confirm-payment' && req.method === 'POST') {
+          let body = '';
+          req.on('data', chunk => {
+            body += chunk.toString();
+          });
+          req.on('end', async () => {
+            try {
+              const data = JSON.parse(body || '{}');
+              data.step = 2;
+              const result = await handleRegistration(data);
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 200;
+              res.end(JSON.stringify(result));
+            } catch (err) {
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 400;
+              res.end(JSON.stringify({ success: false, error: err.message }));
+            }
+          });
+          return;
+        }
+
         // 2. POST Summit Circle Join
         if ((url === '/api/circle' || url === '/api/join-circle' || url === '/api/summit-circle') && req.method === 'POST') {
           let body = '';
@@ -56,7 +79,7 @@ function registerApiPlugin() {
         }
 
         // 3. Download XLSX file
-        if ((url === '/api/download-registrations' || url === '/api/registrations.xlsx' || (url === '/api/register' && req.method === 'GET'))) {
+        if ((url === '/api/download-registrations' || url === '/api/registrations.xlsx' || (url === '/api/register' && req.method === 'GET' && !req.url.includes('export=')))) {
           const xlsxPath = resolve(process.cwd(), 'data/registrations.xlsx');
           if (fs.existsSync(xlsxPath)) {
             const stat = fs.statSync(xlsxPath);
@@ -70,6 +93,44 @@ function registerApiPlugin() {
           } else {
             res.writeHead(404, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: false, error: 'No registrations spreadsheet found yet.' }));
+            return;
+          }
+        }
+
+        // 3b. Download registered_first_step.csv
+        if (url === '/api/registered_first_step.csv' || url === '/api/download-first-step' || (url === '/api/register' && req.url.includes('export=first_step'))) {
+          const csvPath = resolve(process.cwd(), 'data/registered_first_step.csv');
+          if (fs.existsSync(csvPath)) {
+            const stat = fs.statSync(csvPath);
+            res.writeHead(200, {
+              'Content-Type': 'text/csv',
+              'Content-Length': stat.size,
+              'Content-Disposition': 'attachment; filename="registered_first_step.csv"'
+            });
+            fs.createReadStream(csvPath).pipe(res);
+            return;
+          } else {
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: false, error: 'registered_first_step.csv not found yet.' }));
+            return;
+          }
+        }
+
+        // 3c. Download registeted_second_step.csv
+        if (url === '/api/registeted_second_step.csv' || url === '/api/download-second-step' || (url === '/api/register' && req.url.includes('export=second_step'))) {
+          const csvPath = resolve(process.cwd(), 'data/registeted_second_step.csv');
+          if (fs.existsSync(csvPath)) {
+            const stat = fs.statSync(csvPath);
+            res.writeHead(200, {
+              'Content-Type': 'text/csv',
+              'Content-Length': stat.size,
+              'Content-Disposition': 'attachment; filename="registeted_second_step.csv"'
+            });
+            fs.createReadStream(csvPath).pipe(res);
+            return;
+          } else {
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: false, error: 'registeted_second_step.csv not found yet.' }));
             return;
           }
         }
@@ -114,7 +175,8 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         speakers: resolve(__dirname, 'speakers.html'),
         agenda: resolve(__dirname, 'agenda.html'),
-        register: resolve(__dirname, 'register.html')
+        register: resolve(__dirname, 'register.html'),
+        payment: resolve(__dirname, 'payment.html')
       },
       output: {
         manualChunks(id) {

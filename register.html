@@ -1544,7 +1544,10 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify({
+                        ...payload,
+                        step: 1
+                    })
                 });
 
                 const result = await response.json();
@@ -1553,33 +1556,39 @@
                     throw new Error(result.error || 'Registration failed. Please try again.');
                 }
 
-                // Save locally to localStorage as instant backup
+                const assignedRegId = result.regId || result.delegate?.regId || `AI4BT-2026-${Date.now().toString().slice(-6)}`;
+
+                // Save pending registration to sessionStorage & localStorage for Step 2 Payment Page
+                const pendingRegistration = {
+                    ...payload,
+                    regId: assignedRegId,
+                    registeredAt: new Date().toISOString()
+                };
+
                 try {
-                    const existingList = JSON.parse(localStorage.getItem('ai4bt_delegates') || '[]');
-                    existingList.push({ ...payload, registeredAt: new Date().toISOString() });
-                    localStorage.setItem('ai4bt_delegates', JSON.stringify(existingList));
+                    sessionStorage.setItem('ai4bt_pending_reg', JSON.stringify(pendingRegistration));
+                    const existingList = JSON.parse(localStorage.getItem('ai4bt_delegates_step1') || '[]');
+                    existingList.push(pendingRegistration);
+                    localStorage.setItem('ai4bt_delegates_step1', JSON.stringify(existingList));
                 } catch (storageErr) {
-                    console.warn('LocalStorage save skipped:', storageErr);
+                    console.warn('Storage save skipped:', storageErr);
                 }
 
-                // Show success view
-                if (document.getElementById('confirmed-regid')) {
-                    document.getElementById('confirmed-regid').textContent = result.regId || result.delegate?.regId || 'AI4BT-2026-CONFIRMED';
-                }
-                document.getElementById('confirmed-name').textContent = payload.fullName;
-                document.getElementById('confirmed-company').textContent = payload.companyName;
-                document.getElementById('confirmed-designation').textContent = payload.designation;
-                document.getElementById('confirmed-email').textContent = payload.email;
+                // Show quick redirect indicator on button
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Taking to Payment Page...</span>
+                `;
 
-                form.classList.add('hidden');
-                successCard.classList.remove('hidden');
-
-                if (window.lucide) lucide.createIcons();
-                window.scrollTo({ top: successCard.offsetTop - 120, behavior: 'smooth' });
+                // Redirect to Payment Page (Step 2)
+                window.location.href = `payment.html?id=${encodeURIComponent(assignedRegId)}`;
 
             } catch (err) {
                 console.error('Submission error:', err);
-                showAlert(err.message || 'An error occurred while submitting your registration. Please check your connection and try again.');
+                showAlert(err.message || 'An error occurred while submitting your details. Please check your connection and try again.');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnHtml;
                 if (window.lucide) lucide.createIcons();

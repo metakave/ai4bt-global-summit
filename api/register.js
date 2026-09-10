@@ -10,6 +10,8 @@ dotenv.config();
 const DATA_DIR = path.resolve(process.cwd(), 'data');
 const CSV_FILE = path.join(DATA_DIR, 'registrations.csv');
 const XLSX_FILE = path.join(DATA_DIR, 'registrations.xlsx');
+export const FIRST_STEP_CSV = path.join(DATA_DIR, 'registered_first_step.csv');
+export const SECOND_STEP_CSV = path.join(DATA_DIR, 'registeted_second_step.csv');
 
 // Ensure data directory exists
 function ensureDataDir() {
@@ -151,6 +153,72 @@ export async function saveRegistrationToFile(reg) {
     console.log(`[Storage] Saved registration ${reg.regId} to Excel (${XLSX_FILE}).`);
   } catch (err) {
     console.error('[Storage Error] Failed to write XLSX:', err.message);
+  }
+}
+
+/**
+ * Append Step 1 submission to registered_first_step.csv
+ */
+export function saveFirstStepCsv(reg) {
+  ensureDataDir();
+  try {
+    if (!fs.existsSync(FIRST_STEP_CSV)) {
+      fs.writeFileSync(
+        FIRST_STEP_CSV,
+        'Timestamp,Registration ID,Full Name,Designation,Company Name,Mobile,WhatsApp,Email,LinkedIn URL\n',
+        'utf8'
+      );
+    }
+    const csvRow = [
+      escapeCsvField(reg.timestamp),
+      escapeCsvField(reg.regId),
+      escapeCsvField(reg.fullName),
+      escapeCsvField(reg.designation),
+      escapeCsvField(reg.companyName),
+      escapeCsvField(reg.mobile),
+      escapeCsvField(reg.whatsApp || reg.mobile),
+      escapeCsvField(reg.email),
+      escapeCsvField(reg.linkedinUrl || '')
+    ].join(',') + '\n';
+
+    fs.appendFileSync(FIRST_STEP_CSV, csvRow, 'utf8');
+    console.log(`[Storage] Appended Step 1 registration ${reg.regId} to registered_first_step.csv`);
+  } catch (err) {
+    console.error('[Storage Error] Failed to write registered_first_step.csv:', err.message);
+  }
+}
+
+/**
+ * Append Step 2 completed payment submission to registeted_second_step.csv
+ */
+export function saveSecondStepCsv(reg) {
+  ensureDataDir();
+  try {
+    if (!fs.existsSync(SECOND_STEP_CSV)) {
+      fs.writeFileSync(
+        SECOND_STEP_CSV,
+        'Timestamp,Registration ID,Full Name,Designation,Company Name,Mobile,WhatsApp,Email,LinkedIn URL,Payment Status,Amount BDT\n',
+        'utf8'
+      );
+    }
+    const csvRow = [
+      escapeCsvField(reg.timestamp),
+      escapeCsvField(reg.regId),
+      escapeCsvField(reg.fullName),
+      escapeCsvField(reg.designation),
+      escapeCsvField(reg.companyName),
+      escapeCsvField(reg.mobile),
+      escapeCsvField(reg.whatsApp || reg.mobile),
+      escapeCsvField(reg.email),
+      escapeCsvField(reg.linkedinUrl || ''),
+      escapeCsvField(reg.paymentStatus || 'Payment Agreed & Confirmed'),
+      escapeCsvField(reg.amountBdt || '1000')
+    ].join(',') + '\n';
+
+    fs.appendFileSync(SECOND_STEP_CSV, csvRow, 'utf8');
+    console.log(`[Storage] Appended Step 2 registration ${reg.regId} to registeted_second_step.csv`);
+  } catch (err) {
+    console.error('[Storage Error] Failed to write registeted_second_step.csv:', err.message);
   }
 }
 
@@ -463,9 +531,11 @@ function buildAdminNotificationEmail(reg) {
 }
 
 /**
- * Primary handler for processing a registration submission
+ * Handler for Step 1: Delegate Information Form submission.
+ * Saves to registered_first_step.csv.
+ * DOES NOT send any email at this stage.
  */
-export async function handleRegistration(data) {
+export async function handleFirstStep(data) {
   const {
     fullName = '',
     designation = '',
@@ -496,14 +566,71 @@ export async function handleRegistration(data) {
     linkedinUrl: linkedinUrl.trim()
   };
 
-  // 1. Save to Excel (.xlsx) and CSV
+  // 1. Save ONLY to registered_first_step.csv
+  saveFirstStepCsv(registrationRecord);
+
+  // 2. NO EMAIL IS SENT AT STEP 1 (User requirement)
+  console.log(`[Step 1 Complete] Delegate ${registrationRecord.fullName} (${regId}) saved to registered_first_step.csv. No email sent.`);
+
+  return {
+    success: true,
+    step: 1,
+    message: 'First step registered successfully. Proceed to payment page.',
+    regId,
+    delegate: registrationRecord
+  };
+}
+
+/**
+ * Handler for Step 2: Payment Confirmation submission.
+ * Saves to registeted_second_step.csv and registrations.xlsx/csv.
+ * Sends Confirmation Email to Delegate and Admin Notification Email.
+ */
+export async function handleSecondStep(data) {
+  const {
+    regId = '',
+    fullName = '',
+    designation = '',
+    companyName = '',
+    mobile = '',
+    whatsApp = '',
+    email = '',
+    linkedinUrl = '',
+    amountBdt = '1000',
+    paymentStatus = 'Payment Agreed & Confirmed'
+  } = data;
+
+  if (!regId && !email) {
+    throw new Error('Registration ID or Email is required to complete registration.');
+  }
+
+  const timestamp = new Date().toISOString();
+  const finalRegId = regId || `AI4BT-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
+
+  const registrationRecord = {
+    timestamp,
+    regId: finalRegId,
+    fullName: fullName.trim(),
+    designation: designation.trim(),
+    companyName: companyName.trim(),
+    mobile: mobile.trim(),
+    whatsApp: whatsApp.trim() || mobile.trim(),
+    email: email.trim(),
+    linkedinUrl: linkedinUrl.trim(),
+    amountBdt: String(amountBdt),
+    paymentStatus
+  };
+
+  // 1. Save to registeted_second_step.csv
+  saveSecondStepCsv(registrationRecord);
+
+  // 2. Also save to registrations.csv and registrations.xlsx for full consistency
   await saveRegistrationToFile(registrationRecord);
 
-  // 2. Email dispatch via SMTP
+  // 3. Email dispatch via SMTP
   let emailSent = false;
   let adminEmailSent = false;
 
-  // Host configuration: Use configured host or fallback to direct mail server host if apex domain is Cloudflare-proxied
   const smtpHost = process.env.SMTP_HOST || 'server903.web-hosting.com';
   const smtpPort = parseInt(process.env.SMTP_PORT || '465', 10);
   const smtpSecure = process.env.SMTP_SECURE === 'true' || smtpPort === 465;
@@ -529,47 +656,50 @@ export async function handleRegistration(data) {
       connectionTimeout: 15000
     });
 
-    // 2a. Send Thank You confirmation email to the delegate, CC to hello@sadiqalam.com and mahmud@ai4bt.com
-    const delegateMailOptions = {
-      from: smtpFrom,
-      to: registrationRecord.email,
-      cc: adminCc,
-      subject: `Registration Confirmed: AI4BT Global Summit 2026 [Ref: ${regId}]`,
-      html: buildDelegateThankYouEmail(registrationRecord)
-    };
+    // 3a. Send Thank You confirmation email to the delegate
+    if (registrationRecord.email) {
+      const delegateMailOptions = {
+        from: smtpFrom,
+        to: registrationRecord.email,
+        cc: adminCc,
+        subject: `Registration & Payment Confirmed: AI4BT Global Summit 2026 [Ref: ${finalRegId}]`,
+        html: buildDelegateThankYouEmail(registrationRecord)
+      };
 
-    const delegateResult = await transporter.sendMail(delegateMailOptions);
-    emailSent = true;
-    console.log(`[SMTP] Thank You email sent to ${registrationRecord.email} (CC: ${adminCc.join(', ')}), MessageID: ${delegateResult.messageId}`);
+      const delegateResult = await transporter.sendMail(delegateMailOptions);
+      emailSent = true;
+      console.log(`[SMTP] Step 2 confirmation email sent to ${registrationRecord.email} (CC: ${adminCc.join(', ')}), MessageID: ${delegateResult.messageId}`);
+    }
 
-    // 2b. Send Admin Notification email to notifications@ai4bt.com, CC to hello@sadiqalam.com and mahmud@ai4bt.com
+    // 3b. Send Admin Notification email
     if (notifyEmail) {
       const adminMailOptions = {
         from: smtpFrom,
         to: notifyEmail,
         cc: adminCc,
-        subject: `[New Registration] ${registrationRecord.fullName} (${registrationRecord.companyName}) [${regId}]`,
+        subject: `[Payment & Registration Confirmed] ${registrationRecord.fullName} (${registrationRecord.companyName}) [${finalRegId}]`,
         html: buildAdminNotificationEmail(registrationRecord)
       };
 
       const adminResult = await transporter.sendMail(adminMailOptions);
       adminEmailSent = true;
-      console.log(`[SMTP] Admin notification sent to ${notifyEmail} (CC: ${adminCc.join(', ')}), MessageID: ${adminResult.messageId}`);
+      console.log(`[SMTP] Step 2 admin notification sent to ${notifyEmail} (CC: ${adminCc.join(', ')}), MessageID: ${adminResult.messageId}`);
     }
 
   } catch (mailError) {
-    console.error('[SMTP Error] Email dispatch failed:', mailError.message);
+    console.error('[SMTP Error] Step 2 email dispatch failed:', mailError.message);
   }
 
   return {
     success: true,
-    message: 'Registration successfully received, saved to server Excel database, and confirmation email dispatched.',
-    regId,
+    step: 2,
+    message: 'Payment and registration successfully confirmed. Confirmation email dispatched.',
+    regId: finalRegId,
     xlsxSaved: true,
     emailSent,
     adminEmailSent,
     delegate: {
-      regId,
+      regId: finalRegId,
       fullName: registrationRecord.fullName,
       designation: registrationRecord.designation,
       companyName: registrationRecord.companyName,
@@ -579,11 +709,47 @@ export async function handleRegistration(data) {
 }
 
 /**
+ * Universal handler: routes to Step 1 or Step 2 based on payload.
+ */
+export async function handleRegistration(data) {
+  if (data.step === 2 || data.isPaymentStep) {
+    return await handleSecondStep(data);
+  }
+  // Default is Step 1
+  return await handleFirstStep(data);
+}
+
+/**
  * Default export for Vercel Serverless Function & Node.js HTTP handlers
  */
 export default async function handler(req, res) {
-  // Support downloading XLSX via GET /api/register?export=xlsx or /api/download-registrations
+  // Support downloading files via GET
   if (req.method === 'GET') {
+    const exportType = req.query?.export || '';
+    if (exportType === 'first_step' || exportType === 'registered_first_step.csv') {
+      if (fs.existsSync(FIRST_STEP_CSV)) {
+        const stat = fs.statSync(FIRST_STEP_CSV);
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader('Content-Length', stat.size);
+        res.setHeader('Content-Disposition', 'attachment; filename="registered_first_step.csv"');
+        return fs.createReadStream(FIRST_STEP_CSV).pipe(res);
+      } else {
+        return res.status(404).json({ success: false, error: 'registered_first_step.csv not found yet.' });
+      }
+    }
+
+    if (exportType === 'second_step' || exportType === 'registeted_second_step.csv') {
+      if (fs.existsSync(SECOND_STEP_CSV)) {
+        const stat = fs.statSync(SECOND_STEP_CSV);
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader('Content-Length', stat.size);
+        res.setHeader('Content-Disposition', 'attachment; filename="registeted_second_step.csv"');
+        return fs.createReadStream(SECOND_STEP_CSV).pipe(res);
+      } else {
+        return res.status(404).json({ success: false, error: 'registeted_second_step.csv not found yet.' });
+      }
+    }
+
     if (fs.existsSync(XLSX_FILE)) {
       const stat = fs.statSync(XLSX_FILE);
       res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
