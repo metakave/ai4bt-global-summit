@@ -1129,8 +1129,8 @@
     <footer class="relative overflow-hidden mt-12 pt-12 pb-10 px-6 md:px-12 text-center min-h-[780px] md:min-h-[920px] lg:min-h-[1050px] flex flex-col justify-between items-center gap-16">
         <!-- Video Background Layer (Seamlessly Feathered with Screen Blend) -->
         <div class="footer-video-wrap">
-            <video autoplay loop muted playsinline preload="none" data-src="videos/footer-bg_optimized.mp4" class="footer-video-el lazy-footer-video">
-                <source src="" type="video/mp4">
+            <video autoplay loop muted playsinline preload="auto" class="footer-video-el">
+                <source src="videos/footer-bg_optimized.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -1233,18 +1233,14 @@
             });
         }
 
-        // Auto-play and lazy-load footer background video on demand (saving 3.28 MB upfront)
+        // Auto-play and ensure video playback for background video
         function initFooterVideo() {
-            const v = document.querySelector('.lazy-footer-video');
-            if (!v) return;
-            const src = v.getAttribute('data-src');
-            const s = v.querySelector('source');
-
-            function playVideo() {
-                if (s && !s.src && src) {
-                    s.src = src;
-                    v.load();
-                    v.play().catch(() => {
+            const videos = document.querySelectorAll('.footer-video-el');
+            videos.forEach(v => {
+                v.muted = true;
+                const playPromise = v.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
                         const playOnInteraction = () => {
                             v.play();
                             window.removeEventListener('scroll', playOnInteraction);
@@ -1256,23 +1252,10 @@
                         window.addEventListener('touchstart', playOnInteraction, { once: true });
                     });
                 }
-            }
-
-            if ('IntersectionObserver' in window) {
-                const obs = new IntersectionObserver((entries) => {
-                    entries.forEach(e => {
-                        if (e.isIntersecting) {
-                            playVideo();
-                            obs.disconnect();
-                        }
-                    });
-                }, { rootMargin: '800px 0px' });
-                obs.observe(v);
-            } else {
-                playVideo();
-            }
+            });
         }
         document.addEventListener('DOMContentLoaded', initFooterVideo);
+        window.addEventListener('load', initFooterVideo);
         initFooterVideo();
 
         // --- MOBILE RIGHT-TO-LEFT SLIDE-IN DRAWER CONTROLLER ---

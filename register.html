@@ -1392,8 +1392,8 @@
     <footer class="relative overflow-hidden mt-16 pt-16 pb-12 px-6 md:px-12 text-center min-h-[460px] md:min-h-[520px] flex flex-col justify-between items-center gap-12 z-10">
         <!-- Video Background Layer (Seamlessly Feathered with Screen Blend) -->
         <div class="footer-video-wrap">
-            <video autoplay loop muted playsinline preload="none" data-src="videos/footer-bg_optimized.mp4" class="footer-video-el lazy-footer-video">
-                <source src="" type="video/mp4">
+            <video autoplay loop muted playsinline preload="auto" class="footer-video-el">
+                <source src="videos/footer-bg_optimized.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -1659,34 +1659,6 @@
         if (window.lucide) {
             lucide.createIcons();
         }
-
-        // Lazy-load footer background video on demand (saving 3.28 MB upfront)
-        (function() {
-            const v = document.querySelector('.lazy-footer-video');
-            if (!v) return;
-            const src = v.getAttribute('data-src');
-            const s = v.querySelector('source');
-            function playVideo() {
-                if (s && !s.src && src) {
-                    s.src = src;
-                    v.load();
-                    v.play().catch(() => {});
-                }
-            }
-            if ('IntersectionObserver' in window) {
-                const obs = new IntersectionObserver((entries) => {
-                    entries.forEach(e => {
-                        if (e.isIntersecting) {
-                            playVideo();
-                            obs.disconnect();
-                        }
-                    });
-                }, { rootMargin: '800px 0px' });
-                obs.observe(v);
-            } else {
-                playVideo();
-            }
-        })();
     </script>
 
     <!-- ════════════ AURALIS WEBGL BACKGROUND ANIMATION MODULE ════════════ -->
