@@ -18,5 +18,8 @@
     "nodemailer": "^9.1.1",
     "qrcode": "^1.5.4",
     "three": "^0.185.1"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
   }
 }
