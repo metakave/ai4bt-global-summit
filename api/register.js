@@ -769,6 +769,18 @@ export default async function handler(req, res) {
       }
     }
 
+    if (exportType === 'csv' || exportType === 'registrations.csv') {
+      if (fs.existsSync(CSV_FILE)) {
+        const stat = fs.statSync(CSV_FILE);
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader('Content-Length', stat.size);
+        res.setHeader('Content-Disposition', 'attachment; filename="registrations.csv"');
+        return fs.createReadStream(CSV_FILE).pipe(res);
+      } else {
+        return res.status(404).json({ success: false, error: 'registrations.csv not found yet.' });
+      }
+    }
+
     if (fs.existsSync(XLSX_FILE)) {
       const stat = fs.statSync(XLSX_FILE);
       res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
