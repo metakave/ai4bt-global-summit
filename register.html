@@ -922,21 +922,6 @@
                         </div>
                     </div>
 
-                    <!-- Registration Fee & Payment Note -->
-                    <div class="p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2.5 text-left backdrop-blur-sm">
-                        <div class="flex items-start gap-2.5">
-                            <div class="p-1.5 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 mt-0.5">
-                                <i data-lucide="badge-percent" class="w-4 h-4"></i>
-                            </div>
-                            <h3 class="text-sm sm:text-[15px] font-bold text-white leading-snug tracking-tight">
-                                Registration Fee will be <span class="line-through font-bold text-white">BDT 1500</span>, early bird discounted fee <span class="text-amber-400 font-extrabold">BDT 1000 only</span>. <span class="text-amber-300 font-semibold block sm:inline">Valid until 17th September 2026 midnight.</span>
-                            </h3>
-                        </div>
-                        <p class="text-xs sm:text-sm text-zinc-300 italic leading-relaxed pl-8">
-                            In the following page Scan the QR Code with any Banking App (bKash App / Banking App) and make the Payment to complete your Registration.
-                        </p>
-                    </div>
-
                     <!-- Submit Button -->
                     <div class="pt-2">
                         <button 
@@ -944,7 +929,7 @@
                             id="submit-btn" 
                             class="w-full py-4 px-6 rounded-xl font-bold text-sm tracking-wide uppercase transition-all duration-300 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-black hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer"
                         >
-                            <span>COMPLETE REGISTRATION WITH PAYMENT NEXT</span>
+                            <span>CLICK TO COMPLETE REGISTRATION</span>
                             <i data-lucide="arrow-right" class="w-4 h-4 text-black"></i>
                         </button>
                     </div>
@@ -1552,10 +1537,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
-                        ...payload,
-                        step: 1
-                    })
+                    body: JSON.stringify(payload)
                 });
 
                 const result = await response.json();
@@ -1566,33 +1548,42 @@
 
                 const assignedRegId = result.regId || result.delegate?.regId || `AI4BT-2026-${Date.now().toString().slice(-6)}`;
 
-                // Save pending registration to sessionStorage & localStorage for Step 2 Payment Page
-                const pendingRegistration = {
+                // Save confirmed registration to localStorage
+                const confirmedRegistration = {
                     ...payload,
                     regId: assignedRegId,
                     registeredAt: new Date().toISOString()
                 };
 
                 try {
-                    sessionStorage.setItem('ai4bt_pending_reg', JSON.stringify(pendingRegistration));
-                    const existingList = JSON.parse(localStorage.getItem('ai4bt_delegates_step1') || '[]');
-                    existingList.push(pendingRegistration);
-                    localStorage.setItem('ai4bt_delegates_step1', JSON.stringify(existingList));
+                    sessionStorage.setItem('ai4bt_confirmed_reg', JSON.stringify(confirmedRegistration));
+                    const existingList = JSON.parse(localStorage.getItem('ai4bt_delegates') || '[]');
+                    existingList.push(confirmedRegistration);
+                    localStorage.setItem('ai4bt_delegates', JSON.stringify(existingList));
                 } catch (storageErr) {
                     console.warn('Storage save skipped:', storageErr);
                 }
 
-                // Show quick redirect indicator on button
-                submitBtn.innerHTML = `
-                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span>Taking to Payment Page...</span>
-                `;
+                // Hide registration form and reveal success confirmation card
+                form.classList.add('hidden');
+                const successCard = document.getElementById('success-card');
+                if (successCard) {
+                    const nameEl = document.getElementById('confirmed-name');
+                    const regIdEl = document.getElementById('confirmed-regid');
+                    const companyEl = document.getElementById('confirmed-company');
+                    const desigEl = document.getElementById('confirmed-designation');
+                    const emailEl = document.getElementById('confirmed-email');
 
-                // Redirect to Payment Page (Step 2)
-                window.location.href = `payment.html?id=${encodeURIComponent(assignedRegId)}`;
+                    if (nameEl) nameEl.textContent = payload.fullName || 'Delegate';
+                    if (regIdEl) regIdEl.textContent = assignedRegId;
+                    if (companyEl) companyEl.textContent = payload.companyName || '—';
+                    if (desigEl) desigEl.textContent = payload.designation || '—';
+                    if (emailEl) emailEl.textContent = payload.email || '—';
+
+                    successCard.classList.remove('hidden');
+                    successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    if (window.lucide) lucide.createIcons();
+                }
 
             } catch (err) {
                 console.error('Submission error:', err);

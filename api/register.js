@@ -550,103 +550,9 @@ function buildAdminNotificationEmail(reg) {
 }
 
 /**
- * Handler for Step 1: Delegate Information Form submission.
- * Saves to registered_first_step.csv.
- * DOES NOT send any email at this stage.
+ * Dispatch confirmation email to delegate and notification email to summit administration.
  */
-export async function handleFirstStep(data) {
-  const {
-    fullName = '',
-    designation = '',
-    companyName = '',
-    mobile = '',
-    whatsApp = '',
-    email = '',
-    linkedinUrl = ''
-  } = data;
-
-  // Validation
-  if (!fullName.trim() || !designation.trim() || !companyName.trim() || !mobile.trim() || !email.trim()) {
-    throw new Error('Please fill in all required fields (Full Name, Designation, Company, Mobile, Email).');
-  }
-
-  const timestamp = new Date().toISOString();
-  const regId = `AI4BT-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
-
-  const registrationRecord = {
-    timestamp,
-    regId,
-    fullName: fullName.trim(),
-    designation: designation.trim(),
-    companyName: companyName.trim(),
-    mobile: mobile.trim(),
-    whatsApp: whatsApp.trim() || mobile.trim(),
-    email: email.trim(),
-    linkedinUrl: linkedinUrl.trim()
-  };
-
-  // 1. Save ONLY to registered_first_step.csv
-  saveFirstStepCsv(registrationRecord);
-
-  // 2. NO EMAIL IS SENT AT STEP 1 (User requirement)
-  console.log(`[Step 1 Complete] Delegate ${registrationRecord.fullName} (${regId}) saved to registered_first_step.csv. No email sent.`);
-
-  return {
-    success: true,
-    step: 1,
-    message: 'First step registered successfully. Proceed to payment page.',
-    regId,
-    delegate: registrationRecord
-  };
-}
-
-/**
- * Handler for Step 2: Payment Confirmation submission.
- * Saves to registeted_second_step.csv and registrations.xlsx/csv.
- * Sends Confirmation Email to Delegate and Admin Notification Email.
- */
-export async function handleSecondStep(data) {
-  const {
-    regId = '',
-    fullName = '',
-    designation = '',
-    companyName = '',
-    mobile = '',
-    whatsApp = '',
-    email = '',
-    linkedinUrl = '',
-    amountBdt = '1000',
-    paymentStatus = 'Payment Agreed & Confirmed'
-  } = data;
-
-  if (!regId && !email) {
-    throw new Error('Registration ID or Email is required to complete registration.');
-  }
-
-  const timestamp = new Date().toISOString();
-  const finalRegId = regId || `AI4BT-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
-
-  const registrationRecord = {
-    timestamp,
-    regId: finalRegId,
-    fullName: fullName.trim(),
-    designation: designation.trim(),
-    companyName: companyName.trim(),
-    mobile: mobile.trim(),
-    whatsApp: whatsApp.trim() || mobile.trim(),
-    email: email.trim(),
-    linkedinUrl: linkedinUrl.trim(),
-    amountBdt: String(amountBdt),
-    paymentStatus
-  };
-
-  // 1. Save to registeted_second_step.csv
-  saveSecondStepCsv(registrationRecord);
-
-  // 2. Also save to registrations.csv and registrations.xlsx for full consistency
-  await saveRegistrationToFile(registrationRecord);
-
-  // 3. Email dispatch via SMTP
+export async function sendRegistrationEmails(registrationRecord) {
   let emailSent = false;
   let adminEmailSent = false;
 
@@ -675,44 +581,92 @@ export async function handleSecondStep(data) {
       connectionTimeout: 15000
     });
 
-    // 3a. Send Thank You confirmation email to the delegate
+    // 1. Send confirmation email to the delegate
     if (registrationRecord.email) {
       const delegateMailOptions = {
         from: smtpFrom,
         to: registrationRecord.email,
         cc: adminCc,
-        subject: `Registration & Payment Confirmed: AI4BT Global Summit 2026 [Ref: ${finalRegId}]`,
+        subject: `Registration Confirmed: AI4BT Global Summit 2026 [Ref: ${registrationRecord.regId}]`,
         html: buildDelegateThankYouEmail(registrationRecord)
       };
 
       const delegateResult = await transporter.sendMail(delegateMailOptions);
       emailSent = true;
-      console.log(`[SMTP] Step 2 confirmation email sent to ${registrationRecord.email} (CC: ${adminCc.join(', ')}), MessageID: ${delegateResult.messageId}`);
+      console.log(`[SMTP] Registration confirmation email sent to ${registrationRecord.email} (CC: ${adminCc.join(', ')}), MessageID: ${delegateResult.messageId}`);
     }
 
-    // 3b. Send Admin Notification email
+    // 2. Send Admin Notification email
     if (notifyEmail) {
       const adminMailOptions = {
         from: smtpFrom,
         to: notifyEmail,
         cc: adminCc,
-        subject: `[Payment & Registration Confirmed] ${registrationRecord.fullName} (${registrationRecord.companyName}) [${finalRegId}]`,
+        subject: `[New Registration Confirmed] ${registrationRecord.fullName} (${registrationRecord.companyName}) [${registrationRecord.regId}]`,
         html: buildAdminNotificationEmail(registrationRecord)
       };
 
       const adminResult = await transporter.sendMail(adminMailOptions);
       adminEmailSent = true;
-      console.log(`[SMTP] Step 2 admin notification sent to ${notifyEmail} (CC: ${adminCc.join(', ')}), MessageID: ${adminResult.messageId}`);
+      console.log(`[SMTP] Admin notification sent to ${notifyEmail} (CC: ${adminCc.join(', ')}), MessageID: ${adminResult.messageId}`);
     }
 
   } catch (mailError) {
-    console.error('[SMTP Error] Step 2 email dispatch failed:', mailError.message);
+    console.error('[SMTP Error] Registration email dispatch failed:', mailError.message);
   }
+
+  return { emailSent, adminEmailSent };
+}
+
+/**
+ * Primary Registration Handler: saves to Excel/CSV and dispatches confirmation email.
+ */
+export async function handleRegistration(data) {
+  const {
+    regId = '',
+    fullName = '',
+    designation = '',
+    companyName = '',
+    mobile = '',
+    whatsApp = '',
+    email = '',
+    linkedinUrl = ''
+  } = data;
+
+  // Validation
+  if (!fullName.trim() || !designation.trim() || !companyName.trim() || !mobile.trim() || !email.trim()) {
+    throw new Error('Please fill in all required fields (Full Name, Designation, Company, Mobile, Email).');
+  }
+
+  const timestamp = new Date().toISOString();
+  const finalRegId = regId.trim() || `AI4BT-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
+
+  const registrationRecord = {
+    timestamp,
+    regId: finalRegId,
+    fullName: fullName.trim(),
+    designation: designation.trim(),
+    companyName: companyName.trim(),
+    mobile: mobile.trim(),
+    whatsApp: whatsApp.trim() || mobile.trim(),
+    email: email.trim(),
+    linkedinUrl: linkedinUrl.trim(),
+    paymentStatus: 'Complimentary Free Registration',
+    amountBdt: '0'
+  };
+
+  // 1. Save to registrations.csv and registrations.xlsx
+  await saveRegistrationToFile(registrationRecord);
+
+  // 2. Also append to registered_first_step.csv for backward compatibility
+  saveFirstStepCsv(registrationRecord);
+
+  // 3. Dispatch confirmation emails immediately
+  const { emailSent, adminEmailSent } = await sendRegistrationEmails(registrationRecord);
 
   return {
     success: true,
-    step: 2,
-    message: 'Payment and registration successfully confirmed. Confirmation email dispatched.',
+    message: 'Registration confirmed successfully. Automated confirmation email has been dispatched.',
     regId: finalRegId,
     xlsxSaved: true,
     emailSent,
@@ -728,14 +682,14 @@ export async function handleSecondStep(data) {
 }
 
 /**
- * Universal handler: routes to Step 1 or Step 2 based on payload.
+ * Backward compatibility wrappers
  */
-export async function handleRegistration(data) {
-  if (data.step === 2 || data.isPaymentStep) {
-    return await handleSecondStep(data);
-  }
-  // Default is Step 1
-  return await handleFirstStep(data);
+export async function handleFirstStep(data) {
+  return await handleRegistration(data);
+}
+
+export async function handleSecondStep(data) {
+  return await handleRegistration(data);
 }
 
 /**
