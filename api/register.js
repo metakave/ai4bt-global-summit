@@ -540,9 +540,6 @@ function buildAdminNotificationEmail(reg) {
         <tr><td class="label">Timestamp:</td><td class="value">${escapeHtml(reg.timestamp)}</td></tr>
       </table>
     </div>
-    <div class="footer">
-      Automated Registration Dispatch • Database: <code>data/registrations.xlsx</code> &amp; <code>data/registrations.csv</code>
-    </div>
   </div>
 </body>
 </html>
