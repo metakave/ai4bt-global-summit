@@ -422,7 +422,7 @@ function buildDelegateThankYouEmail(reg) {
       <div class="summit-card">
         <div class="card-title">🗓️ Summit Broadcast Schedule</div>
         <div class="info-item"><strong>📅 Dates:</strong>&nbsp;25, 26, &amp; 27 September 2026 (3-Day Executive Track)</div>
-        <div class="info-item"><strong>⏰ Time:</strong>&nbsp;8:00 PM – 11:00 PM Bangladesh Time (BST) / 10:00 AM – 1:00 PM EDT</div>
+        <div class="info-item"><strong>⏰ Time:</strong>&nbsp;7:30 PM – 11:00 PM Bangladesh Time (BST) / 9:30 AM – 1:00 PM EDT</div>
         <div class="info-item"><strong>🌐 Access Mode:</strong>&nbsp;High-Definition Virtual Broadcast &amp; Interactive AI Labs</div>
       </div>
 
