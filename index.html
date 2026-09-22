@@ -577,6 +577,36 @@
             filter: brightness(0) invert(1) drop-shadow(0 0 14px rgba(255, 255, 255, 0.55));
             transform: scale(1.08);
         }
+
+        /* ---- Marquee ticker ---- */
+        .partners-marquee-wrapper {
+            overflow: hidden;
+            width: 100%;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
+        .partners-marquee-track {
+            display: flex;
+            align-items: center;
+            gap: clamp(28px, 5vw, 64px);
+            width: max-content;
+            animation: marquee-scroll 32s linear infinite;
+        }
+        .partners-marquee-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes marquee-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .partner-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: clamp(80px, 10vw, 130px);
+            height: clamp(36px, 4.5vw, 52px);
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-amber-500/30 selection:text-amber-700 dark:selection:text-amber-100 bg-grid min-h-screen">
@@ -1553,33 +1583,31 @@
                 <div class="space-y-2">
                     <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">Summit Partners</h3>
                 </div>
-                <div class="flex items-center justify-center gap-3 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 pt-2 flex-nowrap overflow-x-auto sm:overflow-x-visible">
-                    <div class="flex items-center justify-center shrink-0" style="width: clamp(80px, 11vw, 140px); height: clamp(36px, 4.5vw, 55px);">
-                        <img src="public/images/cxo-global-alliance.svg" onerror="this.src='images/cxo-global-alliance.svg'" alt="CXO Global Alliance" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy">
-                    </div>
-                    <div class="flex items-center justify-center shrink-0" style="width: clamp(80px, 11vw, 140px); height: clamp(36px, 4.5vw, 55px);">
-                        <img src="public/images/mm.svg" onerror="this.src='images/mm.svg'" alt="Metamorphosis" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy">
-                    </div>
-                    <div class="flex items-center justify-center shrink-0" style="width: clamp(80px, 11vw, 140px); height: clamp(36px, 4.5vw, 55px);">
-                        <img src="public/images/HOLD.svg" onerror="this.src='images/HOLD.svg'" alt="HOLD" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy">
-                    </div>
-                    <div class="flex items-center justify-center shrink-0" style="width: clamp(80px, 11vw, 140px); height: clamp(36px, 4.5vw, 55px);">
-                        <img src="public/images/coach-kamrul-hasan.svg" onerror="this.src='images/coach-kamrul-hasan.svg'" alt="Coach Kamrul Hasan" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy">
-                    </div>
-                    <div class="flex items-center justify-center shrink-0" style="width: clamp(80px, 11vw, 140px); height: clamp(36px, 4.5vw, 55px);">
-                        <img src="public/images/D-leader.svg" onerror="this.src='images/D-leader.svg'" alt="Daily Leader" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy">
-                    </div>
-                    <div class="flex items-center justify-center shrink-0" style="width: clamp(80px, 11vw, 140px); height: clamp(36px, 4.5vw, 55px);">
-                        <img src="public/images/chanel-24.svg" onerror="this.src='images/chanel-24.svg'" alt="Channel 24" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy">
-                    </div>
-                    <div class="flex items-center justify-center shrink-0" style="width: clamp(80px, 11vw, 140px); height: clamp(36px, 4.5vw, 55px);">
-                        <img src="public/images/Protidin-er-bangladesh.svg" onerror="this.src='images/Protidin-er-bangladesh.svg'" alt="Protidin-er Bangladesh" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy">
-                    </div>
-                    <div class="flex items-center justify-center shrink-0" style="width: clamp(80px, 11vw, 140px); height: clamp(36px, 4.5vw, 55px);">
-                        <img src="public/images/somokal.svg" onerror="this.src='images/somokal.svg'" alt="Somokal" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy">
-                    </div>
-                    <div class="flex items-center justify-center shrink-0" style="width: clamp(80px, 11vw, 140px); height: clamp(36px, 4.5vw, 55px);">
-                        <img src="public/images/UNB.svg" onerror="this.src='images/UNB.svg'" alt="UNB" class="partner-logo cursor-pointer object-contain" style="width: 70%; height: 70%;" loading="lazy">
+                <!-- Infinite marquee ticker -->
+                <div class="partners-marquee-wrapper pt-2">
+                    <div class="partners-marquee-track">
+                        <!-- SET 1 -->
+                        <div class="partner-item"><img src="public/images/cxo-global-alliance.svg" onerror="this.src='images/cxo-global-alliance.svg'" alt="CXO Global Alliance" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/mm.svg" onerror="this.src='images/mm.svg'" alt="Metamorphosis" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/HOLD.svg" onerror="this.src='images/HOLD.svg'" alt="HOLD" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/coach-kamrul-hasan.svg" onerror="this.src='images/coach-kamrul-hasan.svg'" alt="Coach Kamrul Hasan" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/D-leader.svg" onerror="this.src='images/D-leader.svg'" alt="Daily Leader" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/BITPN.svg" onerror="this.src='images/BITPN.svg'" alt="BITPN" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/chanel-24.svg" onerror="this.src='images/chanel-24.svg'" alt="Channel 24" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/Protidin-er-bangladesh.svg" onerror="this.src='images/Protidin-er-bangladesh.svg'" alt="Protidin-er Bangladesh" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/somokal.svg" onerror="this.src='images/somokal.svg'" alt="Somokal" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/UNB.svg" onerror="this.src='images/UNB.svg'" alt="UNB" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <!-- SET 2 (duplicate for seamless loop) -->
+                        <div class="partner-item"><img src="public/images/cxo-global-alliance.svg" onerror="this.src='images/cxo-global-alliance.svg'" alt="CXO Global Alliance" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/mm.svg" onerror="this.src='images/mm.svg'" alt="Metamorphosis" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/HOLD.svg" onerror="this.src='images/HOLD.svg'" alt="HOLD" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/coach-kamrul-hasan.svg" onerror="this.src='images/coach-kamrul-hasan.svg'" alt="Coach Kamrul Hasan" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/D-leader.svg" onerror="this.src='images/D-leader.svg'" alt="Daily Leader" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/BITPN.svg" onerror="this.src='images/BITPN.svg'" alt="BITPN" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/chanel-24.svg" onerror="this.src='images/chanel-24.svg'" alt="Channel 24" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/Protidin-er-bangladesh.svg" onerror="this.src='images/Protidin-er-bangladesh.svg'" alt="Protidin-er Bangladesh" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/somokal.svg" onerror="this.src='images/somokal.svg'" alt="Somokal" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
+                        <div class="partner-item"><img src="public/images/UNB.svg" onerror="this.src='images/UNB.svg'" alt="UNB" class="partner-logo cursor-pointer w-full h-full object-contain" loading="lazy"></div>
                     </div>
                 </div>
             </div>
