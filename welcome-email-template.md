@@ -48,7 +48,8 @@ We look forward to an inspiring summit together!
 ---
 
 *AI4BT Global Summit 2026 • Empowering Leaders for the AI-Native Era*  
-*Support: support@ai4bt.com*
+*📞 For any Support Call or Connect via WhatsApp: +8801709190412*  
+*Support Email: support@ai4bt.com*
 
 ---
 
@@ -198,6 +199,9 @@ You can copy the code below and paste it directly into the **Code View (`</>`)**
           <!-- Footer -->
           <tr>
             <td align="center" style="background-color: #080d19; padding: 22px 24px; border-top: 1px solid #1e293b; text-align: center;">
+              <p style="margin: 0 0 8px 0; color: #38bdf8; font-size: 13px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+                📞 For any Support Call or Connect via WhatsApp: <a href="https://wa.me/8801709190412" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;">+8801709190412</a>
+              </p>
               <p style="margin: 0 0 6px 0; color: #94a3b8; font-size: 12px; font-family: Arial, Helvetica, sans-serif;">
                 AI4BT Global Summit 2026 &bull; Empowering Leaders for the AI-Native Era
               </p>

@@ -500,6 +500,9 @@ function buildDelegateThankYouEmail(reg) {
 
     <!-- Footer -->
     <div class="footer">
+      <p style="margin: 0 0 10px; color: #38bdf8; font-size: 13px; font-weight: bold;">
+        📞 For any Support Call or Connect via WhatsApp: <a href="https://wa.me/8801709190412" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline; font-weight: bold;">+8801709190412</a>
+      </p>
       <p style="margin: 0 0 8px;"><strong>AI4BT Executive Council &amp; Secretariat</strong></p>
       <p style="margin: 0 0 8px;">Dhaka, Bangladesh • Global Secretariat</p>
       <p style="margin: 0;">
