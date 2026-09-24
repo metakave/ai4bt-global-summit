@@ -468,6 +468,31 @@ function buildDelegateThankYouEmail(reg) {
         </p>
       </div>
 
+      <!-- WhatsApp VIP Group Invitation -->
+      <div style="background: linear-gradient(180deg, #062319 0%, #03140e 100%); border: 1px solid #059669; border-radius: 12px; padding: 22px 20px; margin: 24px 0; text-align: left;">
+        <div style="font-size: 11px; font-weight: bold; color: #34d399; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 6px;">
+          🎁 Exclusive Offers &amp; Real-Time Resources
+        </div>
+        <h3 style="margin: 0 0 10px 0; color: #ffffff; font-size: 16px; font-weight: bold; line-height: 1.35;">
+          Join the Official WhatsApp Delegate Group
+        </h3>
+        <p style="margin: 0 0 16px 0; color: #a7f3d0; font-size: 13px; line-height: 1.6;">
+          To receive all <strong>exclusive summit offers, speaker presentation slide decks, session recordings, and valuable AI transformation toolkits</strong>, please join our official WhatsApp Delegate Group via the invitation link below:
+        </p>
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; margin: 0 0 10px 0;">
+          <tr>
+            <td align="center" style="background-color: #25D366; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); border-radius: 8px; border: 1px solid #20ba5a;">
+              <a href="https://chat.whatsapp.com/GlCu2u3ZUyzC4tMbX2Us0w" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; box-sizing: border-box; background-color: #25D366; color: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: bold; text-decoration: none; padding: 14px 20px; text-align: center; border-radius: 8px; letter-spacing: 0.3px;">
+                💬 Join Official WhatsApp Delegate Group →
+              </a>
+            </td>
+          </tr>
+        </table>
+        <div style="text-align: center; font-size: 11px; color: #6ee7b7; word-break: break-all;">
+          Direct Link: <a href="https://chat.whatsapp.com/GlCu2u3ZUyzC4tMbX2Us0w" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline; font-weight: bold;">https://chat.whatsapp.com/GlCu2u3ZUyzC4tMbX2Us0w</a>
+        </div>
+      </div>
+
       <p class="paragraph" style="margin-bottom: 0;">
         We look forward to welcoming you to three days of groundbreaking insights, real-world case studies, and high-impact enterprise AI strategies.
       </p>
@@ -557,11 +582,13 @@ export async function sendRegistrationEmails(registrationRecord) {
   const smtpPort = parseInt(process.env.SMTP_PORT || '465', 10);
   const smtpSecure = process.env.SMTP_SECURE === 'true' || smtpPort === 465;
   const smtpUser = process.env.SMTP_USER || 'notifications@ai4bt.com';
-  const smtpPass = process.env.SMTP_PASS || 'mR(Btx*7p6h%2ldy';
+  const smtpPass = process.env.SMTP_PASS || 't*E7LEiU-*+]-dgs';
   const smtpFrom = process.env.SMTP_FROM || 'AI4BT Global Summit 2026 <notifications@ai4bt.com>';
   
   const notifyEmail = process.env.NOTIFY_EMAIL || 'notifications@ai4bt.com';
-  const adminCc = ['hello@sadiqalam.com', 'mahmud@ai4bt.com'];
+  const adminCc = process.env.ADMIN_CC_EMAILS
+    ? process.env.ADMIN_CC_EMAILS.split(',').map(e => e.trim()).filter(Boolean)
+    : ['hello@sadiqalam.com', 'mahmud@ai4bt.com'];
 
   try {
     const transporter = nodemailer.createTransport({

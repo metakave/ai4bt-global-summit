@@ -299,10 +299,12 @@ export async function handleCircleJoin(data) {
   const smtpPort = parseInt(process.env.SMTP_PORT || '465', 10);
   const smtpSecure = process.env.SMTP_SECURE === 'true' || smtpPort === 465;
   const smtpUser = process.env.SMTP_USER || 'notifications@ai4bt.com';
-  const smtpPass = process.env.SMTP_PASS || 'mR(Btx*7p6h%2ldy';
+  const smtpPass = process.env.SMTP_PASS || 't*E7LEiU-*+]-dgs';
   const smtpFrom = process.env.SMTP_FROM || 'AI4BT Global Summit 2026 <notifications@ai4bt.com>';
   
-  const adminBcc = ['hello@sadiqalam.com', 'mahmud@ai4bt.com'];
+  const adminBcc = process.env.ADMIN_CC_EMAILS
+    ? process.env.ADMIN_CC_EMAILS.split(',').map(e => e.trim()).filter(Boolean)
+    : ['hello@sadiqalam.com', 'mahmud@ai4bt.com'];
 
   try {
     const transporter = nodemailer.createTransport({
