@@ -12,7 +12,7 @@ function registerApiPlugin() {
         const url = req.url.split('?')[0];
 
         // Clean URL support for development server
-        if (['/agenda', '/speakers', '/offers', '/register', '/payment'].includes(url)) {
+        if (['/agenda', '/speakers', '/offers', '/register', '/payment', '/media-coverage'].includes(url)) {
           const queryString = req.url.includes('?') ? '?' + req.url.split('?')[1] : '';
           req.url = `${url}.html${queryString}`;
         }
@@ -183,7 +183,8 @@ export default defineConfig({
         agenda: resolve(__dirname, 'agenda.html'),
         offers: resolve(__dirname, 'offers.html'),
         register: resolve(__dirname, 'register.html'),
-        payment: resolve(__dirname, 'payment.html')
+        payment: resolve(__dirname, 'payment.html'),
+        'media-coverage': resolve(__dirname, 'media-coverage.html')
       },
       output: {
         manualChunks(id) {
