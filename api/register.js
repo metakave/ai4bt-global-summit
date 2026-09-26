@@ -426,6 +426,20 @@ function buildDelegateThankYouEmail(reg) {
         <div class="info-item"><strong>🌐 Access Mode:</strong>&nbsp;High-Definition Virtual Broadcast &amp; Interactive AI Labs</div>
       </div>
 
+      <!-- Zoom Join Button -->
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; margin: 20px 0 8px 0;">
+        <tr>
+          <td align="center" style="background-color: #0E71EB; background: linear-gradient(135deg, #2D8CFF 0%, #0E71EB 100%); border-radius: 10px; border: 1px solid #2D8CFF;">
+            <a href="https://us06web.zoom.us/j/86798462496?pwd=qi7Zz4W2Xc0cIfDWoxep5Gl0yUYvrL.1" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; box-sizing: border-box; background-color: #0E71EB; color: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: bold; text-decoration: none; padding: 14px 22px; text-align: center; border-radius: 10px; letter-spacing: 0.3px;">
+              🎥 Join the Summit (Zoom Live Link)
+            </a>
+          </td>
+        </tr>
+      </table>
+      <div style="text-align: center; font-size: 11px; color: #94a3b8; margin-bottom: 22px; font-family: Arial, Helvetica, sans-serif;">
+        Direct Zoom URL: <a href="https://us06web.zoom.us/j/86798462496?pwd=qi7Zz4W2Xc0cIfDWoxep5Gl0yUYvrL.1" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;">https://us06web.zoom.us/j/86798462496?pwd=qi7Zz4W2Xc0cIfDWoxep5Gl0yUYvrL.1</a>
+      </div>
+
       <!-- Registration Credentials Table -->
       <table class="reg-details-table">
         <tr>

@@ -18,8 +18,8 @@ We are delighted to welcome you to the **AI4BT Global Summit 2026**! You are joi
 
 ---
 
-### 🎥 [Enter the Summit (Zoom Live Link)](https://us06web.zoom.us/j/86798462496?pwd=qi7Zz4W2Xc0cIfDWoxep5Gl0yUYvrL.1)
-*(Click above to launch Zoom directly. Please make sure your Zoom client is up to date before joining.)*
+### 🎥 [Join the Summit (Zoom Live Link)](https://us06web.zoom.us/j/86798462496?pwd=qi7Zz4W2Xc0cIfDWoxep5Gl0yUYvrL.1)
+*(Click above to launch Zoom directly. Direct URL: `https://us06web.zoom.us/j/86798462496?pwd=qi7Zz4W2Xc0cIfDWoxep5Gl0yUYvrL.1`)*
 
 ---
 
@@ -101,9 +101,9 @@ You can copy the code below and paste it directly into the **Code View (`</>`)**
                   <td align="center" style="padding: 0;">
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
                       <tr>
-                        <td align="center" style="background-color: #2563eb; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-radius: 10px; border: 1px solid #3b82f6;">
-                          <a href="https://us06web.zoom.us/j/86798462496?pwd=qi7Zz4W2Xc0cIfDWoxep5Gl0yUYvrL.1" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; box-sizing: border-box; background-color: #2563eb; color: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; text-decoration: none; padding: 16px 24px; text-align: center; border-radius: 10px; letter-spacing: 0.3px;">
-                            🎥 Enter the Summit (Zoom Live Link)
+                        <td align="center" style="background-color: #0E71EB; background: linear-gradient(135deg, #2D8CFF 0%, #0E71EB 100%); border-radius: 10px; border: 1px solid #2D8CFF;">
+                          <a href="https://us06web.zoom.us/j/86798462496?pwd=qi7Zz4W2Xc0cIfDWoxep5Gl0yUYvrL.1" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; box-sizing: border-box; background-color: #0E71EB; color: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; text-decoration: none; padding: 16px 24px; text-align: center; border-radius: 10px; letter-spacing: 0.3px;">
+                            🎥 Join the Summit (Zoom Live Link)
                           </a>
                         </td>
                       </tr>
@@ -112,8 +112,8 @@ You can copy the code below and paste it directly into the **Code View (`</>`)**
                 </tr>
               </table>
 
-              <p style="margin: 0 0 28px 0; font-size: 12px; color: #64748b; text-align: center; font-family: Arial, Helvetica, sans-serif; line-height: 1.4;">
-                <em>Click above to launch Zoom directly. Please make sure your Zoom client is up to date before joining.</em>
+              <p style="margin: 0 0 28px 0; font-size: 12px; color: #94a3b8; text-align: center; font-family: Arial, Helvetica, sans-serif; line-height: 1.4;">
+                <em>Click above to launch Zoom directly. Direct URL: <a href="https://us06web.zoom.us/j/86798462496?pwd=qi7Zz4W2Xc0cIfDWoxep5Gl0yUYvrL.1" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;">https://us06web.zoom.us/j/86798462496?pwd=qi7Zz4W2Xc0cIfDWoxep5Gl0yUYvrL.1</a></em>
               </p>
 
               <!-- WhatsApp Special Resource Box -->
