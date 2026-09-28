@@ -86,7 +86,7 @@
     </script>
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         :root {
@@ -238,7 +238,7 @@
                 Offers
             </a>
             <a href="media-coverage" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
-                Media
+                Media Coverage
             </a>
             <a href="about-ai4bt" class="px-4 py-1.5 text-sm font-semibold text-amber-400 bg-white/15 rounded-full shadow-sm transition-colors">
                 About AI4BT
@@ -914,11 +914,14 @@
 
     <!-- Scripts -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (window.lucide) {
+        function safeInitLucide() {
+            if (window.lucide && typeof lucide.createIcons === 'function') {
                 lucide.createIcons();
             }
-        });
+        }
+        document.addEventListener('DOMContentLoaded', safeInitLucide);
+        window.addEventListener('load', safeInitLucide);
+        safeInitLucide();
 
         // Theme toggle logic
         let isLightMode = document.documentElement.classList.contains('light');
