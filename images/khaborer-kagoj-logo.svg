@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60" fill="none">
+  <rect width="280" height="60" rx="8" fill="#ffffff" fill-opacity="0"/>
+  <!-- Newspaper / Pen Icon in Red Box -->
+  <rect x="8" y="10" width="40" height="40" rx="8" fill="#E60505"/>
+  <path d="M18 20H38M18 26H38M18 32H30M18 38H34" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Bengali Masthead Text -->
+  <text x="58" y="32" font-family="'Hind Siliguri', 'SolaimanLipi', sans-serif" font-weight="900" font-size="22" fill="#E60505" letter-spacing="0.5">খবরের কাগজ</text>
+  <text x="59" y="47" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" fill="#1e293b" letter-spacing="1">KHABORER KAGOJ</text>
+</svg>

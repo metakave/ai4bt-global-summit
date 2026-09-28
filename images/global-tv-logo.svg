@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60" fill="none">
+  <rect width="280" height="60" rx="8" fill="#ffffff" fill-opacity="0"/>
+  <!-- Globe / Broadcast emblem -->
+  <circle cx="28" cy="30" r="18" fill="#E11D48"/>
+  <ellipse cx="28" cy="30" rx="9" ry="18" stroke="#ffffff" stroke-width="2" fill="none"/>
+  <path d="M10 30H46M13 22H43M13 38H43" stroke="#ffffff" stroke-width="1.8"/>
+  <!-- Text -->
+  <text x="56" y="29" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#0F172A" letter-spacing="1.5">GLOBAL <tspan fill="#E11D48">TV</tspan></text>
+  <text x="56" y="47" font-family="'Hind Siliguri', 'SolaimanLipi', sans-serif" font-weight="700" font-size="14" fill="#E11D48">গ্লোবাল টেলিভিশন</text>
+</svg>
