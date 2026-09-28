@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4WM47B7RE6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WM47B7RE6');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Immediate Theme Initialization: Guarantees Dark Mode by Default with Zero Flash -->
+    <script>
+        (function() {
+            try {
+                var savedTheme = localStorage.getItem('diplomatic_theme');
+                if (savedTheme === 'light') {
+                    document.documentElement.classList.add('light');
+                    document.documentElement.classList.remove('dark');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                    if (!savedTheme) {
+                        localStorage.setItem('diplomatic_theme', 'dark');
+                    }
+                }
+            } catch (e) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    
+    <title>About AI4BT & AI4BT Global Summit | Practical, Ethical & Measurable AI Transformation</title>
+    
+    <!-- SEO & Social Meta Tags -->
+    <meta name="description" content="Discover AI4BT Global — the international AI consulting, advisory, and capability development firm organizing the AI4BT Global Summit. Explore our human-centered AI strategy, business transformation, intelligent automation, executive leadership, responsible AI governance, and innovation services.">
+    <meta name="keywords" content="About AI4BT, AI4BT Global Summit, AI for Business Transformation, AI Strategy, Responsible AI, AI Business Transformation, AI Solutions, AI Leadership, Intelligent Automation, Sadiq M Alam, Mahmudul Hasan, Enterprise AI Bangladesh">
+    <meta name="author" content="AI4BT Executive Advisory Council">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.ai4btglobalsummit.com/about-ai4bt">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AI4BT Global Summit 2026">
+    <meta property="og:url" content="https://www.ai4btglobalsummit.com/about-ai4bt">
+    <meta property="og:title" content="About AI4BT & AI4BT Global Summit | Enterprise AI Transformation">
+    <meta property="og:description" content="Learn about the AI4BT Global Summit and AI4BT — the international firm turning complex AI into practical, ethical, and measurable business capabilities.">
+    <meta property="og:image" content="https://www.ai4btglobalsummit.com/preview.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.ai4btglobalsummit.com/about-ai4bt">
+    <meta name="twitter:title" content="About AI4BT & AI4BT Global Summit | Enterprise AI Transformation">
+    <meta name="twitter:description" content="Learn about the AI4BT Global Summit and AI4BT — the international firm turning complex AI into practical, ethical, and measurable business capabilities.">
+    <meta name="twitter:image" content="https://www.ai4btglobalsummit.com/preview.jpeg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        bengali: ['"Noto Serif Bengali"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <style>
+        :root {
+            --bg-color: #050A14;
+            --canvas-bg: radial-gradient(circle at center, #0F172A 0%, #020617 100%);
+            --grid-line: rgba(255, 255, 255, 0.02);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --nav-bg: rgba(5, 10, 20, 0.85);
+            --nav-border: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(0, 0, 0, 0.45);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --card-glow: 0 0 25px rgba(245, 158, 11, 0.15);
+            --gold-gradient: linear-gradient(to right, #FCD34D, #F59E0B, #FCD34D);
+            --hero-cta-bg: #ffffff;
+            --hero-cta-text: #000000;
+            --hero-secondary-bg: rgba(255, 255, 255, 0.03);
+            --hero-secondary-border: rgba(255, 255, 255, 0.1);
+            --hero-secondary-text: #d4d4d8;
+            --modal-bg: #0A101D;
+            --modal-border: rgba(255, 255, 255, 0.1);
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --badge-bg: rgba(69, 26, 3, 0.3);
+            --badge-border: rgba(245, 158, 11, 0.2);
+            --badge-text: #f59e0b;
+            --scrollbar-track: #050A14;
+            --scrollbar-thumb: #1e293b;
+        }
+
+        html.light {
+            --bg-color: #125646;
+            --canvas-bg: radial-gradient(circle at center, #1b735e 0%, #0c3d31 100%);
+            --grid-line: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: #d1eee6;
+            --nav-bg: rgba(18, 86, 70, 0.92);
+            --nav-border: rgba(255, 255, 255, 0.18);
+            --card-bg: rgba(8, 41, 33, 0.70);
+            --card-border: rgba(255, 255, 255, 0.22);
+            --card-glow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            --hero-cta-bg: #ffffff;
+            --hero-cta-text: #0b3d31;
+            --hero-secondary-bg: rgba(255, 255, 255, 0.12);
+            --hero-secondary-border: rgba(255, 255, 255, 0.25);
+            --hero-secondary-text: #ffffff;
+            --modal-bg: #125646;
+            --modal-border: rgba(255, 255, 255, 0.2);
+            --input-bg: rgba(255, 255, 255, 0.12);
+            --input-border: rgba(255, 255, 255, 0.25);
+            --badge-bg: rgba(255, 255, 255, 0.15);
+            --badge-border: rgba(255, 255, 255, 0.3);
+            --badge-text: #fef08a;
+            --scrollbar-track: #0c3d31;
+            --scrollbar-thumb: #1b735e;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #D97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blue-gradient-text {
+            background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #1D4ED8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-grid {
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+        ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+
+        .themed-nav { background-color: var(--nav-bg); border-color: var(--nav-border); }
+        .themed-card {
+            background-color: var(--card-bg);
+            border-color: var(--card-border);
+            box-shadow: var(--card-glow);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .themed-badge {
+            background-color: var(--badge-bg);
+            border-color: var(--badge-border);
+            color: var(--badge-text);
+        }
+        .themed-input { background-color: var(--input-bg); border-color: var(--input-border); color: var(--text-primary); }
+        .themed-subtext { color: var(--text-secondary); }
+
+        /* Footer Video Layer */
+        .footer-video-wrap {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .footer-video-el {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        @media (max-width: 800px) {
+            .desktop-nav-pill { display: none !important; }
+            .mobile-menu-toggle { display: flex !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative bg-grid">
+
+    <!-- Top Diplomatic Navigation Header -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 md:py-5 flex justify-between items-center border-b themed-nav backdrop-blur-md transition-colors duration-300">
+        <!-- Logo -->
+        <a href="/" class="flex items-center group">
+            <img src="/logo.svg" alt="AI4BT Global Summit 2026 Logo" class="h-10 md:h-[60px] w-auto object-contain transition-transform group-hover:scale-105 duration-300 shrink-0">
+        </a>
+        
+        <!-- Desktop Nav Pill -->
+        <div class="desktop-nav-pill hidden md:flex bg-gradient-to-br from-white/10 to-white/0 border border-white/15 rounded-full p-1 shadow-lg shadow-black/20 backdrop-blur-md items-center gap-1">
+            <a href="/#section-1" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Summit
+            </a>
+            <a href="about-ai4bt" class="px-4 py-1.5 text-sm font-semibold text-amber-400 bg-white/15 rounded-full shadow-sm transition-colors">
+                About AI4BT
+            </a>
+            <a href="agenda" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Agenda
+            </a>
+            <a href="speakers" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Speakers
+            </a>
+            <a href="offers" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Offers
+            </a>
+            <a href="media-coverage" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Media
+            </a>
+            <a href="contact" class="px-4 py-1.5 text-sm font-medium text-zinc-200 hover:text-white rounded-full hover:bg-white/10 transition-colors">
+                Contact
+            </a>
+        </div>
+
+        <!-- Right Controls & CTA -->
+        <div class="flex items-center gap-2.5">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle-btn" class="w-8 h-8 md:w-9 md:h-9 rounded-full border themed-input hover:border-amber-500/50 hover:text-amber-500 transition-all duration-300 flex items-center justify-center active:scale-95 shadow-sm" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+                <span id="theme-icon-sun" class="text-amber-400"><i data-lucide="sun" class="w-4 h-4"></i></span>
+                <span id="theme-icon-moon" class="hidden text-zinc-300"><i data-lucide="moon" class="w-4 h-4"></i></span>
+            </button>
+
+            <!-- Visit AI4BT.com CTA Button -->
+            <a href="https://ai4bt.com" target="_blank" rel="noopener noreferrer" class="hidden sm:flex hover:from-amber-400 hover:to-amber-500 hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-all text-sm font-semibold text-black bg-gradient-to-b from-amber-400 to-amber-500 rounded-full py-2 px-5 shadow-[0px_0px_0px_1px_rgba(217,119,6,1),inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-sm gap-2 items-center tracking-tight active:scale-95">
+                <span class="text-sm font-semibold text-black tracking-tight">Visit AI4BT.com</span>
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="mobile-menu-toggle hidden w-8 h-8 md:w-9 md:h-9 rounded-full border themed-input hover:border-amber-500/50 hover:text-amber-500 transition-all duration-300 flex items-center justify-center active:scale-95" aria-label="Open Mobile Navigation">
+                <i data-lucide="menu" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="mobile-menu-drawer" class="fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#050A14] border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-6 shadow-2xl">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                <span class="text-xs font-mono uppercase tracking-widest text-amber-400">Navigation Menu</span>
+                <button id="mobile-menu-close" class="p-2 text-zinc-400 hover:text-white rounded-lg transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a href="/#section-1" class="mobile-nav-link px-4 py-2.5 text-sm font-medium text-zinc-200 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                    Summit Home
+                </a>
+                <a href="about-ai4bt" class="mobile-nav-link px-4 py-2.5 text-sm font-medium text-amber-400 bg-white/10 rounded-xl transition-colors">
+                    About AI4BT
+                </a>
+                <a href="agenda" class="mobile-nav-link px-4 py-2.5 text-sm font-medium text-zinc-200 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                    Summit Agenda
+                </a>
+                <a href="speakers" class="mobile-nav-link px-4 py-2.5 text-sm font-medium text-zinc-200 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                    Keynote Speakers
+                </a>
+                <a href="offers" class="mobile-nav-link px-4 py-2.5 text-sm font-medium text-zinc-200 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                    Exclusive Offers
+                </a>
+                <a href="media-coverage" class="mobile-nav-link px-4 py-2.5 text-sm font-medium text-zinc-200 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                    Media Coverage
+                </a>
+                <a href="contact" class="mobile-nav-link px-4 py-2.5 text-sm font-medium text-zinc-200 hover:text-white hover:bg-white/5 rounded-xl transition-colors">
+                    Contact Secretariat
+                </a>
+            </div>
+        </div>
+        <div class="pt-6 border-t border-white/10 space-y-3">
+            <a href="https://ai4bt.com" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-black font-semibold text-xs uppercase tracking-wider py-3 rounded-xl shadow-lg">
+                <span>Visit AI4BT.com</span>
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+            <div class="text-center text-xs themed-subtext">
+                &copy; 2026 AI4BT Global.
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-28 md:pt-36 pb-20 px-6 md:px-12 max-w-7xl mx-auto w-full space-y-20">
+
+        <!-- HERO SECTION -->
+        <section class="text-center space-y-6 max-w-4xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border themed-badge text-xs font-medium tracking-wide">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>Human-Centered • Ethical • Practical • Measurable</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.15]">
+                Empowering Enterprises Through <br class="hidden sm:inline">
+                <span class="gold-gradient-text">Practical &amp; Responsible AI</span>
+            </h1>
+
+            <p class="text-base sm:text-xl themed-subtext font-light max-w-3xl mx-auto leading-relaxed">
+                Discover the story behind the <strong>AI4BT Global Summit 2026</strong> and <strong>AI4BT Global</strong> — the international artificial intelligence consulting, advisory, and capability development firm shaping the future of enterprise business transformation.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="#what-is-summit" class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-semibold text-xs tracking-wider uppercase px-7 py-3.5 rounded-xl shadow-lg transition-all active:scale-95">
+                    <span>The Global Summit</span>
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+                <a href="#about-firm" class="inline-flex items-center gap-2 border themed-input px-6 py-3.5 rounded-xl text-xs font-medium uppercase tracking-wider hover:border-amber-500/50 transition-all">
+                    <span>About AI4BT Firm</span>
+                    <i data-lucide="building-2" class="w-4 h-4 text-amber-400"></i>
+                </a>
+                <a href="#services-summary" class="inline-flex items-center gap-2 border themed-input px-6 py-3.5 rounded-xl text-xs font-medium uppercase tracking-wider hover:border-amber-500/50 transition-all">
+                    <span>Enterprise Services</span>
+                    <i data-lucide="layers" class="w-4 h-4 text-blue-400"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION 1: WHAT IS AI4BT GLOBAL SUMMIT -->
+        <section id="what-is-summit" class="p-8 md:p-12 rounded-3xl border themed-card relative overflow-hidden space-y-8">
+            <div class="absolute -right-24 -top-24 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="space-y-3 relative z-10">
+                <div class="flex items-center gap-2 text-xs font-mono text-amber-400 uppercase tracking-widest">
+                    <i data-lucide="globe-2" class="w-4 h-4"></i>
+                    <span>Premier Virtual Executive Gathering</span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+                    What is the <span class="gold-gradient-text">AI4BT Global Summit?</span>
+                </h2>
+                <p class="text-sm sm:text-base themed-subtext max-w-3xl leading-relaxed">
+                    The <strong>AI4BT Global Summit 2026</strong> is the premier 3-day virtual executive symposium dedicated to accelerating practical, ethical, and enterprise-grade Artificial Intelligence adoption across businesses, financial institutions, manufacturing, and technology sectors.
+                </p>
+            </div>
+
+            <!-- 3 Summit Pillars Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                <div class="p-6 rounded-2xl bg-black/30 border border-white/10 space-y-3 hover:border-amber-500/30 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                        <i data-lucide="target" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Moving Beyond Hype to Real Outcomes</h3>
+                    <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
+                        While mainstream AI discussions focus on experimental chatbots, the summit provided practical frameworks to engineer AI-native operations, enterprise agility, and measurable ROI.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-black/30 border border-white/10 space-y-3 hover:border-amber-500/30 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Governance, Security &amp; Readiness</h3>
+                    <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
+                        Keynotes by international chairs covered cybersecurity, regulatory compliance (EU AI Act, ISO/IEC 42001), human AI readiness, and enterprise risk management.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-black/30 border border-white/10 space-y-3 hover:border-amber-500/30 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Autonomous Agentic ERP &amp; Blueprint</h3>
+                    <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
+                        Featured live demonstrations of autonomous AI agents managing financial cash-flows, Oracle ERP transformation, and the official launch of the <strong>90-Day Enterprise Transformation Blueprint</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Key Summit Impact Numbers -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/10 relative z-10 text-center">
+                <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-amber-400">3 Days</p>
+                    <p class="text-xs themed-subtext uppercase tracking-wider font-semibold">Intensive Executive Sessions</p>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-amber-400">20+ Global</p>
+                    <p class="text-xs themed-subtext uppercase tracking-wider font-semibold">Keynote Speakers &amp; Leaders</p>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-amber-400">32+ Media</p>
+                    <p class="text-xs themed-subtext uppercase tracking-wider font-semibold">National &amp; Global Coverage</p>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-amber-400">300K+</p>
+                    <p class="text-xs themed-subtext uppercase tracking-wider font-semibold">Estimated Executive Reach</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: ORGANIZED BY AI4BT -->
+        <section class="p-8 md:p-12 rounded-3xl border themed-card bg-gradient-to-r from-amber-500/10 via-black/40 to-blue-500/10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-4 max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-mono uppercase tracking-wider">
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                    <span>Organizing Authority</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">
+                    Envisioned &amp; Organized by <span class="gold-gradient-text">AI4BT Global</span>
+                </h2>
+                <p class="text-sm sm:text-base themed-subtext leading-relaxed font-light">
+                    The summit was conceived, curated, and hosted by <strong>AI4BT (Artificial Intelligence for Business Transformation)</strong> as part of its global mission to bridge the gap between cutting-edge AI research and measurable business outcomes.
+                </p>
+            </div>
+
+            <div class="shrink-0 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                <a href="https://ai4bt.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-semibold text-xs tracking-wider uppercase px-7 py-4 rounded-xl shadow-xl transition-all active:scale-95">
+                    <span>Explore AI4BT.com</span>
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION 3: WHAT IS AI4BT AND WHAT IT DOES -->
+        <section id="about-firm" class="space-y-10">
+            <div class="text-center space-y-3 max-w-3xl mx-auto">
+                <span class="text-xs font-semibold uppercase tracking-widest text-amber-400">About the Organization</span>
+                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+                    What is <span class="gold-gradient-text">AI4BT</span> and What Does It Do?
+                </h2>
+                <p class="text-sm sm:text-base themed-subtext leading-relaxed font-light">
+                    AI4BT is an international Artificial Intelligence consulting, advisory, and capability development firm dedicated to helping organizations transform business through practical, ethical, and measurable AI adoption.
+                </p>
+            </div>
+
+            <!-- Integrated Transformation Approach -->
+            <div class="p-8 md:p-10 rounded-3xl border themed-card space-y-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white">
+                            An Integrated Transformation Methodology
+                        </h3>
+                        <p class="text-sm sm:text-base text-zinc-300 leading-relaxed font-light">
+                            Unlike conventional technology consultancies that simply implement software, <strong>AI4BT combines strategic consulting, enterprise transformation, business agility, change management, responsible AI governance, and executive capability development into one unified framework.</strong>
+                        </p>
+                        <p class="text-xs sm:text-sm themed-subtext leading-relaxed">
+                            This unique approach enables organizations to move confidently from initial AI curiosity to enterprise-wide, resilient, and profitable adoption — embedding AI into the core DNA of the organization.
+                        </p>
+                    </div>
+
+                    <!-- 3 Core Tenets Card -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-5 rounded-2xl bg-black/40 border border-white/10 text-center space-y-2">
+                            <span class="text-3xl">🎯</span>
+                            <h4 class="text-sm font-bold text-amber-400">Vision</h4>
+                            <p class="text-xs text-zinc-300 font-light leading-relaxed">
+                                To become the world’s most trusted partner for AI-enabled business transformation, empowering organizations of every size through responsible AI.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-black/40 border border-white/10 text-center space-y-2">
+                            <span class="text-3xl">🚀</span>
+                            <h4 class="text-sm font-bold text-blue-400">Mission</h4>
+                            <p class="text-xs text-zinc-300 font-light leading-relaxed">
+                                To empower organizations to adopt AI confidently, responsibly, and profitably by turning complex technologies into practical business capabilities.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-black/40 border border-white/10 text-center space-y-2">
+                            <span class="text-3xl">🤝</span>
+                            <h4 class="text-sm font-bold text-emerald-400">Purpose</h4>
+                            <p class="text-xs text-zinc-300 font-light leading-relaxed">
+                                To democratize Artificial Intelligence by making it practical, accessible, ethical, and valuable for every organization worldwide.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guiding Principles Grid -->
+            <div class="space-y-6">
+                <div class="text-center space-y-2">
+                    <h3 class="text-xl sm:text-2xl font-bold text-white">Our Guiding Principles &amp; Philosophy</h3>
+                    <p class="text-xs sm:text-sm themed-subtext">The foundational values guiding every AI4BT engagement and client partnership.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div class="p-6 rounded-2xl border themed-card space-y-2.5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold text-sm">01</div>
+                            <h4 class="text-sm font-bold text-white">People-First AI Adoption</h4>
+                        </div>
+                        <p class="text-xs text-zinc-300 leading-relaxed font-light">
+                            Technology succeeds when people trust it, embrace it, and use it with confidence. We prioritize human readiness and change management.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl border themed-card space-y-2.5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold text-sm">02</div>
+                            <h4 class="text-sm font-bold text-white">Business Before Technology</h4>
+                        </div>
+                        <p class="text-xs text-zinc-300 leading-relaxed font-light">
+                            Every AI initiative must solve a meaningful business challenge, create concrete customer value, and generate verifiable ROI.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl border themed-card space-y-2.5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold text-sm">03</div>
+                            <h4 class="text-sm font-bold text-white">Responsible Innovation</h4>
+                        </div>
+                        <p class="text-xs text-zinc-300 leading-relaxed font-light">
+                            Ethics, transparency, privacy, and proactive governance are engineered into every solution from day zero.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl border themed-card space-y-2.5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold text-sm">04</div>
+                            <h4 class="text-sm font-bold text-white">Learning Culture</h4>
+                        </div>
+                        <p class="text-xs text-zinc-300 leading-relaxed font-light">
+                            Continuous learning enables continuous transformation. We equip workforces with real capability rather than temporary solutions.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl border themed-card space-y-2.5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold text-sm">05</div>
+                            <h4 class="text-sm font-bold text-white">Capability Over Dependency</h4>
+                        </div>
+                        <p class="text-xs text-zinc-300 leading-relaxed font-light">
+                            We build long-term internal capability, enterprise resilience, and sustainable growth within your teams — not ongoing dependency.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl border themed-card space-y-2.5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold text-sm">06</div>
+                            <h4 class="text-sm font-bold text-white">Outcome-Driven Execution</h4>
+                        </div>
+                        <p class="text-xs text-zinc-300 leading-relaxed font-light">
+                            Measurable business value, high organizational adoption, and sustainable market leadership define our benchmark of success.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SUMMARY OF AI4BT SERVICES -->
+        <section id="services-summary" class="space-y-12">
+            <div class="text-center space-y-3 max-w-3xl mx-auto">
+                <span class="text-xs font-semibold uppercase tracking-widest text-amber-400">Comprehensive Solutions</span>
+                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+                    Summary of <span class="gold-gradient-text">AI4BT Enterprise Services</span>
+                </h2>
+                <p class="text-sm sm:text-base themed-subtext leading-relaxed font-light">
+                    Explore the 6 core pillars of AI4BT services, designed to take organizations from strategy and readiness assessment through intelligent automation, leadership enablement, governance, and continuous innovation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- SERVICE 1: AI STRATEGY & EXECUTIVE ADVISORY -->
+                <article class="p-7 rounded-3xl border themed-card flex flex-col justify-between space-y-6 hover:border-amber-500/40 transition-all group relative overflow-hidden">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="compass" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">Pillar 01</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-amber-300 transition-colors">
+                                AI Strategy &amp; Executive Advisory
+                            </h3>
+                            <p class="text-xs font-semibold text-amber-400">
+                                "Strategy before technology — building the foundation for AI success."
+                            </p>
+                            <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                                AI4BT works directly with boards and executive leadership to define how AI creates measurable business value, aligns with strategic priorities, and supports long-term growth.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2 pt-2 border-t border-white/5">
+                            <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider block">Key Capabilities &amp; Deliverables:</span>
+                            <ul class="text-xs text-zinc-300 space-y-1.5 list-disc list-inside font-light">
+                                <li>Executive AI Vision &amp; Strategic Roadmaps</li>
+                                <li>AI Readiness Assessment &amp; Maturity Scorecard</li>
+                                <li>High-Value Use Case Identification &amp; Prioritization</li>
+                                <li>AI Investment Roadmap &amp; Board Business Cases</li>
+                                <li>Governance Structures &amp; Oversight Mechanisms</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="https://ai4bt.com/services/ai-strategy" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors">
+                        <span>Learn more at AI4BT.com</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </article>
+
+                <!-- SERVICE 2: AI BUSINESS TRANSFORMATION -->
+                <article class="p-7 rounded-3xl border themed-card flex flex-col justify-between space-y-6 hover:border-amber-500/40 transition-all group relative overflow-hidden">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="briefcase" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">Pillar 02</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                                AI Business Transformation
+                            </h3>
+                            <p class="text-xs font-semibold text-blue-400">
+                                "Redesigning how organizations create value and operate."
+                            </p>
+                            <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                                Partners with enterprises to redesign operating models, core business processes, decision rights, and organizational capabilities to embed AI into everyday operations.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2 pt-2 border-t border-white/5">
+                            <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider block">Key Capabilities &amp; Deliverables:</span>
+                            <ul class="text-xs text-zinc-300 space-y-1.5 list-disc list-inside font-light">
+                                <li>Business Transformation Strategy &amp; Redesign</li>
+                                <li>AI Operating Model &amp; Decision Rights Design</li>
+                                <li>End-to-End Business Process Reengineering</li>
+                                <li>Change Management &amp; Adoption Frameworks</li>
+                                <li>AI Center of Excellence (CoE) Charters &amp; Governance</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="https://ai4bt.com/services/ai-business" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors">
+                        <span>Learn more at AI4BT.com</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </article>
+
+                <!-- SERVICE 3: AI SOLUTIONS & INTELLIGENT AUTOMATION -->
+                <article class="p-7 rounded-3xl border themed-card flex flex-col justify-between space-y-6 hover:border-amber-500/40 transition-all group relative overflow-hidden">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="bot" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">Pillar 03</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                                AI Solutions &amp; Automation
+                            </h3>
+                            <p class="text-xs font-semibold text-emerald-400">
+                                "Practical AI that automates work and augments decisions."
+                            </p>
+                            <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                                Designs and deploys practical AI solutions that automate repetitive work, augment decision-making, and seamlessly integrate with existing ERP, CRM, and HRMS systems.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2 pt-2 border-t border-white/5">
+                            <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider block">Key Capabilities &amp; Deliverables:</span>
+                            <ul class="text-xs text-zinc-300 space-y-1.5 list-disc list-inside font-light">
+                                <li>Role-Based AI Copilots (Executive, Sales, HR, Finance)</li>
+                                <li>Intelligent Process Automation (IPA / No-Code / Low-Code)</li>
+                                <li>Enterprise Knowledge Retrieval Assistants (RAG)</li>
+                                <li>Autonomous &amp; Semi-Autonomous Operations Agents</li>
+                                <li>Document Intelligence &amp; Predictive Decision Dashboards</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="https://ai4bt.com/services/ai-solutions" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors">
+                        <span>Learn more at AI4BT.com</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </article>
+
+                <!-- SERVICE 4: AI LEADERSHIP & CAPABILITY DEVELOPMENT -->
+                <article class="p-7 rounded-3xl border themed-card flex flex-col justify-between space-y-6 hover:border-amber-500/40 transition-all group relative overflow-hidden">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">Pillar 04</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                                AI Leadership &amp; Capability
+                            </h3>
+                            <p class="text-xs font-semibold text-purple-400">
+                                "Continuous learning enables continuous transformation."
+                            </p>
+                            <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                                Builds internal AI literacy, executive confidence, and workforce readiness through structured learning programs, role-based workshops, and strategic coaching.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2 pt-2 border-t border-white/5">
+                            <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider block">Key Capabilities &amp; Deliverables:</span>
+                            <ul class="text-xs text-zinc-300 space-y-1.5 list-disc list-inside font-light">
+                                <li>Executive AI Board Briefings (2–4 hours)</li>
+                                <li>Organization-Wide AI Literacy Programs</li>
+                                <li>Role-Based Hands-On AI Training Workshops</li>
+                                <li>Workforce Future-Readiness &amp; Upskilling</li>
+                                <li>Continuous Learning &amp; AI Leadership Capability</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="https://ai4bt.com/services/ai-leadership" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors">
+                        <span>Learn more at AI4BT.com</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </article>
+
+                <!-- SERVICE 5: RESPONSIBLE AI & GOVERNANCE -->
+                <article class="p-7 rounded-3xl border themed-card flex flex-col justify-between space-y-6 hover:border-amber-500/40 transition-all group relative overflow-hidden">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">Pillar 05</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-rose-300 transition-colors">
+                                Responsible AI &amp; Governance
+                            </h3>
+                            <p class="text-xs font-semibold text-rose-400">
+                                "The foundation for trust, compliance, and long-term success."
+                            </p>
+                            <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                                Establishes comprehensive governance frameworks ensuring AI is transparent, secure, ethical, privacy-preserving, and fully compliant with emerging global standards.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2 pt-2 border-t border-white/5">
+                            <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider block">Key Capabilities &amp; Deliverables:</span>
+                            <ul class="text-xs text-zinc-300 space-y-1.5 list-disc list-inside font-light">
+                                <li>Responsible AI Operating Model™ Implementation</li>
+                                <li>Corporate AI Policy &amp; Executive AI Charter</li>
+                                <li>Enterprise AI Risk Register &amp; Mitigation Plans</li>
+                                <li>Ethics, Bias &amp; Fairness Audits and Explainability</li>
+                                <li>Alignment with EU AI Act, ISO/IEC 42001 &amp; NIST AI RMF</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="https://ai4bt.com/services/responsible-ai" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-semibold text-rose-400 hover:text-rose-300 transition-colors">
+                        <span>Learn more at AI4BT.com</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </article>
+
+                <!-- SERVICE 6: AI INNOVATION & CONTINUOUS IMPROVEMENT -->
+                <article class="p-7 rounded-3xl border themed-card flex flex-col justify-between space-y-6 hover:border-amber-500/40 transition-all group relative overflow-hidden">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-mono text-zinc-400 uppercase tracking-widest">Pillar 06</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                                AI Innovation &amp; Continuous Scaling
+                            </h3>
+                            <p class="text-xs font-semibold text-cyan-400">
+                                "Turning isolated wins into enterprise-wide competitive advantage."
+                            </p>
+                            <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                                Helps organizations scale successful AI initiatives across business units, establish continuous measurement KPI loops, and embed emerging technologies for sustained leadership.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2 pt-2 border-t border-white/5">
+                            <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider block">Key Capabilities &amp; Deliverables:</span>
+                            <ul class="text-xs text-zinc-300 space-y-1.5 list-disc list-inside font-light">
+                                <li>AI Innovation Roadmaps &amp; Portfolio Management</li>
+                                <li>Continuous AI Performance &amp; Model Optimization</li>
+                                <li>Scalable Cross-Departmental Adoption Frameworks</li>
+                                <li>Emerging Technology Horizon Scanning</li>
+                                <li>Sustained Competitive Advantage &amp; Growth Loops</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="https://ai4bt.com/services/ai-innovation" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+                        <span>Learn more at AI4BT.com</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SECTION 5: FINAL HIGH-IMPACT CALL-TO-ACTION -->
+        <section class="p-10 md:p-14 rounded-3xl border themed-card text-center space-y-7 relative overflow-hidden shadow-2xl backdrop-blur-2xl">
+            <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-amber-500/10 border border-amber-500/30 mx-auto">
+                <i data-lucide="external-link" class="w-7 h-7 text-amber-500"></i>
+            </div>
+
+            <div class="space-y-3 max-w-2xl mx-auto relative z-10">
+                <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+                    Ready to Transform Your <br class="hidden sm:inline">
+                    <span class="gold-gradient-text">Enterprise with AI?</span>
+                </h2>
+                <p class="text-sm sm:text-base themed-subtext font-light leading-relaxed">
+                    Whether you are developing your executive AI strategy, upskilling your leadership, establishing responsible AI governance, or deploying autonomous intelligent agents, AI4BT is your dedicated transformation partner.
+                </p>
+            </div>
+
+            <div class="pt-3 flex flex-wrap justify-center gap-4 relative z-10">
+                <a href="https://ai4bt.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold text-sm tracking-wider uppercase px-9 py-4 rounded-xl shadow-xl transition-all active:scale-95">
+                    <span>Visit AI4BT.com to Learn More</span>
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+                <a href="contact" class="inline-flex items-center justify-center gap-2 border themed-input px-7 py-4 rounded-xl text-xs font-semibold uppercase tracking-wider hover:border-amber-500/50 transition-all">
+                    <span>Contact Summit Secretariat</span>
+                    <i data-lucide="mail" class="w-4 h-4 text-amber-400"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative overflow-hidden mt-12 pt-12 pb-10 px-6 md:px-12 text-center min-h-[780px] md:min-h-[920px] lg:min-h-[1050px] flex flex-col justify-between items-center gap-16">
+        <!-- Video Background Layer -->
+        <div class="footer-video-wrap">
+            <video autoplay loop muted playsinline preload="auto" class="footer-video-el">
+                <source src="videos/footer-bg_optimized.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Floating CTA Card Overhanging Top of Video -->
+        <section class="text-center p-10 md:p-14 rounded-3xl border themed-card max-w-4xl w-full mx-auto space-y-7 relative z-10 shadow-2xl backdrop-blur-2xl">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/30 mx-auto">
+                <i data-lucide="sparkles" class="w-6 h-6 text-amber-500"></i>
+            </div>
+            
+            <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+                Empowering the <span class="gold-gradient-text">AI-Native Future</span>
+            </h2>
+            
+            <p class="text-base sm:text-lg themed-subtext max-w-xl mx-auto font-light leading-relaxed">
+                Connect with AI4BT Global for executive advisory, responsible governance frameworks, and strategic AI capability development.
+            </p>
+            
+            <div class="pt-3 flex flex-wrap justify-center gap-4">
+                <a href="https://ai4bt.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-semibold text-xs tracking-widest uppercase px-8 py-3.5 rounded-lg shadow-lg active:scale-95 transition-all">
+                    <span>Visit AI4BT.com</span>
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+                <a href="/" class="inline-flex items-center gap-2 border themed-input px-6 py-3.5 rounded-lg text-xs font-medium uppercase tracking-wider hover:border-amber-500/50 transition-all">
+                    <span>Summit Home</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer Bottom Bar -->
+        <div class="max-w-7xl mx-auto w-full p-4 sm:p-5 rounded-2xl sm:rounded-full bg-black/60 dark:bg-black/60 border border-white/15 backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 relative z-10 shadow-2xl">
+            <div class="flex items-center gap-3">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-md">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-white"></i>
+                </div>
+                <span class="text-xs font-semibold tracking-wider uppercase text-white">AI4BT Global Summit</span>
+            </div>
+            <p class="text-xs text-zinc-300">
+                &copy; 2026 AI4BT Global. All rights reserved.
+            </p>
+            <div class="flex items-center gap-6 text-xs text-zinc-300 flex-wrap justify-center">
+                <a href="/" class="hover:text-amber-400 transition-colors">Home</a>
+                <a href="about-ai4bt" class="text-amber-400 font-semibold">About AI4BT</a>
+                <a href="agenda" class="hover:text-amber-400 transition-colors">Agenda</a>
+                <a href="speakers" class="hover:text-amber-400 transition-colors">Speakers</a>
+                <a href="offers" class="hover:text-amber-400 transition-colors">Offers</a>
+                <a href="media-coverage" class="hover:text-amber-400 transition-colors">Media</a>
+                <a href="contact" class="hover:text-amber-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        // Theme toggle logic
+        let isLightMode = document.documentElement.classList.contains('light');
+        const sunIcon = document.getElementById('theme-icon-sun');
+        const moonIcon = document.getElementById('theme-icon-moon');
+
+        function applyTheme(light) {
+            isLightMode = light;
+            if (light) {
+                document.documentElement.classList.add('light');
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('diplomatic_theme', 'light');
+                if (sunIcon && moonIcon) {
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                }
+            } else {
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                localStorage.setItem('diplomatic_theme', 'dark');
+                if (sunIcon && moonIcon) {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                }
+            }
+        }
+
+        const savedTheme = localStorage.getItem('diplomatic_theme');
+        if (savedTheme === 'light') {
+            applyTheme(true);
+        } else {
+            applyTheme(false);
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                applyTheme(!isLightMode);
+            });
+        }
+
+        // Mobile Sidebar Drawer
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function openMobileMenu() {
+            if (mobileMenuBackdrop && mobileMenuDrawer) {
+                mobileMenuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenuBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+                mobileMenuDrawer.classList.remove('translate-x-full');
+                mobileMenuDrawer.classList.add('translate-x-0');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenuBackdrop && mobileMenuDrawer) {
+                mobileMenuBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                mobileMenuBackdrop.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenuDrawer.classList.remove('translate-x-0');
+                mobileMenuDrawer.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    </script>
+</body>
+</html>
