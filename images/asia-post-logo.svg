@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60" fill="none">
+  <rect width="280" height="60" rx="8" fill="#ffffff" fill-opacity="0"/>
+  <!-- Asia Post Globe / A emblem in Red and Deep Blue -->
+  <rect x="8" y="10" width="40" height="40" rx="8" fill="#DC2626"/>
+  <path d="M28 17L17 38H24L26 33H30L32 38H39L28 17ZM28 24.5L29.2 30H26.8L28 24.5Z" fill="#FFFFFF"/>
+  <circle cx="37" cy="18" r="3" fill="#FBBF24"/>
+  <!-- Text -->
+  <text x="58" y="32" font-family="'Hind Siliguri', 'SolaimanLipi', sans-serif" font-weight="900" font-size="22" fill="#0F172A">এশিয়া <tspan fill="#DC2626">পোস্ট</tspan></text>
+  <text x="59" y="47" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="10.5" fill="#DC2626" letter-spacing="2">ASIA-POST.COM</text>
+</svg>
