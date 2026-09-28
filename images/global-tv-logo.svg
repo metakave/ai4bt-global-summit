@@ -1,10 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60" fill="none">
-  <rect width="280" height="60" rx="8" fill="#ffffff" fill-opacity="0"/>
-  <!-- Globe / Broadcast emblem -->
-  <circle cx="28" cy="30" r="18" fill="#E11D48"/>
-  <ellipse cx="28" cy="30" rx="9" ry="18" stroke="#ffffff" stroke-width="2" fill="none"/>
-  <path d="M10 30H46M13 22H43M13 38H43" stroke="#ffffff" stroke-width="1.8"/>
-  <!-- Text -->
-  <text x="56" y="29" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#0F172A" letter-spacing="1.5">GLOBAL <tspan fill="#E11D48">TV</tspan></text>
-  <text x="56" y="47" font-family="'Hind Siliguri', 'SolaimanLipi', sans-serif" font-weight="700" font-size="14" fill="#E11D48">গ্লোবাল টেলিভিশন</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <rect width="300" height="300" fill="#004FB6"/>
+  
+  <!-- "global" text & yellow donut icon -->
+  <g transform="translate(50, 105)">
+    <!-- g -->
+    <path d="M 17 38 C 17 44 14.5 47.5 10 49 C 6.5 50.2 2 49.5 -1.5 48 L 0 42 C 2 43.2 4.8 43.5 6.5 42.8 C 9 41.8 9.5 39.5 9.5 37 L 9.5 34 C 7.5 36.8 4.2 38 0.5 38 C -6 38 -10.5 32.5 -10.5 24 C -10.5 15.5 -6 10 0.5 10 C 4.2 10 7.5 11.5 9.5 14.2 L 9.5 11 L 17 11 L 17 38 Z M 9.5 24 C 9.5 18.5 6.5 15.8 3.5 15.8 C 0.5 15.8 -2.8 18.5 -2.8 24 C -2.8 29.5 0.5 32.2 3.5 32.2 C 6.5 32.2 9.5 29.5 9.5 24 Z" fill="#FFFFFF"/>
+    
+    <!-- l -->
+    <path d="M 23 0 L 30.5 0 L 30.5 37 L 23 37 Z" fill="#FFFFFF"/>
+    
+    <!-- o (Yellow Donut Ring with White Center Hole) -->
+    <g transform="translate(52, 24)">
+      <circle cx="0" cy="0" r="14.5" fill="#FDB813"/>
+      <circle cx="0" cy="0" r="4.8" fill="#FFFFFF"/>
+    </g>
+    
+    <!-- b -->
+    <path d="M 74 0 L 81.5 0 L 81.5 14 C 83.5 11.2 86.8 10 90.5 10 C 97 10 101.5 15.5 101.5 24 C 101.5 32.5 97 38 90.5 38 C 86.8 38 83.5 11.2 81.5 34 L 81.5 37 L 74 37 Z M 94 24 C 94 18.5 91 15.8 88 15.8 C 85 15.8 81.5 18.5 81.5 24 C 81.5 29.5 85 32.2 88 32.2 C 91 32.2 94 29.5 94 24 Z" fill="#FFFFFF"/>
+    
+    <!-- a -->
+    <path d="M 121 11 L 121 37 L 113.8 37 L 113.8 33.5 C 111.8 36.5 108.2 38 104.5 38 C 98.5 38 94.5 34.2 94.5 28 C 94.5 20.8 100.8 18 113.2 17.5 L 113.8 17.5 L 113.8 16.5 C 113.8 13.5 111.5 12 108 12 C 104.5 12 101.5 13.5 99.5 15.2 L 96.5 10.5 C 99.8 7.8 104 6.2 108.5 6.2 C 117 6.2 121 10 121 16.5 Z M 113.8 23 C 106.5 23.5 102.5 24.8 102.5 28 C 102.5 30.5 104.8 32 107.8 32 C 111.5 32 113.8 29.8 113.8 26.5 Z" fill="#FFFFFF"/>
+    
+    <!-- l -->
+    <path d="M 127 0 L 134.5 0 L 134.5 37 L 127 37 Z" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- TV NEWS -->
+  <text x="150" y="185" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="15" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">TV NEWS</text>
 </svg>
