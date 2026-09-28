@@ -359,8 +359,11 @@ function buildUserConfirmationEmail(inquiry) {
         <p style="margin: 0 0 8px; color: #f8fafc; font-weight: bold;">
           AI4BT Global Summit 2026 Executive Secretariat
         </p>
-        <p style="margin: 0 0 8px;">
-          Dhaka, Bangladesh &bull; Global Advisory Nodes in USA &amp; UK
+        <p style="margin: 0 0 6px;">
+          Venus Complex (2nd Floor), Kha-199/3-4, Pragati Sarani Middle Badda, Dhaka-1212
+        </p>
+        <p style="margin: 0 0 6px;">
+          Hotlines: +880 1718-262645 &bull; +880 192-4572887
         </p>
         <p style="margin: 0;">
           Direct inquiries: <a href="mailto:contact@ai4bt.com">contact@ai4bt.com</a> | 
