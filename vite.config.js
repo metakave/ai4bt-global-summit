@@ -3,6 +3,7 @@ import { resolve } from 'path';
 import fs from 'fs';
 import { handleRegistration } from './api/register.js';
 import { handleCircleJoin } from './api/circle.js';
+import { handleContactForm } from './api/contact.js';
 
 function registerApiPlugin() {
   return {
@@ -12,7 +13,7 @@ function registerApiPlugin() {
         const url = req.url.split('?')[0];
 
         // Clean URL support for development server
-        if (['/agenda', '/speakers', '/offers', '/register', '/payment', '/media-coverage'].includes(url)) {
+        if (['/agenda', '/speakers', '/offers', '/register', '/payment', '/media-coverage', '/contact'].includes(url)) {
           const queryString = req.url.includes('?') ? '?' + req.url.split('?')[1] : '';
           req.url = `${url}.html${queryString}`;
         }
@@ -72,6 +73,28 @@ function registerApiPlugin() {
             try {
               const data = JSON.parse(body || '{}');
               const result = await handleCircleJoin(data);
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 200;
+              res.end(JSON.stringify(result));
+            } catch (err) {
+              res.setHeader('Content-Type', 'application/json');
+              res.statusCode = 400;
+              res.end(JSON.stringify({ success: false, error: err.message }));
+            }
+          });
+          return;
+        }
+
+        // 2b. POST Contact Form
+        if (url === '/api/contact' && req.method === 'POST') {
+          let body = '';
+          req.on('data', chunk => {
+            body += chunk.toString();
+          });
+          req.on('end', async () => {
+            try {
+              const data = JSON.parse(body || '{}');
+              const result = await handleContactForm(data);
               res.setHeader('Content-Type', 'application/json');
               res.statusCode = 200;
               res.end(JSON.stringify(result));
@@ -160,6 +183,25 @@ function registerApiPlugin() {
           }
         }
 
+        // 5. Download Contact Inquiries CSV
+        if (url === '/api/contact-inquiries.csv' || url === '/api/download-contacts' || url === '/api/contacts.csv') {
+          const csvPath = resolve(process.cwd(), 'data/contact_inquiries.csv');
+          if (fs.existsSync(csvPath)) {
+            const stat = fs.statSync(csvPath);
+            res.writeHead(200, {
+              'Content-Type': 'text/csv',
+              'Content-Length': stat.size,
+              'Content-Disposition': 'attachment; filename="ai4bt_contact_inquiries.csv"'
+            });
+            fs.createReadStream(csvPath).pipe(res);
+            return;
+          } else {
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: false, error: 'No contact inquiries file found yet.' }));
+            return;
+          }
+        }
+
         next();
       });
     }
@@ -184,7 +226,8 @@ export default defineConfig({
         offers: resolve(__dirname, 'offers.html'),
         register: resolve(__dirname, 'register.html'),
         payment: resolve(__dirname, 'payment.html'),
-        'media-coverage': resolve(__dirname, 'media-coverage.html')
+        'media-coverage': resolve(__dirname, 'media-coverage.html'),
+        contact: resolve(__dirname, 'contact.html')
       },
       output: {
         manualChunks(id) {
