@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60" fill="none">
+  <rect width="280" height="60" rx="8" fill="#ffffff" fill-opacity="0"/>
+  <!-- NPB News Emblem -->
+  <g transform="translate(6, 10)">
+    <rect x="0" y="0" width="40" height="40" rx="8" fill="#B91C1C"/>
+    <text x="20" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="18" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">NPB</text>
+  </g>
+  <!-- Text -->
+  <text x="56" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="22" fill="#B91C1C" letter-spacing="0.5">NPB <tspan fill="#0F172A">NEWS</tspan></text>
+  <text x="57" y="47" font-family="'Hind Siliguri', 'SolaimanLipi', sans-serif" font-weight="700" font-size="11" fill="#64748B" letter-spacing="0.5">জাতীয় সংবাদ ও তথ্য-প্রযুক্তি পোর্টাল</text>
+</svg>

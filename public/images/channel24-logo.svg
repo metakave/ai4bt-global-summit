@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60" fill="none">
+  <rect width="280" height="60" rx="8" fill="#ffffff" fill-opacity="0"/>
+  <!-- Channel 24 Badge -->
+  <g transform="translate(6, 8)">
+    <rect x="0" y="0" width="44" height="44" rx="10" fill="#E11D48"/>
+    <text x="22" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="20" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">24</text>
+  </g>
+  <!-- Text -->
+  <text x="60" y="31" font-family="'Noto Serif Bengali', 'SolaimanLipi', 'Hind Siliguri', sans-serif" font-weight="800" font-size="21" fill="#E11D48" letter-spacing="0.3">চ্যানেল <tspan fill="#0F172A">২৪</tspan></text>
+  <text x="61" y="47" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="11" fill="#64748B" letter-spacing="0.8">CHANNEL 24 TELEVISION</text>
+</svg>

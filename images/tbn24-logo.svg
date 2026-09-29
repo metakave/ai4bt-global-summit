@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" width="260" height="60" fill="none">
+  <rect width="260" height="60" rx="8" fill="#ffffff" fill-opacity="0"/>
+  <!-- TBN24 Red Box Icon -->
+  <g transform="translate(6, 9)">
+    <rect x="0" y="0" width="42" height="42" rx="7" fill="#B71D20"/>
+    <text x="21" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="20" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">24</text>
+  </g>
+  <!-- Text -->
+  <text x="58" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="24" fill="#B71D20" letter-spacing="0.5">TBN<tspan fill="#0F172A">24</tspan></text>
+  <text x="59" y="47" font-family="'Noto Serif Bengali', 'SolaimanLipi', sans-serif" font-weight="700" font-size="11" fill="#64748B" letter-spacing="0.5">টিবিএন২৪ টেলিভিশন ও ডিজিটাল নিউজ</text>
+</svg>
